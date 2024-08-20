@@ -23,8 +23,10 @@ const PortfolioContainer: React.FC = () => {
 
   useEffect(() => {
     if (document.readyState === 'complete') {
-      setDocumentLoaded(true);
-      console.log("Document chargé");
+      const timeout = setTimeout(() => {
+        setDocumentLoaded(true);
+      }, 1000);
+      return () => clearTimeout(timeout);
     } else {
       window.addEventListener('load', () => setDocumentLoaded(true));
       return () => window.removeEventListener('load', () => setDocumentLoaded(true));

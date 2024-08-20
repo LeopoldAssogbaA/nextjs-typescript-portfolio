@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import {
@@ -11,9 +11,8 @@ import {
 } from './styled';
 import { useTranslations } from 'next-intl';
 
-const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean }> = ({ setInit, init }) => {
+const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, documentLoaded: boolean }> = ({ setInit, init, documentLoaded }) => {
   const heartBeatTimeline = gsap.timeline();
-  const [documentLoaded, setDocumentLoaded] = useState(false);
   const t = useTranslations('Home');
 
   useLayoutEffect(() => {
@@ -123,16 +122,6 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean }>
 
     initPage();
   }, [init, documentLoaded, heartBeatTimeline, setInit]);
-
-  useEffect(() => {
-    if (document.readyState === 'complete') {
-      setDocumentLoaded(true);
-      console.log("Document chargé");
-    } else {
-      window.addEventListener('load', () => setDocumentLoaded(true));
-      return () => window.removeEventListener('load', () => setDocumentLoaded(true));
-    }
-  }, []);
 
   useGSAP(() => {
     const name = document.querySelector('.name');

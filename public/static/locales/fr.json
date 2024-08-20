@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "loading": "Chargement"
+  },
   "Menu": {
     "home": "Accueil",
     "about": "À propos",

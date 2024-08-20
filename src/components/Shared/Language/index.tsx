@@ -27,7 +27,7 @@ const Languages: React.FC = () => {
       },
       {
         y: 0,
-        delay: 0.6,
+        delay: 1.8,
         opacity: 1,
         duration: .08,
         stagger: .055,

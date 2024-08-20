@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import About from './About';
 import LandingPage from './LandingPage';
@@ -15,6 +15,7 @@ import Languages from './Shared/Language';
 
 import { MainContainer } from './styled';
 import Loading from './Shared/Loading';
+import RevealTransition from './Shared/RevealTransition';
 
 
 const PortfolioContainer: React.FC = () => {
@@ -40,10 +41,9 @@ const PortfolioContainer: React.FC = () => {
     return <Loading />;
   }
 
-  
-
   return (
     <MainContainer className='main-container' id='main-container'>
+      <RevealTransition />
       <Cursor />
       <Menu init={init} />
       <Languages />

@@ -27,8 +27,27 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
       const schoolContainer = document.querySelector(".school-container");
       const workContainer = document.querySelector(".work-container");
       const contactContainer = document.querySelector(".contact-container");
+      const name = document.querySelector('.name');
 
       heartBeatTimeline.pause();
+
+      if (name) {
+        gsap.fromTo(name, 
+          {
+            opacity: 0,
+            y: -55,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            delay: 1.2,
+            ease: "back.inOut(2)",
+            onComplete: () => {
+              console.log("Animation du nom terminée");
+            }
+          });
+      }
 
       if (pageTransitionContainer) {
         gsap.fromTo(pageTransitionContainer, 
@@ -70,7 +89,7 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
           mouseWheel,
           { opacity: 0, y: -25, zIndex: -2, },
           {
-            zIndex: 1000, opacity: 1, y: 0, duration: .8, ease: "power1.in",
+            zIndex: 1000, opacity: 1, y: 0, duration: .8, ease: "power1.in", delay: 1.2,
             onComplete: () => {
               console.log("Animation de fondu de la roue de souris terminée");
             }

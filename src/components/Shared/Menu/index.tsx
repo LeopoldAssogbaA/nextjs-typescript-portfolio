@@ -21,6 +21,7 @@ const Menu: React.FC<{ init: boolean }> = ({ init }) => {
         opacity: 1,
         duration: .08,
         stagger: .055,
+        delay: 1.2,
         onComplete: () => {
           setIsInit(true);
         }

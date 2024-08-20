@@ -4,6 +4,7 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import StyledComponentsRegistry from "../lib/registry";
 
 
 if (typeof window !== 'undefined') {
@@ -11,5 +12,8 @@ if (typeof window !== 'undefined') {
 }
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return children
-}
+  return (
+    <StyledComponentsRegistry>
+      {children}
+    </StyledComponentsRegistry>)
+};

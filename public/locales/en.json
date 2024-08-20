@@ -1,0 +1,39 @@
+{
+  "Menu": {
+    "home": "Home",
+    "about": "About",
+    "school": "School",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "Home": {
+    "work-title": "Fullstack Js &Ts Developer"
+  },
+  "About": {
+    "paragraph-one": "Hello, my name is Léopold. I am a fullstack Javascript and Typescript developer. My passion for tech led me to a career change in 2017.",
+    "paragraph-two": "For the past five years, I have contributed to the implementation and evolution of robust and scalable APIs with NodeJS, while developing high-performance user interfaces using React and Next.js. My role also includes planning, participating in product briefs, as well as implementing new features.",
+    "paragraph-three": "I also ensure the continuous maintenance of applications, guaranteeing their stability and efficiency. My commitment to quality is demonstrated through regular technology watch, documentation writing, and the implementation of testing and monitoring tools.",
+    "paragraph-four": "I invite you to discover more by exploring this portfolio."
+  },
+  "School": {
+    "more": "Learn more",
+    "webforce3": "Webforce3",
+    "webforce3-link": "https://www.etudestech.com/ecole/webforce3/",
+    "webforce3-about": "WebForce3 was a network of 50 schools offering training in digital professions in France and abroad. Whether face-to-face or distance learning, WebForce3 offered short, intensive bootcamp or sandwich courses, with RNCP-recognized diplomas and certifications, meeting companies' growing need for digital skills.",
+    "webforce3-p1": "I was able to start my career in the world of web development by joining the Webforce3 Dijon training program. With intensive training, I was able to learn the essential basics of different languages. I had the opportunity to deepen these skills through several concrete projects.",
+    "webforce3-p2": "One of the most significant projects was the creation of an access card management module (RFID) for one of the school's partner companies. This project, developed in Laravel, enabled me to put into practice my knowledge of both the front-end and the back-end. We were able to provide the company with a complete back-office for managing RFID cards, users and their roles and permissions.",
+    "webforce3-p3": "I then did an internship at MythMakers, where I was tasked with creating a tutorial for their platform. For this project, I used Symfony and JavaScript, reinforcing my skills. This first professional experience was decisive in consolidating my skills and preparing me for the rest of my career.",
+    "wildcodeschool": "Wild Code School",
+    "wildcodeschool-link": "https://www.wildcodeschool.com/fr-fr",
+    "wildcodeschool-about": "Wild Code School, renowned for its innovative teaching approach, has been training tech talent for 10 years, combining advanced technical skills with essential soft skills. Its intensive, hands-on training courses enable a rapid rise in skills, both for those seeking a career change and for those looking to deepen their expertise.",
+    "wildcodeschool-p1": "During my training at Wild Code School Lyon, I developed my skills as a developer, while at the same time entering the professional world. This training enabled me to acquire solid technical expertise and work effectively in a team on varied and complex projects.",
+    "wildcodeschool-p2": "Alongside my courses, I took part in team projects with an agile scrum organization, such as the creation of a multiplayer Tetris game. This project, developed with Angular and NestJs, enabled me to explore the complexities of developing interactive browser-based games. Another significant project was the development of a mobile application, a football-themed social platform, using Flutter.",
+    "wildcodeschool-p3": "My training at Wild Code School Lyon not only enabled me to perfect my technical skills, but also to fully integrate into the professional world, preparing me to meet today's challenges as a fullstack developer."
+  },
+  "Work": {
+    "title": "Skills"
+  },
+  "Contact": {
+    "title": "Contact"
+  }
+}

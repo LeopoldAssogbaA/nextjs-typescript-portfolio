@@ -1,0 +1,39 @@
+{
+  "Menu": {
+    "home": "Accueil",
+    "about": "À propos",
+    "school": "Formation",
+    "work": "Expériences",
+    "contact": "Contact"
+  },
+  "Home": {
+    "work-title": "Développeur Fullstack Js & Ts"
+  },
+  "About": {
+    "paragraph-one": "Bonjour, je m'appelle Léopold, Je suis développeur fullstack Javascript et Typescript. Ma passion pour la tech m’a conduit à une reconversion professionnelle en 2017.",
+    "paragraph-two": "Depuis cinq ans, j’ai contribué à la mise en place et à l’évolution d’API robustes et scalables avec NodeJS, tout en développant des interfaces utilisateur performantes à l’aide de React et Next.js. Mon rôle inclut également la planification, la participation aux briefs produits, ainsi que la mise en œuvre de nouvelles fonctionnalités. ",
+    "paragraph-three": "J’assure également la maintenance continue des applications, garantissant leur stabilité et leur efficacité. Mon engagement pour la qualité se manifeste par un travail régulier de veille technologique, la rédaction de documentation, ainsi que la mise en place d’outils de testing et de monitoring.",
+    "paragraph-four": "Je vous invite à en découvrir davantage en parcourant ce portfolio."
+  },
+  "School": {
+    "more": "En savoir plus",
+    "webforce3": "Webforce3",
+    "webforce3-link": "https://www.etudestech.com/ecole/webforce3/",
+    "webforce3-about": "WebForce3 était un réseau de 50 écoles qui forme aux métiers du numérique, en France et à l'international. Que ce soit en présentiel ou à distance, WebForce3 proposait des formations courtes et intensives, en bootcamp ou en alternance, avec des diplômes reconnus RNCP et des certifications, répondant ainsi aux besoins croissants des entreprises en compétences numériques.",
+    "webforce3-p1": "J'ai pu débuter mon parcours dans le monde du développement web en intégrant la formation de Webforce3 Dijon. Avec une formation intensive, j'ai pu apprendre les bases essentielles des différents langages. J'ai eu l'opportunité d'approfondir ces compétences à travers plusieurs projets concrets.",
+    "webforce3-p2": "L'un des projets significatifs a été la réalisation d'un module de gestion de cartes d'accès (RFID) pour une entreprise partenaire de l'école. Ce projet, développé en Laravel, m'a permis de mettre en pratique mes connaissances tant sur le front-end que sur le back-end. Nous avons pu mettre à disposition de l'entreprise un back-office complet, permettant de gérer des cartes RFID, les utilisateurs ainsi que leurs rôles et permissions.",
+    "webforce3-p3": "Par la suite, j'ai effectué un stage chez MythMakers, où j'ai été chargé de créer un tutoriel pour leur plateforme. Pour ce projet, j'ai utilisé Symfony et JavaScript, renforçant ainsi mes compétences. Cette première expérience professionnelle a été déterminante pour consolider mes acquis et me préparer à la suite de mon parcours.",
+    "wildcodeschool": "Wild Code School",
+    "wildcodeschool-link": "https://www.wildcodeschool.com/fr-fr",
+    "wildcodeschool-about": "La Wild Code School, reconnue pour son approche pédagogique innovante, forme depuis 10 ans des talents en tech en combinant compétences techniques avancées et soft skills essentielles. Ses formations intensives, axées sur la pratique, permettent une montée en compétences rapide, tant pour ceux en reconversion que pour ceux cherchant à approfondir leur expertise.",
+    "wildcodeschool-p1": "Lors de ma formation à la Wild Code School Lyon, j’ai développé mes compétences en tant que développeur, tout en intégrant le monde professionnel. Cette formation m’a permis d’acquérir une solide expertise technique et de travailler efficacement en équipe sur des projets variés et complexes.",
+    "wildcodeschool-p2": "En parallèle des cours, j’ai participé à des projets en équipe avec une organisation agile type scrum, comme la création d’un jeu Tetris multijoueur. Ce projet, développé avec Angular et NestJs, m’a permis d’explorer la complexité du développement de jeux interactifs sur navigateur. Un autre projet significatif a été le développement d’une application mobile, plateforme sociale sur la thématique du football, réalisée avec Flutter.",
+    "wildcodeschool-p3": "Cette formation à la Wild Code School Lyon, m’a non seulement permis de perfectionner mes compétences techniques, mais aussi de m’intégrer pleinement dans le monde professionnel, en me préparant à relever les défis actuels en tant que développeur fullstack."
+  },
+  "Work": {
+    "title": "Expériences"
+  },
+  "Contact": {
+    "title": "Contact"
+  }
+}

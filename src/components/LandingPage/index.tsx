@@ -41,7 +41,7 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
             y: 0,
             opacity: 1,
             duration: 1,
-            delay: 1.2,
+            delay: 1,
             ease: "back.inOut(2)",
             onComplete: () => {
               console.log("Animation du nom terminée");
@@ -76,20 +76,12 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
       }
 
       if (mouseWheel) {
-        gsap.to(mouseWheel, {
-          zIndex: 1000,
-          top: "46%",
-          duration: 0,
-          onComplete: () => {
-            console.log("Animation initiale de la roue de souris terminée");
-          }
-        });
 
         gsap.fromTo(
           mouseWheel,
-          { opacity: 0, y: -25, zIndex: -2, },
+          { display: "none", opacity: 0, zIndex: -2, top: "40%", },
           {
-            zIndex: 1000, opacity: 1, y: 0, duration: .8, ease: "power1.in", delay: 1.2,
+            zIndex: 10, top: "46%", display: "block", opacity: 1, duration: .8, ease: "back.inOut(1)", delay: 1.2,
             onComplete: () => {
               console.log("Animation de fondu de la roue de souris terminée");
             }

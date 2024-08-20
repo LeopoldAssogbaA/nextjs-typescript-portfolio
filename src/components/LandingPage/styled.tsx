@@ -73,9 +73,9 @@ export const LandingPageContainer = styled.section`
         margin-left: -30px;
         margin-top: -15px;
       }
-
       
       .mouse-wheel {
+        display: none;
         z-index: 1000;
         width: 30px;
         height: 60px;
@@ -118,20 +118,6 @@ export const LandingPageContainer = styled.section`
         }
       } 
 `;
-
-// export const Halftone = styled.div`
-//   place-self: stretch;
-//   position: relative;
-//   z-index: 1;
-//   background: var(--map,
-//       linear-gradient(calc(var(--k0) * 360deg), #777 9%, #000)),
-//     var(--pattern, radial-gradient(closest-corner, #888, #000) 0 / 1em 1em round);
-//   background-blend-mode: screen;
-//   mix-blend-mode: multiply;
-//   filter: contrast(20);
-// `;
-
-
 
 export const Work = styled.h2`
 color: #47167d;

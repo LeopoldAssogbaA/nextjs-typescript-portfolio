@@ -19,6 +19,7 @@ const myFont = localFont({ src:
       style: 'normal',
     },
   ],
+  preload: false,
 })
 const Home = () => {
   return (

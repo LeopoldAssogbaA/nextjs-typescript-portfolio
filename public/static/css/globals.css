@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  cursor: none !important;
+}
+
+:root:has(.hover-effect:hover) .cursor {
+  width: 35px;
+  height: 35px;
+  mix-blend-mode: difference;
+  border-width: 0;
+  background-color: #b8e982;
+}
+
+.cursor {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out, background-color 0.2s ease-in-out, border-width 0.2s ease-in-out;
+}

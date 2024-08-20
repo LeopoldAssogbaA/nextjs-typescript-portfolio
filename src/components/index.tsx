@@ -23,13 +23,16 @@ const PortfolioContainer: React.FC = () => {
 
   useEffect(() => {
     if (document.readyState === 'complete') {
-      const timeout = setTimeout(() => {
-        setDocumentLoaded(true);
-      }, 2000);
-      return () => clearTimeout(timeout);
+      const timeoutId = setTimeout(() => setDocumentLoaded(true), 2000);
+      return () => clearTimeout(timeoutId);
     } else {
-      window.addEventListener('load', () => setDocumentLoaded(true));
-      return () => window.removeEventListener('load', () => setDocumentLoaded(true));
+      const handleLoad = () => {
+        const timeoutId = setTimeout(() => setDocumentLoaded(true), 2000);
+        window.removeEventListener('load', handleLoad);
+        return () => clearTimeout(timeoutId);
+      };
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
     }
   }, []);
 

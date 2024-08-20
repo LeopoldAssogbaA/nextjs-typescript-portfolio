@@ -25,7 +25,7 @@ const PortfolioContainer: React.FC = () => {
     if (document.readyState === 'complete') {
       const timeout = setTimeout(() => {
         setDocumentLoaded(true);
-      }, 1000);
+      }, 2000);
       return () => clearTimeout(timeout);
     } else {
       window.addEventListener('load', () => setDocumentLoaded(true));

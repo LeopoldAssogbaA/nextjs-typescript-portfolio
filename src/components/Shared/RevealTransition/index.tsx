@@ -13,7 +13,12 @@ const RevealTransition: React.FC = () => {
       clipPath: 'inset(100% 0% 0% 0%)',
       stagger: 0.1,
       ease: 'back.inOut(2)',
-      
+      onComplete: () => {
+        gsap.to('.reveal-transition-container', {
+          duration: 0,
+          visibility: "hidden",
+        });
+      }
     });
   });
 

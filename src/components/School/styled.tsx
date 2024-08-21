@@ -55,6 +55,13 @@ export const SchoolCard = styled.div`
     justify-content: flex-end;
     text-decoration: none;
     font-weight: 800;
+    color: #47167d !important;
+    &:hover {
+      color: #47167d !important;
+    }
+    &:active {
+      color: #47167d !important;
+    }
   }
 `;
 

@@ -6,7 +6,8 @@ import placeholder from '../../../public/static/images/placeholder-logo-1.png';
 import Link from 'next/link';
 import { HiOutlineExternalLink as HiOutlineExternalLinkIcon } from 'react-icons/hi';
 import { FaAngular, FaFeather, FaJs, FaNodeJs, FaPhp, FaReact, FaSymfony, FaDocker } from 'react-icons/fa';
-import { SiSymfony, SiPrisma, SiApollographql, SiKubernetes, SiAntdesign } from 'react-icons/si';
+import { SiSymfony, SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway } from 'react-icons/si';
+import { DiRedis } from "react-icons/di";
 
 import { RiNextjsFill } from "react-icons/ri";
 
@@ -21,6 +22,9 @@ const skillsIcons = {
   prisma: <SiPrisma />,
   kubernetes: <SiKubernetes />,
   antdesign: <SiAntdesign />,
+  redis: <DiRedis />,
+  sentry: <SiSentry />,
+  scaleway: <SiScaleway />,
 };
 
 
@@ -89,10 +93,10 @@ const Work = () => {
               J'ai eu l'opportunité de travailler avec MediaXtend, d'abord en tant que freelance pendant six mois, puis en alternance sur une durée d'un an dans le cadre de mon cursus à la Wild Code School. Cette expérience a été déterminante dans ma carrière, me permettant de participer à de nombreux projets en autonomie et de confirmer mon intérêt pour le développement.
             </p>
             <p className="p-2">
-              J'ai pu couvrir une grande variétié de tâches, de la conception avec la réalisation de maquettes, à la réalisation de l'application en passant par la mise en place d'API.
+              J'ai pu couvrir une grande variété de tâches, de la conception avec la réalisation de maquettes, à la réalisation de l'application en passant par la mise en place d'API.
             </p>
             <p className="p-3">
-              Voici quelques exemples des projets:
+              Voici quelques exemples des projets :
             </p>
           </div>
         </WorkTextContainer>
@@ -144,7 +148,7 @@ const Work = () => {
           </div>
           <div className="project-container project-4">
             <h4 className="project-title">Abcell-Bio</h4>
-            <p className="project-description">Abcell-bio est une société de biotechnologie située au sein du Genopole à Evry, spécialisée dans l’isolement des cellules souches hématopoïétiques humaines et de cellules primaires issues des tissus périnataux.</p>
+            <p className="project-description">Abcell-bio est une société de biotechnologie située au sein du Genopole à Évry, spécialisée dans l'isolement des cellules souches hématopoïétiques humaines et de cellules primaires issues des tissus périnataux.</p>
             <div className="project-infos-container">
               <div className="project-image">
                 <img src={placeholder.src} alt="Visoconférence MAPAR" />
@@ -171,15 +175,15 @@ const Work = () => {
           </div>
           <div className="description-container">
             <p className="p-1">
-              Chez Webcastor, j'ai contribuer à l'évolution de la plateforme de Streamfizz. Streamfizz une plateforme de gestion de médias centrée sur la mise en valleurs de vidéos à la demande ou de direct.
-              La palteforme permets une gestion de contenu, de diffusion, de visualisation de statistiques et permettant un paramétrage fin, destiné à des utilisateurs de tout niveau.
+              Chez Webcastor, j'ai contribué à l'évolution de la plateforme de Streamfizz. Streamfizz est une plateforme de gestion et de mise en valeur de vidéos à la demande ou de directs.
+              Le service permet une gestion des diffusions, de visualisation de statistiques tout en permettant un paramétrage fin, destiné à des utilisateurs de différents niveaux.
             </p>
             <p className="p-2">
-              Au sein de l'équipe, j'ai notamment réalisé le transfert près de 30To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jours et l'ordonnancement des données métier.
-              J’ai également été impliqué dans des projets transverses intervenant sur plusierus micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.
+              Au sein de l'équipe, j'ai notamment réalisé le transfert de près de 30To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jour et l'ordonnancement des données métier.
+              J'ai également été impliqué dans des projets transverses intervenant sur plusieurs micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.
             </p>
             <p className="p-3">
-              Mon implication et ma force de proposition m’ont permis de rapidement prendre en charge des tâches en autonomie, avec des refontes complètes d'interfaces et de fonctionnalités.
+              Mon implication et ma force de proposition m'ont permis de rapidement prendre en charge des tâches en autonomie, avec des refontes complètes d'interfaces et de fonctionnalités.
             </p>
           </div>
         </WorkTextContainer>
@@ -192,7 +196,7 @@ const Work = () => {
                 <img src={placeholder.src} alt="Jeu concours Roland Garros" />
               </div>
               <div className="project-technologies">
-                {skillsIcons.antdesign} {skillsIcons.react} {skillsIcons.nodejs} {skillsIcons.kubernetes} {skillsIcons.graphql} {skillsIcons.prisma}
+                {skillsIcons.antdesign} {skillsIcons.react} {skillsIcons.graphql} {skillsIcons.sentry}
               </div>
               <Link className="project-link" href="https://www.streamfizz.com/" target="_blank" rel="noopener noreferrer">
                 <HiOutlineExternalLinkIcon />
@@ -204,19 +208,50 @@ const Work = () => {
           <div className="project-container project-2">
             <h4 className="project-title">Streamfizz - Player vidéo</h4>
             <p className="project-description">
-              Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct. Le player intègre plusieurs fonctionnalités comme des chat en direct ou des modules interactifs.
+              Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct. Le player intègre plusieurs fonctionnalités comme des chats en direct ou des modules interactifs.
             </p>
             <div className="project-infos-container">
               <div className="project-image">
                 <img src={placeholder.src} alt="MAPAR" />
               </div>
               <div className="project-technologies">
-                {skillsIcons.antdesign} {skillsIcons.nextjs} {skillsIcons.nodejs} {skillsIcons.graphql} {skillsIcons.prisma}
+                {skillsIcons.antdesign} {skillsIcons.nextjs} {skillsIcons.graphql} {skillsIcons.sentry}
               </div>
               <Link className="project-link" href="https://www.streamfizz.com/plateforme-streamfizz/player/" target="_blank" rel="noopener noreferrer">
                 <HiOutlineExternalLinkIcon />
                 <span>Voir le site</span>
               </Link>
+            </div>
+          </div>
+        </ProjectContainer>
+        <ProjectContainer>
+          <div className="project-container project-1">
+            <h4 className="project-title">Streamfizz - Orchestrateur & Transcodeur vidéo</h4>
+            <p className="project-description">Deux micro-services permettant de gérer l'orchestration des tâches de transcodage ainsi que leur exécution.</p>
+            <div className="project-infos-container">
+              <div className="project-image">
+                <img src={placeholder.src} alt="Jeu concours Roland Garros" />
+              </div>
+              <div className="project-technologies">
+                {skillsIcons.redis} {skillsIcons.nodejs} {skillsIcons.sentry} {skillsIcons.docker} {skillsIcons.kubernetes} {skillsIcons.scaleway}
+              </div>
+              <div className='space' />
+            </div>
+          </div>
+
+          <div className="project-container project-2">
+            <h4 className="project-title">Streamfizz - API</h4>
+            <p className="project-description">
+              Au cœur de la plateforme, cette API gère de manière sécurisée les diverses données essentielles au bon fonctionnement du service.
+            </p>
+            <div className="project-infos-container">
+              <div className="project-image">
+                <img src={placeholder.src} alt="MAPAR" />
+              </div>
+              <div className="project-technologies">
+                {skillsIcons.redis} {skillsIcons.nodejs} {skillsIcons.graphql} {skillsIcons.prisma} {skillsIcons.sentry} {skillsIcons.docker} {skillsIcons.kubernetes} {skillsIcons.scaleway}
+              </div>
+              <div className='space' />
             </div>
           </div>
         </ProjectContainer>

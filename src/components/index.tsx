@@ -24,11 +24,11 @@ const PortfolioContainer: React.FC = () => {
 
   useEffect(() => {
     if (document.readyState === 'complete') {
-      const timeoutId = setTimeout(() => setDocumentLoaded(true), 2000);
+      const timeoutId = setTimeout(() => setDocumentLoaded(true), 1500);
       return () => clearTimeout(timeoutId);
     } else {
       const handleLoad = () => {
-        const timeoutId = setTimeout(() => setDocumentLoaded(true), 2000);
+        const timeoutId = setTimeout(() => setDocumentLoaded(true), 1500);
         window.removeEventListener('load', handleLoad);
         return () => clearTimeout(timeoutId);
       };

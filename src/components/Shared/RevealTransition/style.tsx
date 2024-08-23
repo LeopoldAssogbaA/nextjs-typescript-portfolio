@@ -39,3 +39,15 @@ export const RevealTransitionContainer = styled.div`
     }
   }
 `;
+
+// ADD NEW PALETTE COLOR
+// #0000a3
+// #0067b3
+// #40b0df
+// #fff9e8
+// #ffd53d
+
+
+
+
+

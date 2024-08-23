@@ -6,10 +6,12 @@ import placeholder from '../../../public/static/images/placeholder-logo-1.png';
 import Link from 'next/link';
 import { HiOutlineExternalLink as HiOutlineExternalLinkIcon } from 'react-icons/hi';
 import { FaAngular, FaFeather, FaJs, FaNodeJs, FaPhp, FaReact, FaSymfony, FaDocker } from 'react-icons/fa';
-import { SiSymfony, SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway } from 'react-icons/si';
+import { SiSymfony, SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine } from 'react-icons/si';
 import { DiRedis } from "react-icons/di";
 
 import { RiNextjsFill } from "react-icons/ri";
+import { WORKS } from '../../utils/constants';
+import { useTranslations } from 'next-intl';
 
 const skillsIcons = {
   angular: <FaAngular />,
@@ -25,16 +27,19 @@ const skillsIcons = {
   redis: <DiRedis />,
   sentry: <SiSentry />,
   scaleway: <SiScaleway />,
+  doctrine: <SiDoctrine />,
+  featherjs: <FaFeather />,
 };
 
 
 const Work = () => {
+  const t = useTranslations("Work");
   useGSAP(() => {
     const workTimelineOne = gsap.timeline({
       scrollTrigger: {
         trigger: ".main-container",
         start: "top+=64% bottom-=20%",
-        end: "top+=70% center",
+        end: "top+=69% center",
         scrub: true,
         toggleActions: 'play play reverse reverse',
       },
@@ -49,26 +54,53 @@ const Work = () => {
       },
     });
 
-    workTimelineOne.fromTo('.work-element-one', {
+    const fadeOutTimelineOne = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".main-container",
+        start: "top+=65% center",
+        end: "top+=70% center",
+        scrub: true,
+        toggleActions: 'play play reverse reverse',
+      },
+    });
+
+    const fadeOutTimelineTwo = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".main-container",
+        start: "top+=70% center",
+        end: "top+=75% center",
+        scrub: true,
+        toggleActions: 'play play reverse reverse',
+      },
+    });
+
+    workTimelineOne.fromTo('.work-element-1', {
       left: '-150%',
     }, {
       left: '50%',
       ease: 'power.inOut(2)',
     })
-      .to('.work-element-one', {
+      .to('.work-element-1', {
         clipPath: 'inset(0% 0% 0% 86.7%)',
         borderRadius: '0',
         left: '55%',
         ease: 'power.inOut(1)',
       });
 
-    workTimelineTwo.fromTo('.work-element-two', {
+    fadeOutTimelineOne.fromTo('.description-container-1, .project-container-1', {
+      opacity: 1,
+    }, {
+      opacity: 0,
+      ease: 'power.inOut(2)',
+    });
+
+    workTimelineTwo.fromTo('.work-element-2', {
       left: '-150%',
     }, {
       left: '45%',
       ease: 'power.inOut(4)',
     })
-      .to('.work-element-two', {
+      .to('.work-element-2', {
         clipPath: 'inset(0% 0% 0% 86.7%)',
         borderRadius: '0',
         ease: 'power.inOut(4)',
@@ -77,186 +109,86 @@ const Work = () => {
         clipPath: 'inset(0% 100% 0% 86.7%)',
         ease: 'power.out(2)',
       });
+
+    fadeOutTimelineTwo.fromTo('.description-container-2, .project-container-2', {
+      opacity: 1,
+    }, {
+      opacity: 0,
+      ease: 'power.inOut(2)',
+    });
   }, []);
 
   return (
     <WorkContainer className="work-container">
-      <WorkElement className="work-element work-element-one">
-        <WorkTextContainer>
-          <div className="title-container">
-            <h3>
-              MediaXtend
-            </h3>
-          </div>
-          <div className="description-container">
-            <p className="p-1">
-              J'ai eu l'opportunité de travailler avec MediaXtend, d'abord en tant que freelance pendant six mois, puis en alternance sur une durée d'un an dans le cadre de mon cursus à la Wild Code School. Cette expérience a été déterminante dans ma carrière, me permettant de participer à de nombreux projets en autonomie et de confirmer mon intérêt pour le développement.
-            </p>
-            <p className="p-2">
-              J'ai pu couvrir une grande variété de tâches, de la conception avec la réalisation de maquettes, à la réalisation de l'application en passant par la mise en place d'API.
-            </p>
-            <p className="p-3">
-              Voici quelques exemples des projets :
-            </p>
-          </div>
-        </WorkTextContainer>
-        <ProjectContainer>
-          <div className="project-container project-1">
-            <h4 className="project-title">Jeu concours Roland Garros</h4>
-            <p className="project-description">Plateforme de jeu concours pour le tournoi de Roland Garros. Les utilisateurs pouvaient s'inscrire, jouer et tenter de gagner des prix en participant.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="Jeu concours Roland Garros" />
-              </div>
-              <div className="project-technologies">
-                {skillsIcons.symfony} {skillsIcons.react}
-              </div>
-              <div className='space' />
-            </div>
-          </div>
-
-          <div className="project-container project-2">
-            <h4 className="project-title">MAPAR</h4>
-            <p className="project-description">Site web pour l'association MAPAR (Mise Au Point en Anesthésie Réanimation), association basée au CHU du Kremlin Bicêtre.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="MAPAR" />
-              </div>
-              <div className="project-technologies">
-                <SiSymfony /> <FaPhp /> <FaJs />
-              </div>
-              <Link className="project-link" href="https://www.mapar.org/" target="_blank" rel="noopener noreferrer">
+      {WORKS.map((work, companyIndex) => (
+        <WorkElement key={companyIndex} className={`work-element work-element-${companyIndex + 1}`}>
+          <WorkTextContainer className={`work-text-container-${companyIndex + 1}`}>
+            <div className="title-container">
+              <Link className="project-link hover-effect" href={work.companyLink} target="_blank" rel="noopener noreferrer">
                 <HiOutlineExternalLinkIcon />
-                <span>Voir le site</span>
+                <h3>
+                  {work.company}
+                </h3>
               </Link>
             </div>
-          </div>
-        </ProjectContainer>
-        <ProjectContainer>
-          <div className="project-container project-3">
-            <h4 className="project-title">Visoconférence MAPAR</h4>
-            <p className="project-description">Proof of concept d'une plateforme de visoconférence pour l'association MAPAR.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="Visoconférence MAPAR" />
-              </div>
-              <div className="project-technologies">
-                <FaNodeJs /> <FaReact /> <FaFeather />
-              </div>
-              <div className='space' />
+            <div className={`description-container-${companyIndex + 1}`}>
+              {work.description.map((description, index) => (
+                <p key={index} className={`p-${index + 1}`}>
+                  {t(`${work.key}-descr-${description}`)}
+                </p>
+              ))}
             </div>
-          </div>
-          <div className="project-container project-4">
-            <h4 className="project-title">Abcell-Bio</h4>
-            <p className="project-description">Abcell-bio est une société de biotechnologie située au sein du Genopole à Évry, spécialisée dans l'isolement des cellules souches hématopoïétiques humaines et de cellules primaires issues des tissus périnataux.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="Visoconférence MAPAR" />
+          </WorkTextContainer>
+          <ProjectContainer>
+            {work.projects.map((project, index) => index < 2 && (
+              <div className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+                <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
+                <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
+                <div className="project-infos-container">
+                  <div className="project-image">
+                    <img src={placeholder.src} alt={project.title} />
+                  </div>
+                  <div className="project-technologies">
+                    {project.technologies.map((technology, index) => skillsIcons[technology as keyof typeof skillsIcons])}
+                  </div>
+                  {project.link ? (
+                    <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
+                      <HiOutlineExternalLinkIcon />
+                      <span>{t(`${work.key}-link-label`)}</span>
+                    </Link>
+                  ) : (
+                    <div className='space' />
+                  )}
+                </div>
               </div>
-              <div className="project-technologies">
-                <FaSymfony /> <FaReact />
+            ))}
+          </ProjectContainer>
+          <ProjectContainer>
+            {work.projects.map((project, index) => index > 1 && (
+              <div className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+                <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
+                <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
+                <div className="project-infos-container">
+                  <div className="project-image">
+                    <img src={placeholder.src} alt={project.title} />
+                  </div>
+                  <div className="project-technologies">
+                    {project.technologies.map((technology, index) => skillsIcons[technology as keyof typeof skillsIcons])}
+                  </div>
+                  {project.link ? (
+                    <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
+                      <HiOutlineExternalLinkIcon />
+                      <span>{t(`${work.key}-link-label`)}</span>
+                    </Link>
+                  ) : (
+                    <div className='space' />
+                  )}
+                </div>
               </div>
-              <Link className="project-link" href="https://abcell-bio.com/fr/" target="_blank" rel="noopener noreferrer">
-                <HiOutlineExternalLinkIcon />
-                <span>Voir le site</span>
-              </Link>
-            </div>
-          </div>
-        </ProjectContainer>
-      </WorkElement>
-
-
-      <WorkElement className="work-element work-element-two">
-        <WorkTextContainer>
-          <div className="title-container">
-            <h3>
-              Webcastor
-            </h3>
-          </div>
-          <div className="description-container">
-            <p className="p-1">
-              Chez Webcastor, j'ai contribué à l'évolution de la plateforme de Streamfizz. Streamfizz est une plateforme de gestion et de mise en valeur de vidéos à la demande ou de directs.
-              Le service permet une gestion des diffusions, de visualisation de statistiques tout en permettant un paramétrage fin, destiné à des utilisateurs de différents niveaux.
-            </p>
-            <p className="p-2">
-              Au sein de l'équipe, j'ai notamment réalisé le transfert de près de 30To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jour et l'ordonnancement des données métier.
-              J'ai également été impliqué dans des projets transverses intervenant sur plusieurs micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.
-            </p>
-            <p className="p-3">
-              Mon implication et ma force de proposition m'ont permis de rapidement prendre en charge des tâches en autonomie, avec des refontes complètes d'interfaces et de fonctionnalités.
-            </p>
-          </div>
-        </WorkTextContainer>
-        <ProjectContainer>
-          <div className="project-container project-1">
-            <h4 className="project-title">Streamfizz - Backoffice</h4>
-            <p className="project-description">Plateforme de gestion de contenu média et de direct. Création de webtvs, playlist et paramétrage de l'interface du player ainsi que des options de confidentialité.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="Jeu concours Roland Garros" />
-              </div>
-              <div className="project-technologies">
-                {skillsIcons.antdesign} {skillsIcons.react} {skillsIcons.graphql} {skillsIcons.sentry}
-              </div>
-              <Link className="project-link" href="https://www.streamfizz.com/" target="_blank" rel="noopener noreferrer">
-                <HiOutlineExternalLinkIcon />
-                <span>Voir le site</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="project-container project-2">
-            <h4 className="project-title">Streamfizz - Player vidéo</h4>
-            <p className="project-description">
-              Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct. Le player intègre plusieurs fonctionnalités comme des chats en direct ou des modules interactifs.
-            </p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="MAPAR" />
-              </div>
-              <div className="project-technologies">
-                {skillsIcons.antdesign} {skillsIcons.nextjs} {skillsIcons.graphql} {skillsIcons.sentry}
-              </div>
-              <Link className="project-link" href="https://www.streamfizz.com/plateforme-streamfizz/player/" target="_blank" rel="noopener noreferrer">
-                <HiOutlineExternalLinkIcon />
-                <span>Voir le site</span>
-              </Link>
-            </div>
-          </div>
-        </ProjectContainer>
-        <ProjectContainer>
-          <div className="project-container project-1">
-            <h4 className="project-title">Streamfizz - Orchestrateur & Transcodeur vidéo</h4>
-            <p className="project-description">Deux micro-services permettant de gérer l'orchestration des tâches de transcodage ainsi que leur exécution.</p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="Jeu concours Roland Garros" />
-              </div>
-              <div className="project-technologies">
-                {skillsIcons.redis} {skillsIcons.nodejs} {skillsIcons.sentry} {skillsIcons.docker} {skillsIcons.kubernetes} {skillsIcons.scaleway}
-              </div>
-              <div className='space' />
-            </div>
-          </div>
-
-          <div className="project-container project-2">
-            <h4 className="project-title">Streamfizz - API</h4>
-            <p className="project-description">
-              Au cœur de la plateforme, cette API gère de manière sécurisée les diverses données essentielles au bon fonctionnement du service.
-            </p>
-            <div className="project-infos-container">
-              <div className="project-image">
-                <img src={placeholder.src} alt="MAPAR" />
-              </div>
-              <div className="project-technologies">
-                {skillsIcons.redis} {skillsIcons.nodejs} {skillsIcons.graphql} {skillsIcons.prisma} {skillsIcons.sentry} {skillsIcons.docker} {skillsIcons.kubernetes} {skillsIcons.scaleway}
-              </div>
-              <div className='space' />
-            </div>
-          </div>
-        </ProjectContainer>
-      </WorkElement>
-
+            ))}
+          </ProjectContainer>
+        </WorkElement>
+      ))}
     </WorkContainer>
   );
 };

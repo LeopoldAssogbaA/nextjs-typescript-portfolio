@@ -34,7 +34,30 @@
     "wildcodeschool-p3": "My training at Wild Code School Lyon not only enabled me to perfect my technical skills, but also to fully integrate into the professional world, preparing me to meet today's challenges as a fullstack developer."
   },
   "Work": {
-    "title": "Skills"
+    "mediaxtend-descr-p1": "I had the opportunity to work with MediaXtend, first as a freelancer for six months, then as an apprentice for a year as part of my course at Wild Code School. This experience was crucial in my career, allowing me to participate in many projects independently and confirm my interest in development.",
+    "mediaxtend-descr-p2": "I was able to cover a wide variety of tasks, from design with the creation of mockups, to the realization of the application, including the implementation of APIs.",
+    "mediaxtend-descr-p3": "Here are some examples of the projects:",
+    "mediaxtend-project-1": "Roland Garros Contest Game",
+    "mediaxtend-project-1-descr": "Contest game platform for the Roland Garros tournament. Users could register, play, and try to win prizes by participating.",
+    "mediaxtend-project-2": "MAPAR",
+    "mediaxtend-project-2-descr": "Website for the MAPAR association (Mise Au Point en Anesthésie Réanimation), an association based at the CHU du Kremlin Bicêtre.",
+    "mediaxtend-project-3": "MAPAR Videoconference",
+    "mediaxtend-project-3-descr": "Proof of concept of a videoconference platform for the MAPAR association.",
+    "mediaxtend-project-4": "Abcell-Bio",
+    "mediaxtend-project-4-descr": "Stock management platform for the company Abcell-Bio.",
+    "mediaxtend-link-label": "See the site",
+    "webcastor-descr-p1": "At Webcastor, I contributed to the evolution of the Streamfizz platform. Streamfizz is a platform for managing and showcasing on-demand or live videos. The service allows for broadcast management, viewing statistics, and fine-tuning settings for users of different levels.",
+    "webcastor-descr-p2": "Within the team, I notably carried out the transfer of nearly 30TB of client data from Azure servers to a European infrastructure using the S3 protocol. Ensuring the update and scheduling of business data. I was also involved in cross-functional projects involving several micro-services, orchestrators, and video transcoders (Node.js) while contributing to DevOps aspects with Kubernetes.",
+    "webcastor-descr-p3": "My involvement and proactive approach quickly allowed me to take on tasks independently, with complete redesigns of interfaces and features.",
+    "webcastor-project-1": "Streamfizz - Backoffice",
+    "webcastor-project-1-descr": "Media and live content management platform. Creation of web TVs, playlists, and customization of the player interface as well as privacy options.",
+    "webcastor-project-2": "Streamfizz - Video Player",
+    "webcastor-project-2-descr": "Video player allowing the viewing of on-demand or live video content. The player integrates several features such as live chats or interactive modules.",
+    "webcastor-project-3": "Streamfizz - Orchestrator & Video Transcoder",
+    "webcastor-project-3-descr": "Two micro-services for managing the orchestration of transcoding tasks and their execution.",
+    "webcastor-project-4": "Streamfizz - API",
+    "webcastor-project-4-descr": "At the heart of the platform, this API securely manages the various data essential for the proper functioning of the service.",
+    "webcastor-link-label": "Learn more"
   },
   "Contact": {
     "title": "Contact"

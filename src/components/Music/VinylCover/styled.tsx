@@ -4,7 +4,7 @@ import placeHolder from '../../../../public/static/images/placeholder-logo-1.png
 export const VinylCover = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 0;
+  top: 0;
   width: 150px;
   height: 150px;
   background: url(${placeHolder.src});

@@ -37,8 +37,10 @@ const Contact: React.FC = () => {
   useGSAP(() => {
     const musicTitle = document.querySelector('.music-title');
     const musicInfo = document.querySelector('.music-info');
+    const musicQuote = document.querySelector('.music-quote');
     const textTitle = new SplitType(musicTitle as HTMLElement, { types: 'chars' });
     const textInfo = new SplitType(musicInfo as HTMLElement, { types: 'chars' });
+    const textQuote = new SplitType(musicQuote as HTMLElement, { types: 'chars' });
 
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
@@ -89,6 +91,10 @@ const Contact: React.FC = () => {
       opacity: 0,
       stagger: 0.02,
     });
+    discRevealTimeline.from(textQuote.chars, {
+      opacity: 0,
+      stagger: 0.02,
+    });
 
     contactTimeline.from('.contact-element-1', {
       clipPath: 'inset(0 0 100% 0)',
@@ -127,7 +133,6 @@ const Contact: React.FC = () => {
         <ContactElement className={`contact-element contact-element-3`} />
         <ContactElement className={`contact-element contact-element-4`} />
         <ContactElement className={`contact-element contact-element-5`} />
-
       </ContactGrid>
     </ContactContainer>
   );

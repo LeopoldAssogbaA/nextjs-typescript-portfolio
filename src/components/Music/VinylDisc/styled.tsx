@@ -139,7 +139,7 @@ export const VinylDisc = styled.div`
   background-blend-mode: normal, normal, color-dodge, normal, normal;
   transform-style: preserve-3d;
 
-  bottom: 0;
+  top: 0;
 
    &.disc-1 {
     left: calc(50% - 100px);

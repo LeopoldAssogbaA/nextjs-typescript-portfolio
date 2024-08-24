@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ButtonContainer, InfoContainer, MusicControllerContainer, NextButton, PlayButton, PreviousButton, SubContainer, TitleContainer } from './styled';
+import { IoPlaySkipBack, IoPlaySkipForwardSharp, IoPlay, IoPause } from "react-icons/io5";
 
 const MusicController: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,7 +18,7 @@ const MusicController: React.FC = () => {
       'calc(50% + 50px)',
       'calc(50% + 100px)'
     ];
-    
+
     return positions[index] || '50%';
   };
 
@@ -127,12 +128,20 @@ const MusicController: React.FC = () => {
         <TitleContainer className='music-title'>Title</TitleContainer>
         <InfoContainer className='music-info'>Info sur le titre en cours qui doit etre affiché et tenir sur une seule ligne</InfoContainer>
         <ButtonContainer>
-          <PreviousButton className='previous button' onClick={onPrevious}>Previous</PreviousButton>
-          <PlayButton className='play button' onClick={onPlay}>
-            {isPlaying ? 'Pause' : 'Play'}
+          <PreviousButton className='previous button hover-effect' onClick={onPrevious}>
+            <IoPlaySkipBack />
+            <span>Previous</span>
+          </PreviousButton>
+          <PlayButton className='play button hover-effect' onClick={onPlay}>
+            {isPlaying ? <IoPause /> : <IoPlay />}
+            {isPlaying ? <span>Pause</span> : <span>Play</span>}
           </PlayButton>
-          <NextButton className='next button' onClick={onNext}>Next</NextButton>
+          <NextButton className='next button hover-effect' onClick={onNext}>
+            <IoPlaySkipForwardSharp />
+            <span>Next</span>
+          </NextButton>
         </ButtonContainer>
+        <h5 className='music-quote'>Une sélection musicale pour mieux me connaître</h5>
       </SubContainer>
     </MusicControllerContainer>
   );

@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
       }
     );
     discRevealTimeline.from(['.vinyl-cover', '.vinyl-disc'], {
-      left: -500,
+      left: -250,
       transform: 'rotate3d(0, 0, 0, 0deg)',
       stagger: 0.02,
     });
@@ -90,30 +90,34 @@ const Contact: React.FC = () => {
       stagger: 0.02,
     });
 
-    contactTimeline.from('.contact-element-0', {
+    contactTimeline.from('.contact-element-1', {
       clipPath: 'inset(0 0 100% 0)',
     })
-    contactTimeline.from('.contact-element-3', {
+    contactTimeline.from('.contact-element-4', {
       clipPath: 'inset(0 100% 0 0)',
     });
-    contactTimeline.from('.contact-element-4', {
+    contactTimeline.from('.contact-element-5', {
       clipPath: 'inset(100% 0 0 0)',
     });
-    contactTimeline.from('.contact-element-2', {
+    contactTimeline.from('.contact-element-3', {
       clipPath: 'inset(100% 0 0 0)',
     });
-    contactTimeline.from('.contact-element-1', {
-      clipPath: 'inset(0 0 0 100%)',
-    });
+    // contactTimeline.from('.contact-element-2', {
+    //   clipPath: 'inset(0 0 0 100%)',
+    // });
   }, []);
 
   return (
     <ContactContainer className="contact-container">
-      <MusicPlayer />
       <ContactGrid className="contact-grid">
-        {contactElements.map((element, index) => (
-          <ContactElement key={index} className={`contact-element contact-element-${index}`} />
-        ))}
+        <ContactElement className={`contact-element contact-element-1`} />
+        <ContactElement className={`contact-element contact-element-2`} >
+          <MusicPlayer />
+        </ContactElement>
+        <ContactElement className={`contact-element contact-element-3`} />
+        <ContactElement className={`contact-element contact-element-4`} />
+        <ContactElement className={`contact-element contact-element-5`} />
+
       </ContactGrid>
     </ContactContainer>
   );

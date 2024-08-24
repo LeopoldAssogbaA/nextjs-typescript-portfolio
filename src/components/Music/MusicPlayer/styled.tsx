@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MusicContainer = styled.div`
   display: flex;
-  width: 50vw;
-  height: 70vh;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 `;

@@ -16,14 +16,14 @@ export const SubContainer = styled.div`
 
 export const TitleContainer = styled.h3`
   display: flex;
-  color: white;
+  color: var(--color-deep-blue);
   margin: 0;
   font-size: 1.5rem;
 `;
 
 export const InfoContainer = styled.p`
   display: flex;
-  color: white;
+  color: var(--color-deep-blue);
   margin: 0;
 `;
 

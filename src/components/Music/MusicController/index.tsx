@@ -21,17 +21,17 @@ const MusicController: React.FC = () => {
         ease: 'back.inOut(2)'
       });
       currentTrackTimeline.to(['.cover-1', '.disc-1'], {
-        left: '-50px',
+        left: '0%',
         zIndex: 10,
         transform: 'rotate3D(1, 1, 1, 0deg)',
         duration: 0.5
       });
       currentTrackTimeline.to('.disc-1', {
-        left: '200px',
+        left: '50%',
         duration: 0.5,
       });
       currentTrackTimeline.to('.disc-1', {
-        left: '200px',
+        left: '50%',
         transform: 'rotate3d(1, 0, 0, -45deg)',
         duration: 0.5,
       });
@@ -60,7 +60,7 @@ const MusicController: React.FC = () => {
         duration: 0.5,
       });
       currentTrackTimeline.to('.disc-1', {
-        left: '-50px',
+        left: '2',
         duration: 0.5,
       });
       currentTrackTimeline.to(['.cover-1', '.disc-1'], {
@@ -74,7 +74,7 @@ const MusicController: React.FC = () => {
         duration: 0.5,
       });
       gsap.to(['.vinyl-cover:not(.cover-1)'], {
-        left: (index) => `${(index + 1) * 75}px`,
+        left: (index) => `${(index + 1) * 50}px`,
         transform: 'rotate3d(0, 1, 0, -50deg)',
         zIndex: (index) => 6 - (index + 1),
         duration: 0.75,
@@ -82,7 +82,7 @@ const MusicController: React.FC = () => {
         delay: 1.6
       });
       gsap.to(['.vinyl-disc:not(.disc-1)'], {
-        left: (index) => `${(index + 1) * 75 + 10}px`,
+        left: (index) => `${(index + 1) * 50 + 10}px`,
         transform: 'rotate3d(0, 1, 0, -50deg)',
         zIndex: (index) => 6 - (index + 1),
         duration: 0.75,

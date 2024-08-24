@@ -9,8 +9,8 @@ import { MusicContainer } from './styled';
 
 const PlayerContainer = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   perspective: 5000px;
   display: flex;
   flex-direction: column;
@@ -20,11 +20,11 @@ const VinylsContainer = styled.div`
   width: 100%;
   height: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 `;
 const VinylsSubContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   position: relative;

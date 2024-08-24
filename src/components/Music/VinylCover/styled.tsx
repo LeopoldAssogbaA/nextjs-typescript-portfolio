@@ -5,9 +5,8 @@ export const VinylCover = styled.div`
   position: absolute;
   z-index: 2;
   bottom: 0;
-  width: 200px;
-  height: 200px;
-  transform: rotate3d(0, 1, 0, -50deg);
+  width: 150px;
+  height: 150px;
   background: url(${placeHolder.src});
   background-size: cover;
   background-position: center;
@@ -17,23 +16,28 @@ export const VinylCover = styled.div`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
  &.cover-1 {
-    left: 0;
+    left: calc(50% - 100px);
+    transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);;
     z-index: 6;
   }
   &.cover-2 {
-    left: 75px;
+    left: calc(50% - 50px);
+    transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 5;
   }
   &.cover-3 {
-    left: 150px;
+    left: 50%;
+    transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 4;
   }
   &.cover-4 {
-    left: 225px;
+    left: calc(50% + 50px);
+    transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 3;
   }
   &.cover-5 {
-    left: 300px;
+    left: calc(50% + 100px);
+    transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 2;
   }
 `;

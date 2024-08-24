@@ -29,6 +29,8 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
     }
 
     const initPage = () => {
+      const waveOne = document.querySelector('.-one');
+      const waveTwo = document.querySelector('.-two');
       const pageTransitionContainer = document.querySelector('div.page-transition-container-enter');
       const aboutPresentation = document.querySelector(".about-presentation");
       const mouseWheel = document.querySelector(".mouse-wheel");
@@ -132,6 +134,38 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
             display: "flex",
             onComplete: () => {
             console.log("Animation du conteneur de contact terminée");
+          }
+        });
+      }
+
+      if (waveOne && waveTwo) {
+        gsap.fromTo(waveOne, {
+          opacity: 0,
+          left: '-110%',
+          top: '-120%',
+        }, {
+          opacity: 0.4,
+          left: '-50%',
+          top: '-60%',
+          duration: 2.5,
+          ease: "back.inOut",
+          onComplete: () => {
+            console.log("Animation de la vague terminée");
+          }
+        });
+      
+        gsap.fromTo(waveTwo, {
+          opacity: 0,
+          left: '-110%',
+          top: '-120%',
+        }, {
+          opacity: 0.5,
+          left: '-50%',
+          top: '-60%',
+          duration: 2.6,
+          ease: "back.inOut",
+          onComplete: () => {
+            console.log("Animation de la vague terminée");
           }
         });
       }

@@ -48,13 +48,14 @@ export const LandingPageContainer = styled.section`
     }
 
     .wave {
+      opacity: 0;
       position: absolute;
       width: 1500px;
       height: 1600px;
       margin-left: -150px;
       margin-top: -250px;
-      left: -50%;
-      top: -60%;
+      left: -110%;
+      top: -120%;
       border-radius: 43%;
     }
 
@@ -65,13 +66,13 @@ export const LandingPageContainer = styled.section`
 
     .wave.-one {
       animation: rotate 10000ms infinite linear;
-      opacity: 0.5;
+      // opacity: 0.5;
       background: var(--color-sunflower);
     }
 
     .wave.-two {
       animation: rotate 6000ms infinite linear;
-      opacity: 0.4;
+      // opacity: 0.4;
       background: var(--color-sunflower);
     }
     .center {

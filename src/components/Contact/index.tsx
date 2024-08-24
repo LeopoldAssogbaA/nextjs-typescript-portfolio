@@ -92,9 +92,19 @@ const Contact: React.FC = () => {
 
     contactTimeline.from('.contact-element-1', {
       clipPath: 'inset(0 0 100% 0)',
+      onComplete: () => {
+        gsap.to(['.school-container', '.work-container'], {
+          display: 'none',
+        });
+      }
     })
     contactTimeline.from('.contact-element-4', {
       clipPath: 'inset(0 100% 0 0)',
+      onReverseComplete: () => {
+        gsap.to(['.school-container', '.work-container'], {
+          display: 'initial',
+        });
+      }
     });
     contactTimeline.from('.contact-element-5', {
       clipPath: 'inset(100% 0 0 0)',

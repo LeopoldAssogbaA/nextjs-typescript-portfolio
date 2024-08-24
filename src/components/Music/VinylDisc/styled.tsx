@@ -8,7 +8,7 @@ export const VinylDisc = styled.div`
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: radial-gradient(
       circle closest-side,
       black 35%,

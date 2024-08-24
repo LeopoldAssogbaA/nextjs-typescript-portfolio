@@ -9,6 +9,18 @@ const MusicController: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState();
 
+  const getPosition = (index: number) => {
+    const positions = [
+      'calc(50% - 100px)',
+      'calc(50% - 50px)',
+      '50%',
+      'calc(50% + 50px)',
+      'calc(50% + 100px)'
+    ];
+    
+    return positions[index] || '50%';
+  };
+
 
   const handlePlay = () => {
     const playTimeline = gsap.timeline();
@@ -21,7 +33,7 @@ const MusicController: React.FC = () => {
         ease: 'back.inOut(2)'
       });
       currentTrackTimeline.to(['.cover-1', '.disc-1'], {
-        left: '0%',
+        left: '10%',
         zIndex: 10,
         transform: 'rotate3D(1, 1, 1, 0deg)',
         duration: 0.5
@@ -60,11 +72,11 @@ const MusicController: React.FC = () => {
         duration: 0.5,
       });
       currentTrackTimeline.to('.disc-1', {
-        left: '2',
+        left: '12%',
         duration: 0.5,
       });
       currentTrackTimeline.to(['.cover-1', '.disc-1'], {
-        left: '0',
+        left: '10%',
         zIndex: 6,
         transform: "rotate3d(0, 1, 0, -50deg)",
         duration: 0.5
@@ -73,17 +85,17 @@ const MusicController: React.FC = () => {
         left: '+=10px',
         duration: 0.5,
       });
-      gsap.to(['.vinyl-cover:not(.cover-1)'], {
-        left: (index) => `${(index + 1) * 50}px`,
-        transform: 'rotate3d(0, 1, 0, -50deg)',
+      gsap.to(['.vinyl-cover'], {
+        left: (index) => getPosition(index),
+        transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
         zIndex: (index) => 6 - (index + 1),
         duration: 0.75,
         ease: 'back.inOut(2)',
         delay: 1.6
       });
-      gsap.to(['.vinyl-disc:not(.disc-1)'], {
-        left: (index) => `${(index + 1) * 50 + 10}px`,
-        transform: 'rotate3d(0, 1, 0, -50deg)',
+      gsap.to(['.vinyl-disc'], {
+        left: (index) => getPosition(index),
+        transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
         zIndex: (index) => 6 - (index + 1),
         duration: 0.75,
         ease: 'back.inOut(2)',

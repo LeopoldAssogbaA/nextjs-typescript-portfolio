@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NameContainer = styled.div`
-color: #47167d;
+color: var(--color-deep-blue);
 font-weight: 800;
 width: auto;
 height: auto;
@@ -15,7 +15,7 @@ text-align: center;
 `;
 
 export const Name = styled.h1`
-  color: #47167d;
+  color: var(--color-deep-blue);
   font-weight: 800;
   font-size: 3em;
   mix-blend-mode: difference;
@@ -32,47 +32,57 @@ export const LandingPageContainer = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to right top, #f1e8e2, #f2dfdb, #f1d6da, #eacfdf, #dacae6);
-    background-size: 200% 200%;
-    animation: gradientAnimation 15s ease infinite;
-
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 100%;
-      }
-      50% {
-        background-position: 100% 0%;
-      }
-      100% {
-        background-position: 0% 100%;
-      }
-    }
+    background: var(--color-cream);
+    background-size: 100% 100%;
     display: grid;
     height: 200vh;
     cursor: none;
 
-    *,
-    &::before {
-      grid-column: 1;
-      grid-row: 1;
+    .box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
-    --gradient-start: 4em;
-    --gradient-end: 10%;
-    --map: radial-gradient(circle at calc(var(--i0) * 100%) calc(var(--j0) * 100%),
-      #777 var(--gradient-start),
-      #000 var(--gradient-end));
+    .wave {
+      position: absolute;
+      width: 1500px;
+      height: 1600px;
+      margin-left: -150px;
+      margin-top: -250px;
+      left: -50%;
+      top: -60%;
+      border-radius: 43%;
+    }
 
-      
-      .center {
-        z-index: 1000;
-        position: absolute;
-        left: 50%;
-        top: 52%;
-        opacity: 0;
-        margin-left: -30px;
-        margin-top: -15px;
-      }
+    @keyframes rotate {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
+    }
+
+    .wave.-one {
+      animation: rotate 10000ms infinite linear;
+      opacity: 0.5;
+      background: var(--color-sunflower);
+    }
+
+    .wave.-two {
+      animation: rotate 6000ms infinite linear;
+      opacity: 0.4;
+      background: var(--color-sunflower);
+    }
+    .center {
+      z-index: 1000;
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      opacity: 0;
+      margin-left: -30px;
+      margin-top: -15px;
+    }
       
       .mouse-wheel {
         display: none;
@@ -82,7 +92,7 @@ export const LandingPageContainer = styled.section`
         border-radius: 20px;
         background-color: transparent;
         opacity: O;
-        border: 3px solid #47167d;
+        border: 3px solid var(--color-deep-blue);
         &:after {
           z-index: 1000;
           content: "";
@@ -92,8 +102,8 @@ export const LandingPageContainer = styled.section`
           border-radius: 50px;
           left: 50%;
           top: 10px;
-          background: #47167d;
-          border-top: 3px solid #47167d;
+          background: var(--color-deep-blue);
+          border-top: 3px solid var(--color-deep-blue);
           transform: translateX(-50%);
           -webkit-transform: translateX(-50%);
           animation: scroll-wheel 1s infinite;
@@ -120,7 +130,7 @@ export const LandingPageContainer = styled.section`
 `;
 
 export const Work = styled.h2`
-color: #47167d;
+color: var(--color-deep-blue);
 font-weight: 600;
 font-size: 2em;
 mix-blend-mode: difference;
@@ -131,7 +141,6 @@ transform: none;
 z-index: 4;
 margin: 0px;
 opacity: 0;
-// clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
  .char {
   transform: translateY(115px);
   transition: transform .5s;

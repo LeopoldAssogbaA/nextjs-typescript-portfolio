@@ -14,7 +14,7 @@ export const ContainerEnter = styled.div`
 
   div {
     height: 0%;
-    background-color: #47167d;
+    background-color: var(--color-deep-blue);
    
   }
 `;
@@ -33,7 +33,7 @@ export const ContainerLeave = styled.div`
 
   div {
     width: 100%;
-    background-color: #47167d;
+    background-color: var(--color-deep-blue);
    
   }
 `;

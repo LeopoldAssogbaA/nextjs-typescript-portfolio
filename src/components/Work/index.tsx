@@ -106,7 +106,7 @@ const Work = () => {
         ease: 'power.inOut(4)',
       })
       .to('.work-element', {
-        clipPath: 'inset(0% 100% 0% 86.7%)',
+        clipPath: 'inset(100% 0% 0% 86.7%)',
         ease: 'power.out(2)',
       });
 

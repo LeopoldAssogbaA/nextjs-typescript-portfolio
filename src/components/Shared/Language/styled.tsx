@@ -21,7 +21,7 @@ export const LanguageButton = styled.button`
   background: transparent;
   mix-blend-mode: difference;
   border: none;
-  color: #47167d;
+  color: var(--color-deep-blue);
   font-size: 1em;
   width: auto;
   transition: all 0.2s ease;
@@ -43,7 +43,7 @@ export const LanguageButton = styled.button`
     left: 10%;
     width: 0%;
     height: 2px;
-    background: #47167d;
+    background: var(--color-deep-blue);
   }
   &:hover {
     &:before {

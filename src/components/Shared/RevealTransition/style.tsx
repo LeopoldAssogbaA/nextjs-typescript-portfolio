@@ -18,34 +18,27 @@ export const RevealTransitionContainer = styled.div`
     z-index: 15;
 
     &.reveal-1 {
-      background: #47167d;
+      background: var(--color-deep-blue);
       z-index: 15;
     }
     &.reveal-2 {
-      background: #97397a;
+      background: var(--color-ocean-blue);
       z-index: 14;
     }
     &.reveal-3 {
-      background: #c37182;
+      background: var(--color-sky-blue);
       z-index: 13;
     }
     &.reveal-4 {
-      background: #ddada4;
+      background: var(--color-cream);
       z-index: 12;
     }
     &.reveal-5 {
-      background: #f1e8e2;
+      background: var(--color-sunflower);
       z-index: 11;
     }
   }
 `;
-
-// ADD NEW PALETTE COLOR
-// #0000a3
-// #0067b3
-// #40b0df
-// #fff9e8
-// #ffd53d
 
 
 

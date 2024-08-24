@@ -13,6 +13,14 @@ import { useTranslations } from 'next-intl';
 
 const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, documentLoaded: boolean }> = ({ setInit, init, documentLoaded }) => {
   const heartBeatTimeline = gsap.timeline();
+  const waveTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".landing-page",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
+  });
   const t = useTranslations('Home');
 
   useLayoutEffect(() => {
@@ -135,6 +143,16 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
   }, [init, documentLoaded, heartBeatTimeline, setInit]);
 
   useGSAP(() => {
+    waveTimeline.fromTo('.wave', {
+      left: '-50%',
+      top: '-60%',
+    }, {
+      left: '90%',
+      top: '40%',
+    });
+  }, []);
+
+  useGSAP(() => {
     const name = document.querySelector('.name');
     const landingPage = document.querySelector('.main-container');
 
@@ -190,6 +208,10 @@ const LandingPage: React.FC<{ setInit: (init: boolean) => void, init: boolean, d
 
   return (
     <LandingPageContainer className="landing-page">
+      <div className='box'>
+        <div className='wave -one'/>
+        <div className='wave -two'/>
+      </div>
       <NameContainer className='name'>
         <Name className='name'>
           Léopold Assogba

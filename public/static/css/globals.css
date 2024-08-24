@@ -7,12 +7,21 @@ html, body {
   cursor: none !important;
 }
 
+:root {
+  --color-deep-blue: #0000a3;
+  --color-ocean-blue: #0067b3;
+  --color-sky-blue: #40b0df;
+  --color-cream: #fff9e8;
+  --color-sunflower: #ffd53d;
+  --color-light-sunflower: rgba(255, 213, 61, .3);
+}
+
 :root:has(.hover-effect:hover) .cursor {
   width: 35px;
   height: 35px;
   mix-blend-mode: difference;
   border-width: 0;
-  background-color: #b8e982;
+  background-color: var(--color-sunflower);
 }
 
 .cursor {
@@ -22,7 +31,7 @@ html, body {
 .loading-spinner {
   height: 15px;
   aspect-ratio: 4;
-  --_g: no-repeat radial-gradient(farthest-side,#f1e8e2 90%,#0000);
+  --_g: no-repeat radial-gradient(farthest-side,var(--color-cream) 90%,#0000);
   background: 
     var(--_g) left, 
     var(--_g) right;
@@ -38,7 +47,7 @@ html, body {
   margin: auto;
   border-radius: 50%;
   transform-origin: -100% 50%;
-  background: #f1e8e2;
+  background: var(--color-cream);
   animation: l49 1s infinite linear;
 }
 .loading-spinner:after {

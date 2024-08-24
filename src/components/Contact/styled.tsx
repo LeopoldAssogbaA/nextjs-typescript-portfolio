@@ -9,7 +9,7 @@ export const ContactContainer = styled.div`
   height: 100vh;
   justify-content: flex-end;
   align-items: center;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export const ContactGrid = styled.div`
@@ -21,7 +21,7 @@ export const ContactGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export const ContactElement = styled.div`

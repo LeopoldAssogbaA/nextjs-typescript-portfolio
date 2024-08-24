@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CursorDiv = styled.div`
   position: fixed;
-  border: 3px solid #b8e982;
+  border: 3px solid var(--color-sunflower);
   mix-blend-mode: difference;
   width: 10px;
   height: 10px;

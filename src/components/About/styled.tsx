@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
   display: none;
   position: fixed;
-  color: #47167d;
+  color: var(--color-deep-blue);
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -68,12 +68,10 @@ const School = () => {
       rotate: 360,
       scale: 0.8,
       stagger: 0.05,
-      pin: true,
     });
-    schoolCardTimeline.to(".school-card", {
-      left: "100vw",
+    schoolCardTimeline.to(".school-container", {
+      left: "120vw",
       stagger: -0.05,
-      pin: true,
     });
   }, []);
 

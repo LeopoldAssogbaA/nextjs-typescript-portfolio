@@ -24,12 +24,12 @@ export const WorkElement = styled.div`
     z-index: 2;
 
     &:nth-child(1) {
-      border: 2px solid #3f0e6f;
-      background-color: #47167d;
+      border: 2px solid #000070;
+      background-color: var(--color-deep-blue);
     }
     &:nth-child(2) {
-      border: 2px solid #47167d;
-      background-color: #6121a7;
+      border: 2px solid var(--color-deep-blue);
+      background-color: #0a02dd;
     }
 `;
 
@@ -51,7 +51,7 @@ export const WorkTextContainer = styled.div`
       align-items: center;
       text-decoration: none;
       color: #f1e8e2;
-      z-index: 2;
+      z-index: 5;
     }
     h3 {
       font-size: 24px;
@@ -73,15 +73,16 @@ export const WorkTextContainer = styled.div`
 export const ProjectContainer = styled.div`
   display: flex;
   flex-direction: row;
-  color: #47167d;
+  color: var(--color-deep-blue);
   width: 100%;
   justify-content: space-between;
+  z-index: 2;
 
   .project-container-1, .project-container-2 {
     margin: 0 0 8px 0;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to right top, #d9b8ff, #f1e8e2);
+    background: linear-gradient(to right top, var(--color-cream), #dbdaff);
     border-radius: 8px;
     padding: 8px;
     width: 50%;
@@ -129,9 +130,16 @@ export const ProjectContainer = styled.div`
     justify-content: end;
     text-decoration: none;
     font-weight: bold;
-    a {
-      z-index: 2;
+    color: var(--color-deep-blue) !important;
+    
+      &:hover {
+        color: var(--color-deep-blue) !important;
+      }
+      &:active {
+        color: var(--color-deep-blue) !important;
+      } 
     }
+
     
     svg {
       margin-right: 8px;

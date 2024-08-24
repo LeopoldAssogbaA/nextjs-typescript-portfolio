@@ -23,13 +23,13 @@ export const SchoolCard = styled.div`
   justify-content: space-between;
   width: 30vw;
   height: 30vh;
-  border: 1px solid rgba(71, 22, 125, 0.1);
-  background: rgba(71, 22, 125, 0.1);
+  border: 2px solid rgba(0, 0, 163, 0.1);
+  background: rgba(0, 0, 163, 0.1);
   border-radius: 8px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 163, 0.3);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(5px);
-  color: rgba(71, 22, 125, 1);
+  color: var(--color-deep-blue);
   padding: 8px;
   font-size: 1.1em;
   &:nth-child(1) {
@@ -43,6 +43,7 @@ export const SchoolCard = styled.div`
     margin: 0;
     font-size: 1.3em;
     font-weight: 600;
+    color: var(--color-deep-blue)
   }
 
   svg {
@@ -55,12 +56,12 @@ export const SchoolCard = styled.div`
     justify-content: flex-end;
     text-decoration: none;
     font-weight: 800;
-    color: #47167d !important;
+    color: var(--color-deep-blue) !important;
     &:hover {
-      color: #47167d !important;
+      color: var(--color-deep-blue) !important;
     }
     &:active {
-      color: #47167d !important;
+      color: var(--color-deep-blue) !important;
     }
   }
 `;
@@ -75,7 +76,7 @@ export const SchoolText = styled.div`
     display: block;
     margin-bottom: 0.5em;
     font-size: 1.2em;
-    color: #47167d;
+    color: var(--color-deep-blue);
   }
 
   .school-icons-container {
@@ -89,9 +90,9 @@ export const SchoolText = styled.div`
     justify-content: center;
   }
     
-    .school-icons {
-      margin: 0 16px;
-      color: #47167d;
-      font-size: 3em;
-    }
+  .school-icons {
+    margin: 0 16px;
+    color: var(--color-deep-blue);
+    font-size: 3em;
+  }
 `;

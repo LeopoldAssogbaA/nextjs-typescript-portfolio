@@ -29,7 +29,7 @@ export const Step = styled.li`
   line-height: 1.5em;
   font-size: 1.3em;
   transition: all 0.2s ease;
-  color: #47167d;
+  color: var(--color-deep-blue);
   width: auto;
   height: auto;
   margin-right: 1em;
@@ -52,7 +52,7 @@ export const Step = styled.li`
     left: 0;
     width: 0%;
     height: 2px;
-    background: #47167d;
+    background: var(--color-deep-blue);
   }
   &:hover {
     &:before {

@@ -134,7 +134,7 @@ const MusicController: React.FC = () => {
           </PreviousButton>
           <PlayButton className='play button hover-effect' onClick={onPlay}>
             {isPlaying ? <IoPause /> : <IoPlay />}
-            {isPlaying ? <span>Pause</span> : <span>Play</span>}
+             <span>{isPlaying ? 'Pause' : 'Play'} </span>
           </PlayButton>
           <NextButton className='next button hover-effect' onClick={onNext}>
             <IoPlaySkipForwardSharp />

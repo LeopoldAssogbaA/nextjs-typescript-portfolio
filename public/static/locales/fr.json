@@ -60,6 +60,20 @@
     "webcastor-link-label": "En savoir plus"
   },
   "Contact": {
-    "title": "Contact"
+    "curriculum": "Curriculum Vitae",
+    "download-resume": "Télécharger le CV",
+    "contact-info": "Informations de contact",
+    "show-phone": "Afficher le numéro",
+    "show-email": "Afficher l'email",
+    "show-contact": "Afficher le contact",
+    "socials": "Réseaux sociaux",
+    "linkedin": "Linkedin",
+    "github": "Github",
+    "github-profil": "Profil Github",
+    "github-projects": "Quelques anciens projets",
+    "references": "Références",
+    "recommendation-letter": "Lettre de recommandation",
+    "mediaxtend": "MediaXtend",
+    "webcastor": "Webcastor"
   }
 }

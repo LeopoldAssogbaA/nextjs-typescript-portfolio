@@ -111,3 +111,26 @@ export const WORKS = [
     ]
   }
 ]; 
+
+// TODO: verify references infos
+export const CONTACT = {
+  email: 'leopoldassogba21@gmail.com',
+  github: 'https://github.com/LeopoldAssogbaA',
+  phone: '06 12 34 56 78',
+  address: 'Région Lyonnaise, France',
+  linkedin: 'https://www.linkedin.com/in/l%C3%A9opold-assogba/',
+  references: [
+    {
+      name: 'Nicolas Sandri',
+      linkedin: 'https://www.linkedin.com/in/nicolas-sandri/',
+      email: 'contact@mediaxtend.net',
+      phone: '06 12 34 56 78'
+    },
+    {
+      name: 'Signorato Geoffrey',
+      linkedin: 'https://www.linkedin.com/in/geoffrey-signorato/',
+      email: 'geoffrey.signorato@webcastor.fr',
+      phone: '06 12 34 56 78'
+    }
+  ]
+};

@@ -13,8 +13,8 @@ export const VinylCover = styled.div`
   transform-style: preserve-3d;
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-
+  // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
  &.cover-1 {
     left: calc(50% - 100px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);;

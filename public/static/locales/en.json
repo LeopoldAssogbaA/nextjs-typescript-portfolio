@@ -60,6 +60,20 @@
     "webcastor-link-label": "Learn more"
   },
   "Contact": {
-    "title": "Contact"
+    "curriculum": "Curriculum Vitae",
+    "download-resume": "Download CV",
+    "contact-info": "Contact Information",
+    "show-phone": "Show phone number",
+    "show-email": "Show email",
+    "show-contact": "Show contact",
+    "socials": "Social Networks",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "github-profil": "GitHub Profile",
+    "github-projects": "Some previous projects",
+    "references": "References",
+    "recommendation-letter": "Letter of Recommendation",
+    "mediaxtend": "MediaXtend",
+    "webcastor": "Webcastor"
   }
 }

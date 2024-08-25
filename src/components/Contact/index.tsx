@@ -1,38 +1,21 @@
 'use client'
 
-import React, { useState } from 'react';
+import Link from 'next/link';
+import React from 'react';
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarker, FaPhone, FaUser } from "react-icons/fa";
+import { RiGitRepositoryLine } from "react-icons/ri";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import placeholderLogo from '../../../public/static/images/placeholder-logo-1.png';
-import MusicPlayer from '../Music/MusicPlayer';
 import SplitType from 'split-type';
+import { useTranslations } from 'next-intl';
+
+import { CONTACT } from '../../utils/constants';
+import MusicPlayer from '../Music/MusicPlayer';
+import InfoReveal from './infoReveal';
 import { ContactContainer, ContactElement, ContactGrid } from './styled';
 
-const contactElements = [
-  {
-    src: placeholderLogo.src,
-    alt: 'Contact 1',
-  },
-  {
-    src: placeholderLogo,
-    alt: 'Contact 2',
-  },
-  {
-    src: placeholderLogo,
-    alt: 'Contact 3',
-  },
-  {
-    src: placeholderLogo,
-    alt: 'Contact 4',
-  },
-  {
-    src: placeholderLogo,
-    alt: 'Contact 5',
-  },
-];
-
 const Contact: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const t = useTranslations('Contact');
 
   useGSAP(() => {
     const musicTitle = document.querySelector('.music-title');
@@ -65,7 +48,7 @@ const Contact: React.FC = () => {
     );
     discRevealTimeline.from(['.vinyl-cover', '.vinyl-disc'], {
       left: -250,
-      transform: 'rotate3d(0, 0, 0, 0deg)',
+      transform: 'rotate3d(0, 0, 0, 0deg) translateX(-50%)',
       stagger: 0.02,
     });
     discRevealTimeline.to('.vinyl-disc', {
@@ -99,7 +82,7 @@ const Contact: React.FC = () => {
     contactTimeline.from('.contact-element-1', {
       clipPath: 'inset(0 0 100% 0)',
       onComplete: () => {
-        gsap.to(['.school-container', '.work-container'], {
+        gsap.to('.work-container', {
           display: 'none',
         });
       }
@@ -107,7 +90,7 @@ const Contact: React.FC = () => {
     contactTimeline.from('.contact-element-4', {
       clipPath: 'inset(0 100% 0 0)',
       onReverseComplete: () => {
-        gsap.to(['.school-container', '.work-container'], {
+        gsap.to('.work-container', {
           display: 'initial',
         });
       }
@@ -118,21 +101,145 @@ const Contact: React.FC = () => {
     contactTimeline.from('.contact-element-3', {
       clipPath: 'inset(100% 0 0 0)',
     });
-    // contactTimeline.from('.contact-element-2', {
-    //   clipPath: 'inset(0 0 0 100%)',
-    // });
   }, []);
 
   return (
     <ContactContainer className="contact-container">
       <ContactGrid className="contact-grid">
-        <ContactElement className={`contact-element contact-element-1`} />
+        <ContactElement className={`contact-element contact-element-1`} >
+          <div className='contact-content-1'>
+            <h2>{t('curriculum')}</h2>
+            <Link href='*' className='download-link hover-effect'>
+              <FaDownload />
+              <span>{t('download-resume')}</span>
+            </Link>
+          </div>
+          <div className='contact-content-2'>
+            <h2>{t('contact-info')}</h2>
+            <InfoReveal
+              items={[
+                { icon: FaPhone, text: CONTACT.phone, link: `tel:${CONTACT.phone}` }
+              ]}
+              buttonText={t('show-phone')}
+              buttonIcon={FaPhone}
+            />
+          </div>
+          <div className='contact-content-3'>
+          <InfoReveal
+              items={[
+                { icon: FaEnvelope, text: CONTACT.email, link: `mailto:${CONTACT.email}` }
+              ]}
+              buttonText={t('show-email')}
+              buttonIcon={FaEnvelope}
+            />
+          </div>
+          <div className='contact-content-4'>
+            <div>
+              <FaMapMarker />
+              <span>
+                {CONTACT.address}
+              </span>
+            </div>
+          </div>
+        </ContactElement>
         <ContactElement className={`contact-element contact-element-2`} >
           <MusicPlayer />
         </ContactElement>
-        <ContactElement className={`contact-element contact-element-3`} />
-        <ContactElement className={`contact-element contact-element-4`} />
-        <ContactElement className={`contact-element contact-element-5`} />
+        <ContactElement className={`contact-element contact-element-3`}>
+          <div className='contact-content-5'>
+            <h2>{t('socials')}</h2>
+            <Link
+              href={CONTACT.linkedin}
+              className='linkedin-link hover-effect'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaLinkedin />
+              <span>
+                {t('linkedin')}
+              </span>
+            </Link>
+          </div>
+        </ContactElement>
+        <ContactElement className={`contact-element contact-element-4`} >
+          <div className='contact-content-6'>
+            <h2>{t('references')}</h2>
+            <div className='references-container'>
+              <div className='reference-card ref-card-1'>
+                <h3>MediaXtend</h3>
+                <Link
+                  href='/static/files/lettre_recommandation_medixtend.pdf'
+                  className='reference-link hover-effect'
+                  download="lettre_recommandation_medixtend.pdf"
+                >
+                  <FaDownload />
+                  <span>{t('recommendation-letter')}</span>
+                </Link>
+                <InfoReveal
+                  items={[
+                    { icon: FaEnvelope, text: CONTACT.references[0].email, link: `mailto:${CONTACT.references[0].email}` },
+                    { icon: FaPhone, text: CONTACT.references[0].phone, link: `tel:${CONTACT.references[0].phone}` },
+                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin }
+                  ]}
+                  buttonText={t('show-contact')}
+                  buttonIcon={FaUser}
+                />
+              </div>
+              <div className='reference-card ref-card-2'>
+                <h3>Webcastor</h3>
+                <Link
+                  href='/static/files/lettre_recommandation_webcastor.pdf'
+                  className='reference-link hover-effect'
+                  download="lettre_recommandation_webcastor.pdf"
+                >
+                  <FaDownload />
+                  <span>{t('recommendation-letter')}</span>
+                </Link>
+                <InfoReveal
+                  items={[
+                    { icon: FaEnvelope, text: CONTACT.references[1].email, link: `mailto:${CONTACT.references[1].email}` },
+                    { icon: FaPhone, text: CONTACT.references[1].phone, link: `tel:${CONTACT.references[1].phone}` },
+                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin }
+                  ]}
+                  buttonText={t('show-contact')}
+                  buttonIcon={FaUser}
+                />
+              </div>
+            </div>
+          </div>
+        </ContactElement>
+        <ContactElement className={`contact-element contact-element-5`} >
+          <div className='contact-content-7'>
+            <h2>{t('github')}</h2>
+            <Link
+              href={CONTACT.github}
+              className='github-link hover-effect'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaGithub />
+              <span>
+                {t('github-profile')}
+              </span>
+            </Link>
+
+            <div className='github-projects'>
+              <h3>{t('github-projects')}</h3>
+              <ul>
+                {['1', '2', '3'].map((project, index) => (
+                  <li key={index}>
+                    <Link href={`/projects/${project}`}>
+                      <RiGitRepositoryLine />
+                      <span>
+                        projet {project}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </ContactElement>
       </ContactGrid>
     </ContactContainer>
   );

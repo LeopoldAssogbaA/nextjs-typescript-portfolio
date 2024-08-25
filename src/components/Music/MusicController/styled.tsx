@@ -36,7 +36,7 @@ export const InfoContainer = styled.p`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-direction: row;
   width: 100%;
   z-index: 10;
@@ -54,7 +54,8 @@ export const ButtonContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+
 
     &:hover {
       background: rgba(0, 0, 163, 0.2);

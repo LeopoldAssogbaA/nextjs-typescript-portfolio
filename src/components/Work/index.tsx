@@ -79,12 +79,22 @@ const Work = () => {
     }, {
       left: '50%',
       ease: 'power.inOut(2)',
+      onComplete: () => {
+        gsap.to('.school-container', {
+          display: 'none',
+        });
+      }
     })
       .to('.work-element-1', {
         clipPath: 'inset(0% 0% 0% 86.7%)',
         borderRadius: '0',
         left: '55%',
         ease: 'power.inOut(1)',
+        onReverseComplete: () => {
+          gsap.to('.school-container', {
+            display: 'initial',
+          });
+        }
       });
 
     fadeOutTimelineOne.fromTo('.description-container-1, .project-container-1', {

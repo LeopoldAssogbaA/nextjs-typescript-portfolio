@@ -41,6 +41,7 @@ export const ContactElement = styled.div`
     color: var(--color-deep-blue);
 
     a, button {
+      margin-bottom: 8px;
       color: var(--color-deep-blue) !important;
       &:hover {
         color: var(--color-deep-blue) !important;
@@ -66,6 +67,7 @@ export const ContactElement = styled.div`
   background-color: var(--color-deep-blue);
 
   a, button {
+    margin-bottom: 8px; 
     color: var(--color-cream) !important;
     &:hover {
       color: var(--color-cream) !important;
@@ -104,7 +106,9 @@ export const ContactElement = styled.div`
   grid-column: 4;
   grid-row: 2 / 4;
   background-color: var(--color-ocean-blue);
-   a {
+
+  a {
+    margin-bottom: 8px;
     color: var(--color-cream) !important;
     &:hover {
       color: var(--color-cream) !important;
@@ -145,7 +149,6 @@ export const ContactContent = styled.div`
     justify-content: flex-start;
     text-decoration: none;
     font-weight: 800;
-    margin-bottom: 8px;
   }
 
   ul {
@@ -204,6 +207,10 @@ export const ContactContent = styled.div`
   .references-container {
     width: 98%;
     height: auto;
+  }
+
+  .reference-card {
+    margin-bottom: 12px;
   }
 
   .info-reveal {

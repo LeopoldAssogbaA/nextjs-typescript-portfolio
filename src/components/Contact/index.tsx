@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl';
 import { CONTACT } from '../../utils/constants';
 import MusicPlayer from '../Music/MusicPlayer';
 import InfoReveal from './infoReveal';
-import { ContactContainer, ContactElement, ContactGrid } from './styled';
+import { ContactContainer, ContactElement, ContactGrid, ContactContent } from './styled';
 
 const Contact: React.FC = () => {
   const t = useTranslations('Contact');
@@ -40,14 +40,14 @@ const Contact: React.FC = () => {
         scrollTrigger: {
           trigger: '.main-container',
           start: "top+=87.5% bottom",
-          end: "top+=95% bottom", // Modifié pour s'arrêter à mi-chemin
+          end: "top+=95% bottom",
           scrub: true,
           toggleActions: 'play none none reverse',
         },
       }
     );
     discRevealTimeline.from(['.vinyl-cover', '.vinyl-disc'], {
-      left: -250,
+      left: -150,
       transform: 'rotate3d(0, 0, 0, 0deg) translateX(-50%)',
       stagger: 0.02,
     });
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
       stagger: 0.02,
     });
     discRevealTimeline.from('.button', {
-      clipPath: 'inset(0% 100% 0 0)',
+      opacity: 0,
       stagger: 0.02,
     });
     discRevealTimeline.from(textTitle.chars, {
@@ -107,14 +107,20 @@ const Contact: React.FC = () => {
     <ContactContainer className="contact-container">
       <ContactGrid className="contact-grid">
         <ContactElement className={`contact-element contact-element-1`} >
-          <div className='contact-content-1'>
+          <ContactContent className='contact-content-1'>
             <h2>{t('curriculum')}</h2>
-            <Link href='*' className='download-link hover-effect'>
+            <Link
+              href='/static/files/leopold_assogba_cv_2024.pdf'
+              className='download-link hover-effect'
+              download
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <FaDownload />
               <span>{t('download-resume')}</span>
             </Link>
-          </div>
-          <div className='contact-content-2'>
+          </ContactContent>
+          <ContactContent className='contact-content-2'>
             <h2>{t('contact-info')}</h2>
             <InfoReveal
               items={[
@@ -123,30 +129,27 @@ const Contact: React.FC = () => {
               buttonText={t('show-phone')}
               buttonIcon={FaPhone}
             />
-          </div>
-          <div className='contact-content-3'>
-          <InfoReveal
+
+            <InfoReveal
               items={[
                 { icon: FaEnvelope, text: CONTACT.email, link: `mailto:${CONTACT.email}` }
               ]}
               buttonText={t('show-email')}
               buttonIcon={FaEnvelope}
             />
-          </div>
-          <div className='contact-content-4'>
             <div>
               <FaMapMarker />
               <span>
                 {CONTACT.address}
               </span>
             </div>
-          </div>
+          </ContactContent>
         </ContactElement>
         <ContactElement className={`contact-element contact-element-2`} >
           <MusicPlayer />
         </ContactElement>
         <ContactElement className={`contact-element contact-element-3`}>
-          <div className='contact-content-5'>
+          <ContactContent className='contact-content-3'>
             <h2>{t('socials')}</h2>
             <Link
               href={CONTACT.linkedin}
@@ -159,57 +162,51 @@ const Contact: React.FC = () => {
                 {t('linkedin')}
               </span>
             </Link>
-          </div>
+          </ContactContent>
         </ContactElement>
         <ContactElement className={`contact-element contact-element-4`} >
-          <div className='contact-content-6'>
+          <ContactContent className='contact-content-4'>
             <h2>{t('references')}</h2>
             <div className='references-container'>
               <div className='reference-card ref-card-1'>
-                <h3>MediaXtend</h3>
-                <Link
-                  href='/static/files/lettre_recommandation_medixtend.pdf'
-                  className='reference-link hover-effect'
-                  download="lettre_recommandation_medixtend.pdf"
-                >
-                  <FaDownload />
-                  <span>{t('recommendation-letter')}</span>
-                </Link>
+                <div className='reference-card-header'>
+                  <h3>MediaXtend</h3>
+                  <span>-</span>
+                  <h4>{CONTACT.references[0].name}</h4>
+                </div>
                 <InfoReveal
                   items={[
+                    { icon: FaDownload, text: t(CONTACT.letter), link: CONTACT.references[0].letter },
+                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin },
                     { icon: FaEnvelope, text: CONTACT.references[0].email, link: `mailto:${CONTACT.references[0].email}` },
                     { icon: FaPhone, text: CONTACT.references[0].phone, link: `tel:${CONTACT.references[0].phone}` },
-                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin }
                   ]}
                   buttonText={t('show-contact')}
                   buttonIcon={FaUser}
                 />
               </div>
               <div className='reference-card ref-card-2'>
-                <h3>Webcastor</h3>
-                <Link
-                  href='/static/files/lettre_recommandation_webcastor.pdf'
-                  className='reference-link hover-effect'
-                  download="lettre_recommandation_webcastor.pdf"
-                >
-                  <FaDownload />
-                  <span>{t('recommendation-letter')}</span>
-                </Link>
+                <div className='reference-card-header'>
+                  <h3>Webcastor</h3>
+                  <span>-</span>
+                  <h4>{CONTACT.references[1].name}</h4>
+                </div>
                 <InfoReveal
                   items={[
+                    { icon: FaDownload, text: t(CONTACT.letter), link: CONTACT.references[1].letter },
+                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin },
                     { icon: FaEnvelope, text: CONTACT.references[1].email, link: `mailto:${CONTACT.references[1].email}` },
                     { icon: FaPhone, text: CONTACT.references[1].phone, link: `tel:${CONTACT.references[1].phone}` },
-                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin }
                   ]}
                   buttonText={t('show-contact')}
                   buttonIcon={FaUser}
                 />
               </div>
             </div>
-          </div>
+          </ContactContent>
         </ContactElement>
         <ContactElement className={`contact-element contact-element-5`} >
-          <div className='contact-content-7'>
+          <ContactContent className='contact-content-5'>
             <h2>{t('github')}</h2>
             <Link
               href={CONTACT.github}
@@ -222,13 +219,24 @@ const Contact: React.FC = () => {
                 {t('github-profile')}
               </span>
             </Link>
-
+            <div className='github-projects-container'>
+              <div className="portfolio-repo">
+                <Link href={CONTACT.github} className='github-link hover-effect'>
+                  <RiGitRepositoryLine />
+                  <span>
+                    {t('portfolio')}
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </ContactContent>
+          <ContactContent className='contact-content-6'>
             <div className='github-projects'>
               <h3>{t('github-projects')}</h3>
               <ul>
                 {['1', '2', '3'].map((project, index) => (
                   <li key={index}>
-                    <Link href={`/projects/${project}`}>
+                    <Link href={`/projects/${project}`} className='github-project-link hover-effect'>
                       <RiGitRepositoryLine />
                       <span>
                         projet {project}
@@ -238,7 +246,7 @@ const Contact: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </ContactContent>
         </ContactElement>
       </ContactGrid>
     </ContactContainer>

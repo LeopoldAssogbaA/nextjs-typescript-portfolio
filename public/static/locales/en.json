@@ -69,11 +69,12 @@
     "socials": "Social Networks",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "github-profil": "GitHub Profile",
+    "github-profile": "GitHub Profile",
     "github-projects": "Some previous projects",
     "references": "References",
     "recommendation-letter": "Letter of Recommendation",
     "mediaxtend": "MediaXtend",
-    "webcastor": "Webcastor"
+    "webcastor": "Webcastor",
+    "portfolio": "Portfolio"
   }
 }

@@ -18,6 +18,8 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: 
   const [isVisible, setIsVisible] = useState(false);
 
   if (isVisible) {
+
+    console.log("visible");
     return (
       <div className='info-reveal'>
         {items.map((item, index) => {
@@ -27,6 +29,9 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: 
               key={index}
               href={item.link}
               className='info-link hover-effect'
+              target='_blank'
+              rel='noopener noreferrer'
+              {...(item.link.includes('static/files') && { download: true })}
             >
               <ItemIcon />
               <span>{item.text}</span>
@@ -41,6 +46,7 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: 
       </div>
     );
   }
+  console.log("!visible", items);
 
   return (
     <button

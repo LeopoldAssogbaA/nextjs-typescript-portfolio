@@ -151,7 +151,7 @@ const Work = () => {
           </WorkTextContainer>
           <ProjectContainer>
             {work.projects.map((project, index) => index < 2 && (
-              <div className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+              <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
                 <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
                 <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
                 <div className="project-infos-container">
@@ -159,7 +159,11 @@ const Work = () => {
                     <img src={placeholder.src} alt={project.title} />
                   </div>
                   <div className="project-technologies">
-                    {project.technologies.map((technology, index) => skillsIcons[technology as keyof typeof skillsIcons])}
+                    {project.technologies.map((technology, index) => (
+                      <React.Fragment key={`${technology}-${index}`}>
+                        {skillsIcons[technology as keyof typeof skillsIcons]}
+                      </React.Fragment>
+                    ))}
                   </div>
                   {project.link ? (
                     <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
@@ -175,7 +179,7 @@ const Work = () => {
           </ProjectContainer>
           <ProjectContainer>
             {work.projects.map((project, index) => index > 1 && (
-              <div className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+              <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
                 <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
                 <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
                 <div className="project-infos-container">
@@ -183,7 +187,11 @@ const Work = () => {
                     <img src={placeholder.src} alt={project.title} />
                   </div>
                   <div className="project-technologies">
-                    {project.technologies.map((technology, index) => skillsIcons[technology as keyof typeof skillsIcons])}
+                    {project.technologies.map((technology, index) => (
+                      <React.Fragment key={`${technology}-${index}`}>
+                        {skillsIcons[technology as keyof typeof skillsIcons]}
+                      </React.Fragment>
+                    ))}
                   </div>
                   {project.link ? (
                     <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">

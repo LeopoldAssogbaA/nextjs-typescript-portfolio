@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ButtonContainer, InfoContainer, MusicControllerContainer, NextButton, PlayButton, PreviousButton, SubContainer, TitleContainer } from './styled';
 import { IoPlaySkipBack, IoPlaySkipForwardSharp, IoPlay, IoPause } from "react-icons/io5";
@@ -12,6 +12,31 @@ const MusicController: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<HTMLAudioElement | undefined>(undefined);
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false);
   const [needleDown] = useState<HTMLAudioElement>(new Audio(NEEDLE_DOWN));
+  const [currentMusic, setCurrentMusic] = useState(MUSIC[currentDiscIndex]);
+
+  const handleUpdateText = (discIndex: number) => {
+    const tl = gsap.timeline();
+
+    tl.to(['.music-title', '.music-info', '.music-quote'], {
+      opacity: 0,
+      x: -150,
+      stagger: 0.02,
+      duration: 0.5,
+      delay: 2.5,
+      overwrite: 'auto'
+    })
+    .call(() => setCurrentMusic(MUSIC[discIndex]))
+    .to(['.music-title', '.music-info', '.music-quote'], {
+      opacity: 1,
+      x: 0,
+      stagger: 0.02,
+      duration: 0.5,
+    })
+
+    return () => {
+      tl.kill();
+    };
+  }
 
   const getPosition = (index: number, isDisc: boolean) => {
     const positions = [
@@ -176,6 +201,7 @@ const MusicController: React.FC = () => {
     needleDown.pause();
     const nextIndex = (currentDiscIndex + 1) % MUSIC.length;
     setCurrentDiscIndex(nextIndex);
+    handleUpdateText(nextIndex);
 
     if (isPlaying) {
       handleAudioPause();
@@ -194,6 +220,7 @@ const MusicController: React.FC = () => {
     needleDown.pause();
     const previousIndex = (currentDiscIndex - 1 + MUSIC.length) % MUSIC.length;
     setCurrentDiscIndex(previousIndex);
+    handleUpdateText(previousIndex);
 
     if (isPlaying) {
       handleAudioPause();
@@ -237,8 +264,6 @@ const MusicController: React.FC = () => {
       };
     }
   }, [currentTrack]);
-
-  const currentMusic = MUSIC[currentDiscIndex];
 
   return (
     <MusicControllerContainer>

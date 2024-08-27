@@ -40,12 +40,12 @@ export const VinylCover = styled.div`
     left: calc(50% + 50px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 3;
-    background-image: url(${tpab.src});
+    background-image: url(${rocky.src});
 }
   &.cover-5 {
     left: calc(50% + 100px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 2;
-    background-image: url(${rocky.src});
+    background-image: url(${tpab.src});
   }
 `;

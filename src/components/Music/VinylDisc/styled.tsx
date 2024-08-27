@@ -174,7 +174,7 @@ export const VinylDisc = styled.div`
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 3;
     &:before {
-      background-image: url(${tpab.src});
+      background-image: url(${rocky.src});
     }
   }
   &.disc-5 {
@@ -182,7 +182,7 @@ export const VinylDisc = styled.div`
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 2;
     &:before {
-      background-image: url(${rocky.src});
+      background-image: url(${tpab.src});
     }
   }
   &:before {

@@ -6,7 +6,6 @@ import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarker, FaPhone, FaU
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import SplitType from 'split-type';
 import { useTranslations } from 'next-intl';
 
 import { CONTACT } from '../../utils/constants';
@@ -18,20 +17,13 @@ const Contact: React.FC = () => {
   const t = useTranslations('Contact');
 
   useGSAP(() => {
-    const musicTitle = document.querySelector('.music-title');
-    const musicInfo = document.querySelector('.music-info');
-    const musicQuote = document.querySelector('.music-quote');
-    const textTitle = new SplitType(musicTitle as HTMLElement, { types: 'chars' });
-    const textInfo = new SplitType(musicInfo as HTMLElement, { types: 'chars' });
-    const textQuote = new SplitType(musicQuote as HTMLElement, { types: 'chars' });
-
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '.main-container',
         start: "top+=85% bottom",
         end: "bottom bottom",
         scrub: true,
-        toggleActions: 'play none none reverse',
+        toggleActions: 'play none reverse reset',
       },
     });
 
@@ -47,7 +39,7 @@ const Contact: React.FC = () => {
       }
     );
     discRevealTimeline.from(['.vinyl-cover', '.vinyl-disc'], {
-      left: -150,
+      left: -170,
       transform: 'rotate3d(0, 0, 0, 0deg) translateX(-50%)',
       stagger: 0.02,
     });
@@ -66,18 +58,13 @@ const Contact: React.FC = () => {
       opacity: 0,
       stagger: 0.02,
     });
-    discRevealTimeline.from(textTitle.chars, {
+
+    discRevealTimeline.from(['.music-title', '.music-info', '.music-quote'], {
       opacity: 0,
+      x: -150,
       stagger: 0.02,
-    });
-    discRevealTimeline.from(textInfo.chars, {
-      opacity: 0,
-      stagger: 0.02,
-    });
-    discRevealTimeline.from(textQuote.chars, {
-      opacity: 0,
-      stagger: 0.02,
-    });
+      duration: 0.5,
+    })
 
     contactTimeline.from('.contact-element-1', {
       clipPath: 'inset(0 0 100% 0)',

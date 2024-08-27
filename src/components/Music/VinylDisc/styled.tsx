@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import placeholderLogo from '../../../../public/static/images/placeholder-logo-1.png';
+import gh from '../../../../public/static/images/gh.jpg';
+import miki from '../../../../public/static/images/miki.jpeg';
+import hmc from '../../../../public/static/images/hmc.jpeg';
+import tpab from '../../../../public/static/images/tpab.jpeg';
+import rocky from '../../../../public/static/images/rocky.jpg';
 
 export const VinylDisc = styled.div`
   opacity: 0;
@@ -139,34 +143,48 @@ export const VinylDisc = styled.div`
   background-blend-mode: normal, normal, color-dodge, normal, normal;
   transform-style: preserve-3d;
 
-  top: 0;
+  bottom: 20px;
 
    &.disc-1 {
     left: calc(50% - 100px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 6;
+      &:before {
+        background-image: url(${gh.src});
+      }
   }
   &.disc-2 {
     left: calc(50% - 50px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 5;
+    &:before {
+      background-image: url(${miki.src});
+    }
   }
   &.disc-3 {
     left: 50%;
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 4;
+    &:before {
+      background-image: url(${hmc.src});
+    }
   }
   &.disc-4 {
     left: calc(50% + 50px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 3;
+    &:before {
+      background-image: url(${tpab.src});
+    }
   }
   &.disc-5 {
     left: calc(50% + 100px);
     transform: translateX(-50%) rotate3d(0, 1, 0, -50deg);
     z-index: 2;
+    &:before {
+      background-image: url(${rocky.src});
+    }
   }
-
   &:before {
     content: "";
     display: block;
@@ -178,7 +196,6 @@ export const VinylDisc = styled.div`
     margin-left: -15%;
     margin-top: -15%;
     border-radius: 100%;
-    background-image: url(${placeholderLogo.src});
     background-size: cover;
     // animation: spin 2s linear infinite;
   }

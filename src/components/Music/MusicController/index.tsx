@@ -1,132 +1,250 @@
 'use client'
 
-import React, { useState } from 'react';
-import { useGSAP } from '@gsap/react';
+import React, { useCallback, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ButtonContainer, InfoContainer, MusicControllerContainer, NextButton, PlayButton, PreviousButton, SubContainer, TitleContainer } from './styled';
 import { IoPlaySkipBack, IoPlaySkipForwardSharp, IoPlay, IoPause } from "react-icons/io5";
+import { MUSIC, NEEDLE_DOWN } from '../../..//utils/constants';
 
 const MusicController: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState();
+  const [currentDiscIndex, setCurrentDiscIndex] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState<HTMLAudioElement | undefined>(undefined);
+  const [isAnimationPlaying, setIsAnimationPlaying] = useState(false);
+  const [needleDown] = useState<HTMLAudioElement>(new Audio(NEEDLE_DOWN));
 
-  const getPosition = (index: number) => {
+  const getPosition = (index: number, isDisc: boolean) => {
     const positions = [
-      'calc(50% - 100px)',
-      'calc(50% - 50px)',
-      '50%',
-      'calc(50% + 50px)',
-      'calc(50% + 100px)'
+      `calc(50% - 100px${isDisc ? ' - 10px' : ''})`,
+      `calc(50% - 50px${isDisc ? ' - 10px' : ''})`,
+      isDisc ? 'calc(50% - 10px)' : '50%',
+      `calc(50% + 50px${isDisc ? ' - 10px' : ''})`,
+      `calc(50% + 100px${isDisc ? ' - 10px' : ''})`
     ];
-
     return positions[index] || '50%';
   };
 
+  const positionAllDisc = (callback: () => void) => {
+    gsap.to(['.vinyl-cover'], {
+      left: (index) => getPosition(index, true),
+      transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
+      zIndex: (index) => 6 - (index + 1),
+      duration: 0.75,
+      ease: 'back.inOut(2)',
+      delay: 1.6
+    });
+    gsap.to(['.vinyl-disc'], {
+      left: (index) => getPosition(index, false),
+      transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
+      zIndex: (index) => 6 - (index + 1),
+      duration: 0.75,
+      ease: 'back.inOut(2)',
+      delay: 1.6,
+      onComplete: () => {
+        setIsAnimationPlaying(false);
+        callback();
+      }
+    });
+  };
 
-  const handlePlay = () => {
-    const playTimeline = gsap.timeline();
-    const currentTrackTimeline = gsap.timeline({ delay: 0.5 });
+  const removeAllDisc = (discIndex: number, callback: () => void) => {
+    const removeAllTimeline = gsap.timeline({
+      onComplete: () => {
+        setIsAnimationPlaying(false);
+        callback();
+      }
+    });
+    const discClass = MUSIC[discIndex].key;
+    removeAllTimeline.to([
+      `.vinyl-cover:not(.cover-${discClass})`,
+      `.vinyl-disc:not(.disc-${discClass})`
+    ], {
+      left: '-500px',
+      transform: 'rotate3d(0, 1, 0, 50deg)',
+      duration: 0.75,
+      ease: 'back.inOut(2)'
+    });
+  };
+
+  const removeDisc = (discIndex: number, callback: () => void) => {
+    const removeTimeline = gsap.timeline({
+      onComplete: () => {
+        setIsAnimationPlaying(false);
+        callback();
+      }
+    });
+    const discClass = MUSIC[discIndex].key;
+    removeTimeline.to(`.disc-${discClass}`, {
+      animationPlayState: 'paused',
+      duration: 0.1,
+    });
+    removeTimeline.to(`.disc-${discClass}`, {
+      transform: 'rotateX(50deg) rotate(0deg)',
+      duration: 0.1,
+    });
+    removeTimeline.to(`.disc-${discClass}`, {
+      animation: 'none',
+      duration: 0.1,
+    });
+    removeTimeline.to(`.disc-${discClass}`, {
+      transform: 'rotate3d(1, 0, 0, 0deg)',
+      duration: 0.5,
+    });
+    removeTimeline.to(`.disc-${discClass}`, {
+      left: '12%',
+      duration: 0.5,
+    });
+    removeTimeline.to([`.cover-${discClass}`, `.disc-${discClass}`], {
+      left: '10%',
+      zIndex: 6,
+      transform: "rotate3d(0, 1, 0, -50deg)",
+      duration: 0.5
+    });
+    removeTimeline.to(`.disc-${discClass}`, {
+      left: '+=10px',
+      duration: 0.5,
+    });
+  };
+
+  const positionDisc = (discIndex: number, callback: () => void) => {
+    const positionTimeline = gsap.timeline({
+      onComplete: () => {
+        setIsAnimationPlaying(false);
+        callback();
+      }
+    });
+    const discClass = MUSIC[discIndex].key;
+    positionTimeline.to([`.cover-${discClass}`, `.disc-${discClass}`], {
+      top: '-=20px',
+      zIndex: 10,
+      duration: 0.5
+    });
+    positionTimeline.to([`.cover-${discClass}`, `.disc-${discClass}`], {
+      left: '10%',
+      top: '+=20px',
+      zIndex: 10,
+      transform: 'rotate3D(1, 1, 1, 0deg)',
+      duration: 0.5
+    });
+    positionTimeline.to(`.disc-${discClass}`, {
+      left: '50%',
+      duration: 0.5,
+    });
+    positionTimeline.to(`.disc-${discClass}`, {
+      left: '50%',
+      transform: 'rotate3d(1, 0, 0, -45deg)',
+      duration: 0.5,
+    });
+    positionTimeline.to(`.disc-${discClass}`, {
+      animation: 'spin 2s linear infinite',
+      duration: 0.1,
+    });
+  };
+
+  const handlePlayAnimation = (discIndex: number) => {
     if (!isPlaying) {
-      playTimeline.to(['.vinyl-cover:not(.cover-1)', '.vinyl-disc:not(.disc-1)'], {
-        left: '-500px',
-        transform: 'rotate3d(0, 1, 0, 50deg)',
-        duration: 0.75,
-        ease: 'back.inOut(2)'
-      });
-      currentTrackTimeline.to(['.cover-1', '.disc-1'], {
-        left: '10%',
-        zIndex: 10,
-        transform: 'rotate3D(1, 1, 1, 0deg)',
-        duration: 0.5
-      });
-      currentTrackTimeline.to('.disc-1', {
-        left: '50%',
-        duration: 0.5,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        left: '50%',
-        transform: 'rotate3d(1, 0, 0, -45deg)',
-        duration: 0.5,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        animation: 'spin 2s linear infinite',
-        duration: 0.1,
-      });
-      setIsPlaying(true);
+      removeAllDisc(discIndex, () => console.log("all disc remove"));
+      positionDisc(discIndex, () => console.log("disc position"));
     } else {
+      removeDisc(discIndex, () => console.log("disc remove"));
+      positionAllDisc(() => console.log("all disc position"));
+    }
+  };
 
-      const currentTrackTimeline = gsap.timeline();
-      currentTrackTimeline.to('.disc-1', {
-        animationPlayState: 'paused',
-        duration: 0.1,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        transform: 'rotateX(50deg) rotate(0deg)',
-        duration: 0.1,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        animation: 'none',
-        duration: 0.1,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        transform: 'rotate3d(1, 0, 0, 0deg)',
-        duration: 0.5,
-      });
-      currentTrackTimeline.to('.disc-1', {
-        left: '12%',
-        duration: 0.5,
-      });
-      currentTrackTimeline.to(['.cover-1', '.disc-1'], {
-        left: '10%',
-        zIndex: 6,
-        transform: "rotate3d(0, 1, 0, -50deg)",
-        duration: 0.5
-      });
-      currentTrackTimeline.to('.disc-1', {
-        left: '+=10px',
-        duration: 0.5,
-      });
-      gsap.to(['.vinyl-cover'], {
-        left: (index) => getPosition(index),
-        transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
-        zIndex: (index) => 6 - (index + 1),
-        duration: 0.75,
-        ease: 'back.inOut(2)',
-        delay: 1.6
-      });
-      gsap.to(['.vinyl-disc'], {
-        left: (index) => getPosition(index),
-        transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
-        zIndex: (index) => 6 - (index + 1),
-        duration: 0.75,
-        ease: 'back.inOut(2)',
-        delay: 1.6
-      });
+  const handleAudioPlay = (discIndex: number) => {
+    const newTrack = new Audio(MUSIC[discIndex].audio);
+    setCurrentTrack(newTrack);
+  };
 
-      setIsPlaying(false);
+  const handleAudioPause = () => {
+    currentTrack?.pause();
+    setCurrentTrack(undefined);
+    setIsPlaying(false);
+    needleDown.pause();
+    needleDown.currentTime = 0;
+  };
+
+  const handleAudio = (discIndex: number) => {
+    if (!isPlaying) {
+      handleAudioPlay(discIndex);
+    } else {
+      handleAudioPause();
     }
   };
 
   const onNext = () => {
-    console.log('next');
+    needleDown.pause();
+    const nextIndex = (currentDiscIndex + 1) % MUSIC.length;
+    setCurrentDiscIndex(nextIndex);
+
+    if (isPlaying) {
+      handleAudioPause();
+      removeDisc(currentDiscIndex, () => {
+        handleAudioPlay(nextIndex);
+        positionDisc(nextIndex, () => console.log("disc position"));
+        removeAllDisc(nextIndex, () => console.log("all disc remove"));
+      });
+    } else {
+      handlePlayAnimation(nextIndex);
+      handleAudio(nextIndex);
+    }
   };
-  const onPlay = () => {
-    console.log('play');
-    setIsPlaying(s => !s);
-    handlePlay();
-  };
+
   const onPrevious = () => {
-    console.log('previous');
+    needleDown.pause();
+    const previousIndex = (currentDiscIndex - 1 + MUSIC.length) % MUSIC.length;
+    setCurrentDiscIndex(previousIndex);
+
+    if (isPlaying) {
+      handleAudioPause();
+      removeDisc(currentDiscIndex, () => {
+        handleAudioPlay(previousIndex);
+        positionDisc(previousIndex, () => console.log("disc position"));
+        removeAllDisc(previousIndex, () => console.log("all disc remove"));
+      });
+    } else {
+      handlePlayAnimation(previousIndex);
+      handleAudio(previousIndex);
+    }
   };
-  useGSAP(() => {
-    // Ajoutez vos animations GSAP ici
-  }, []);
+
+  const onPlay = () => {
+    if (isAnimationPlaying) return;
+    setIsAnimationPlaying(true);
+    handlePlayAnimation(currentDiscIndex);
+    handleAudio(currentDiscIndex);
+  };
+
+  useEffect(() => {
+    if (currentTrack && (isPlaying || !isPlaying)) {
+      const timeout = setTimeout(() => {
+        currentTrack.play();
+        needleDown.play();
+        setIsPlaying(true);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentTrack, needleDown, isPlaying]);
+
+  useEffect(() => {
+    if (currentTrack) {
+      const handleEnded = () => {
+        onNext();
+      };
+      currentTrack.addEventListener('ended', handleEnded);
+      return () => {
+        currentTrack.removeEventListener('ended', handleEnded);
+      };
+    }
+  }, [currentTrack]);
+
+  const currentMusic = MUSIC[currentDiscIndex];
 
   return (
     <MusicControllerContainer>
       <SubContainer>
-        <TitleContainer className='music-title'>Title</TitleContainer>
-        <InfoContainer className='music-info'>Info sur le titre en cours qui doit etre affiché et tenir sur une seule ligne</InfoContainer>
+        <TitleContainer className='music-title'>{currentMusic.title}</TitleContainer>
+        <InfoContainer className='music-info'>{currentMusic.artist}</InfoContainer>
         <ButtonContainer>
           <PreviousButton className='previous button hover-effect' onClick={onPrevious}>
             <IoPlaySkipBack />
@@ -134,14 +252,14 @@ const MusicController: React.FC = () => {
           </PreviousButton>
           <PlayButton className='play button hover-effect' onClick={onPlay}>
             {isPlaying ? <IoPause /> : <IoPlay />}
-             <span>{isPlaying ? 'Pause' : 'Play'} </span>
+            <span>{isPlaying ? 'Pause' : 'Play'} </span>
           </PlayButton>
           <NextButton className='next button hover-effect' onClick={onNext}>
             <IoPlaySkipForwardSharp />
             <span>Next</span>
           </NextButton>
         </ButtonContainer>
-        <h5 className='music-quote'>Une sélection musicale pour mieux me connaître</h5>
+        <h5 className='music-quote'>{currentMusic.quote}</h5>
       </SubContainer>
     </MusicControllerContainer>
   );

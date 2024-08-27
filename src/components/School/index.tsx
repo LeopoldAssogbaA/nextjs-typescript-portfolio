@@ -126,7 +126,7 @@ const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) 
     gsap.to(".school-text-1",
       {
         opacity: 0,
-        y: "-200px",
+        y: "-100vh",
         scrollTrigger: {
           trigger: ".main-container",
           start: "top+=53% bottom-=20%",
@@ -184,7 +184,7 @@ const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) 
     gsap.to(".school-text-2",
       {
         opacity: 0,
-        y: "-200px",
+        y: "-100vh",
         scrollTrigger: {
           trigger: ".main-container",
           start: "top+=63% bottom-=20%",

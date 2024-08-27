@@ -5,6 +5,7 @@ html, body {
 
 * {
   cursor: none !important;
+  /* scroll-behavior: smooth !important; */
 }
 
 :root {

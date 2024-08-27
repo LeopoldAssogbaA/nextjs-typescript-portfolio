@@ -6,7 +6,8 @@ import { useGSAP } from '@gsap/react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
-const About: React.FC = () => {
+
+const About: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurrentStep }) => {
   const t = useTranslations('About');
 
   useGSAP(() => {
@@ -28,14 +29,20 @@ const About: React.FC = () => {
           start: 'top+=15% center',
           end: 'top+=30% bottom-=37.5%',
           scrub: true,
-          toggleActions: 'play play reverse reverse'
+          toggleActions: 'play play reverse reverse',
+          onEnter: () => {
+            setCurrentStep(1);
+          },
+          onLeaveBack: () => {
+            setCurrentStep(0);
+          }
         }
       });
   }, []);
 
   return (
     <>
-      <AboutContainer className="about-presentation about">
+      <AboutContainer className="about-presentation about" id="about">
         <p className="about-text p-1">
           {t('paragraph-one')}
         </p>

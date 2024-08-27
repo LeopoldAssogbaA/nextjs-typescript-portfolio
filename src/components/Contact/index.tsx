@@ -13,7 +13,7 @@ import MusicPlayer from '../Music/MusicPlayer';
 import InfoReveal from './infoReveal';
 import { ContactContainer, ContactElement, ContactGrid, ContactContent } from './styled';
 
-const Contact: React.FC = () => {
+const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurrentStep }) => {
   const t = useTranslations('Contact');
 
   useGSAP(() => {
@@ -24,6 +24,12 @@ const Contact: React.FC = () => {
         end: "bottom bottom",
         scrub: true,
         toggleActions: 'play none reverse reset',
+        onEnter: () => {
+          setCurrentStep(4);
+        },
+        onLeaveBack: () => {
+          setCurrentStep(3);
+        }
       },
     });
 

@@ -32,7 +32,7 @@ const skillsIcons = {
 };
 
 
-const Work = () => {
+const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) => {
   const t = useTranslations("Work");
   useGSAP(() => {
     const workTimelineOne = gsap.timeline({
@@ -42,6 +42,12 @@ const Work = () => {
         end: "top+=69% center",
         scrub: true,
         toggleActions: 'play play reverse reverse',
+        onEnter: () => {
+          setCurrentStep(3);
+        },
+        onLeaveBack: () => {
+          setCurrentStep(2);
+        }
       },
     });
     const workTimelineTwo = gsap.timeline({

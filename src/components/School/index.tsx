@@ -24,7 +24,7 @@ const skillsIcons = {
   flutter: <SiFlutter />,
 };
 
-const School = () => {
+const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) => {
   const t = useTranslations("School");
   useGSAP(() => {
     const schoolCardTimeline = gsap.timeline({
@@ -33,6 +33,12 @@ const School = () => {
         start: "top+=45% bottom-=20%",
         end: "top+=65% center",
         scrub: true,
+        onEnter: () => {
+          setCurrentStep(2);
+        },
+        onLeaveBack: () => {
+          setCurrentStep(1);
+        }
       },
     });
 

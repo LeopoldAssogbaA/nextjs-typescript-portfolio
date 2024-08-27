@@ -21,6 +21,8 @@ import RevealTransition from './Shared/RevealTransition';
 const PortfolioContainer: React.FC = () => {
   const [init, setInit] = useState(false);
   const [documentLoaded, setDocumentLoaded] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
 
   useEffect(() => {
     if (document.readyState === 'complete') {
@@ -45,14 +47,14 @@ const PortfolioContainer: React.FC = () => {
     <MainContainer className='main-container' id='main-container'>
       <RevealTransition />
       <Cursor />
-      <Menu init={init} />
+      <Menu init={init} currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <Languages />
       <LandingPage setInit={setInit} init={init} documentLoaded={documentLoaded} />
-      <About />
+      <About setCurrentStep={setCurrentStep} />
       <PageTransition />
-      <School />
-      <Work />
-      <Contact />
+      <School setCurrentStep={setCurrentStep} />
+      <Work setCurrentStep={setCurrentStep} />
+      <Contact setCurrentStep={setCurrentStep} />
     </MainContainer>
   );
 }

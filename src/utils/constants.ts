@@ -121,6 +121,21 @@ export const WORKS = [
 export const CONTACT = {
   email: 'leopoldassogba21@gmail.com',
   github: 'https://github.com/LeopoldAssogbaA',
+  githubPortfolio: 'https://github.com/LeopoldAssogbaA/nextjs-typescript-portfolio',
+  githubProjects: [
+    {
+      name: 'Portfolio v1',
+      url: 'https://github.com/LeopoldAssogbaA/portfolio'
+    },
+    {
+      name: 'Back-office',
+      url: 'https://github.com/LeopoldAssogbaA/backOfficeCN'
+    },
+    {
+      name: 'Interface utilisateur',
+      url: 'https://github.com/LeopoldAssogbaA/UserInterfaceAW'
+    }
+  ],
   phone: '06 12 34 56 78',
   address: 'Région Lyonnaise, France',
   letter: 'recommendation-letter',

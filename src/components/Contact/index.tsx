@@ -214,7 +214,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
             </Link>
             <div className='github-projects-container'>
               <div className="portfolio-repo">
-                <Link href={CONTACT.github} className='github-link hover-effect'>
+                <Link href={CONTACT.githubPortfolio} className='github-link hover-effect'>
                   <RiGitRepositoryLine />
                   <span>
                     {t('portfolio')}
@@ -227,12 +227,12 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
             <div className='github-projects'>
               <h3>{t('github-projects')}</h3>
               <ul>
-                {['1', '2', '3'].map((project, index) => (
+                {CONTACT.githubProjects.map((project, index) => (
                   <li key={index}>
-                    <Link href={`/projects/${project}`} className='github-project-link hover-effect'>
+                    <Link href={project.url} className='github-project-link hover-effect'>
                       <RiGitRepositoryLine />
                       <span>
-                        projet {project}
+                        {project.name}
                       </span>
                     </Link>
                   </li>

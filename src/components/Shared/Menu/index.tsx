@@ -34,14 +34,19 @@ const Menu: React.FC<{ init: boolean, currentStep: number, setCurrentStep: (step
   };
 
   const handleStep = (step: any) => {
+    let duration = 1.5;
+    const ecart = Math.abs(step.position - (currentStep + 1));
+    if (ecart === 0) return;
+
+    duration = ecart > 1 ? duration + (ecart * 0.5) : duration;
     setCurrentStep(STEPS.indexOf(step));
+    const windowHeight = window.document.documentElement.clientHeight
     const stepPosition = STEPS.find(s => s.name === step.name)?.position;
     if (!stepPosition) return;
-    const windowHeight = window.document.documentElement.clientHeight
-    let scrollPosition =  (windowHeight * stepPosition) - windowHeight;
-    if (stepPosition === 3 ) scrollPosition -= (windowHeight * 0.15);
-    if (stepPosition === 4 ) scrollPosition -= (windowHeight * 0.35);
-    gsap.to(window, { duration: 1.5, scrollTo: scrollPosition, ease: 'power1.out' });
+    let scrollPosition = (windowHeight * stepPosition) - windowHeight;
+    if (stepPosition === 3) scrollPosition -= (windowHeight * 0.15);
+    if (stepPosition === 4) scrollPosition -= (windowHeight * 0.35);
+    gsap.to(window, { duration, scrollTo: scrollPosition, ease: 'power1.out' });
   }
 
   return (

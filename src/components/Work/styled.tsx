@@ -43,7 +43,7 @@ export const WorkTextContainer = styled.div`
   .title-container {
     display: flex;
     justify-content: end;
-    margin: 0 0 16px 0;
+    margin: 0 0 8px 0;
 
     a {
       display: flex;
@@ -65,7 +65,7 @@ export const WorkTextContainer = styled.div`
 
   .description-container-1, .description-container-2 {
     p {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   }
 `;
@@ -118,8 +118,8 @@ export const ProjectContainer = styled.div`
 
   .project-technologies {
     svg {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       margin-left: 8px;
     }
   }
@@ -145,12 +145,17 @@ export const ProjectContainer = styled.div`
       margin-right: 8px;
     }
   }
+    .project-image {
+      svg {
+        font-size: 50px;
+      }
+    }
     
    img {
       margin-right: 8px;
       border-radius: 8px;
-      width: 75px;
-      height: 75px;
+      width: auto;
+      height: 50px;
       object-fit: cover;
       object-position: center;
     }

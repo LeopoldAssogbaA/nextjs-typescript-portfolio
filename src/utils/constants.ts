@@ -57,25 +57,33 @@ export const WORKS = [
         title: "project-1",
         description: "project-1-descr",
         technologies: ["symfony", "doctrine", "react"],
-        link: null
+        link: null,
+        logo: "/static/images/rolandgarros.svg",
+        icon: null,
       },
       {
         title: "project-2",
         description: "project-2-descr",
         technologies: ["symfony", "doctrine", "js"],
-        link: "https://www.mapar.org/"
+        link: "https://www.mapar.org/",
+        logo: "/static/images/mapar.png",
+        icon: null,
       },
       {
         title: "project-3",
         description: "project-3-descr",
         technologies: ["nodejs", "featherjs", "react"],
-        link: null
+        link: null,
+        logo: null,
+        icon: "visio",
       },
       {
         title: "project-4",
         description: "project-4-descr",
         technologies: ["symfony", "doctrine", "react"],
-        link: "https://abcell-bio.com/fr/"
+        link: "https://abcell-bio.com/fr/",
+        logo: "/static/images/abcellbio.png",
+        icon: null,
       }
     ]
   },
@@ -83,6 +91,7 @@ export const WORKS = [
     key: "webcastor",
     company: "Webcastor",
     companyLink: "https://webcastor.fr/",
+    companyLogo: "/static/images/streamfizz.png",
     description: [
       "p1",
       "p2",
@@ -93,25 +102,33 @@ export const WORKS = [
         title: "project-1",
         description: "project-1-descr",
         technologies: ["antdesign", "react", "graphql", "sentry"],
-        link: "https://www.streamfizz.com/"
+        link: "https://www.streamfizz.com/",
+        logo: "/static/images/streamfizz.png",
+        icon: null,
       },
       {
         title: "project-2",
         description: "project-2-descr",
         technologies: ["antdesign", "nextjs", "graphql", "sentry"],
-        link: "https://www.streamfizz.com/plateforme-streamfizz/player/"
+        link: "https://www.streamfizz.com/plateforme-streamfizz/player/",
+        icon: "ondemandvideo",
+        logo: null,
       },
       {
         title: "project-3",
         description: "project-3-descr",
         technologies: ["redis", "nodejs", "sentry", "docker", "kubernetes", "scaleway"],
-        link: null
+        link: null,
+        icon: "server",
+        logo: null,
       },
       {
         title: "project-4",
         description: "project-4-descr",
         technologies: ["redis", "nodejs", "graphql", "prisma", "sentry", "docker", "kubernetes", "scaleway"],
-        link: null
+        link: null,
+        logo: null,
+        icon: "api",
       }
     ]
   }

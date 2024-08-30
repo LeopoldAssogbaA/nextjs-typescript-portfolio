@@ -5,10 +5,12 @@ import { ProjectContainer, WorkContainer, WorkElement, WorkTextContainer } from 
 import placeholder from '../../../public/static/images/placeholder-logo-1.png';
 import Link from 'next/link';
 import { HiOutlineExternalLink as HiOutlineExternalLinkIcon } from 'react-icons/hi';
-import { FaAngular, FaFeather, FaJs, FaNodeJs, FaPhp, FaReact, FaSymfony, FaDocker } from 'react-icons/fa';
-import { SiSymfony, SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine } from 'react-icons/si';
+import { FaAngular, FaFeather, FaNodeJs, FaReact, FaSymfony, FaDocker } from 'react-icons/fa';
+import { SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine } from 'react-icons/si';
 import { DiRedis } from "react-icons/di";
-
+import { MdOndemandVideo } from "react-icons/md";
+import { TbApi, TbServerCog } from "react-icons/tb";
+import { BsPersonVideo3 } from "react-icons/bs";
 import { RiNextjsFill } from "react-icons/ri";
 import { WORKS } from '../../utils/constants';
 import { useTranslations } from 'next-intl';
@@ -29,6 +31,10 @@ const skillsIcons = {
   scaleway: <SiScaleway />,
   doctrine: <SiDoctrine />,
   featherjs: <FaFeather />,
+  server: <TbServerCog />,
+  api: <TbApi />,
+  ondemandvideo: <MdOndemandVideo />,
+  visio: <BsPersonVideo3 />,
 };
 
 
@@ -162,7 +168,11 @@ const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) =>
                 <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
                 <div className="project-infos-container">
                   <div className="project-image">
-                    <img src={placeholder.src} alt={project.title} />
+                    {project.icon ? (
+                      skillsIcons[project.icon as keyof typeof skillsIcons]
+                    ) : (
+                      <img src={project.logo as string} alt={project.title} />
+                    )}
                   </div>
                   <div className="project-technologies">
                     {project.technologies.map((technology, index) => (
@@ -190,7 +200,11 @@ const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) =>
                 <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
                 <div className="project-infos-container">
                   <div className="project-image">
-                    <img src={placeholder.src} alt={project.title} />
+                    {project.icon ? (
+                      skillsIcons[project.icon as keyof typeof skillsIcons]
+                    ) : (
+                      <img src={project.logo as string} alt={project.title} />
+                    )}
                   </div>
                   <div className="project-technologies">
                     {project.technologies.map((technology, index) => (

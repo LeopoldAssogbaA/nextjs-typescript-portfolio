@@ -31,12 +31,16 @@ export const SchoolCard = styled.div`
   -webkit-backdrop-filter: blur(5px);
   color: var(--color-deep-blue);
   padding: 8px;
-  font-size: 1.1em;
+  font-size: 1em;
+
   &:nth-child(1) {
     z-index: 3;
   }
   &:nth-child(2) {
     z-index: 4;
+  }
+  p {
+    color: var(--color-deep-blue);
   }
 
   h3 {

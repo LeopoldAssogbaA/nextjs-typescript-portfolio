@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import validator from 'validator';
 
 interface InfoItem {
   icon: React.ReactNode;
@@ -16,11 +17,12 @@ interface InfoRevealProps {
 }
 
 
-const LinkComponent = ({ item, isEmail }: { item: InfoItem, isEmail: boolean }) => {
+const LinkComponent = ({ item }: { item: InfoItem }) => {
   const t = useTranslations("Contact");
   if (!item.link) {
     return null;
   }
+  const isEmail = validator.isEmail(item.link);
 
   const handleEmailClick = (email: string) => {
     const subject = encodeURIComponent(t(item.emailText));
@@ -57,14 +59,12 @@ const LinkComponent = ({ item, isEmail }: { item: InfoItem, isEmail: boolean }) 
 const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const isEmail = items.some(item => item.emailText);
-
   if (isVisible) {
     return (
       <div className='info-reveal'>
         {items.map((item, index) => {
           return item.link ? (
-            <LinkComponent key={index} item={item} isEmail={isEmail} />
+            <LinkComponent key={index} item={item} />
           ) : (
             <div key={index} className='info-item'>
               {item.icon}

@@ -85,6 +85,11 @@
     "play": "Play",
     "pause": "Pause",
     "next": "Next",
-    "music-discovery": "A musical selection to get to know me better"
+    "music-discovery": "A musical selection to get to know me better",
+    "music-quote-1": "I'm a drummer, here's one of the bands I've played in.",
+    "music-quote-2": "I'm currently learning Japanese.",
+    "music-quote-3": "I'm passionate about Japanese animation.",
+    "music-quote-4": "I've practiced Muay Thai and kickboxing",
+    "music-quote-5": "Can you spot me in the live video of \"The Big Stepper Tour\"?"
   }
 }

@@ -18,6 +18,8 @@ const MusicController: React.FC = () => {
   const [currentMusic, setCurrentMusic] = useState(MUSIC[currentDiscIndex]);
   const t = useTranslations('Music');
 
+  const hoverClass = isAnimationPlaying ? '' : 'hover-effect';
+
   const handleUpdateText = (discIndex: number) => {
     const tl = gsap.timeline();
 
@@ -54,6 +56,7 @@ const MusicController: React.FC = () => {
   };
 
   const positionAllDisc = (callback: () => void) => {
+    setIsAnimationPlaying(true);
     gsap.to(['.vinyl-cover'], {
       left: (index) => getPosition(index, true),
       transform: 'rotate3d(0, 1, 0, -50deg) translateX(-50%)',
@@ -77,6 +80,7 @@ const MusicController: React.FC = () => {
   };
 
   const removeAllDisc = (discIndex: number, callback: () => void) => {
+    setIsAnimationPlaying(true);
     const removeAllTimeline = gsap.timeline({
       onComplete: () => {
         setIsAnimationPlaying(false);
@@ -96,6 +100,7 @@ const MusicController: React.FC = () => {
   };
 
   const removeDisc = (discIndex: number, callback: () => void) => {
+    setIsAnimationPlaying(true);
     const removeTimeline = gsap.timeline({
       onComplete: () => {
         setIsAnimationPlaying(false);
@@ -136,6 +141,7 @@ const MusicController: React.FC = () => {
   };
 
   const positionDisc = (discIndex: number, callback: () => void) => {
+    setIsAnimationPlaying(true);
     const positionTimeline = gsap.timeline({
       onComplete: () => {
         setIsAnimationPlaying(false);
@@ -202,6 +208,7 @@ const MusicController: React.FC = () => {
   };
 
   const onNext = () => {
+    if (isAnimationPlaying) return;
     needleDown.pause();
     const nextIndex = (currentDiscIndex + 1) % MUSIC.length;
     setCurrentDiscIndex(nextIndex);
@@ -221,6 +228,7 @@ const MusicController: React.FC = () => {
   };
 
   const onPrevious = () => {
+    if (isAnimationPlaying) return;
     needleDown.pause();
     const previousIndex = (currentDiscIndex - 1 + MUSIC.length) % MUSIC.length;
     setCurrentDiscIndex(previousIndex);
@@ -241,7 +249,7 @@ const MusicController: React.FC = () => {
 
   const onPlay = () => {
     if (isAnimationPlaying) return;
-    setIsAnimationPlaying(true);
+    // setIsAnimationPlaying(true);
     handlePlayAnimation(currentDiscIndex);
     handleAudio(currentDiscIndex);
   };
@@ -269,22 +277,24 @@ const MusicController: React.FC = () => {
     }
   }, [currentTrack]);
 
+
+
   return (
     <MusicControllerContainer>
       <SubContainer>
         <TitleContainer className='music-title'>{currentMusic.title}</TitleContainer>
         <InfoContainer className='music-info'>{currentMusic.artist}</InfoContainer>
-        <h5 className='music-quote'>{currentMusic.quote}</h5>
+        <h5 className='music-quote'>{t(currentMusic.quote)}</h5>
         <ButtonContainer>
-          <PreviousButton className='previous button hover-effect' onClick={onPrevious}>
+          <PreviousButton className={`previous button ${hoverClass}`} onClick={onPrevious}>
             <IoPlaySkipBack />
             <span>{t('previous')}</span>
           </PreviousButton>
-          <PlayButton className='play button hover-effect' onClick={onPlay}>
+          <PlayButton className={`play button ${hoverClass}`} onClick={onPlay}>
             {isPlaying ? <IoPause /> : <IoPlay />}
             <span>{isPlaying ? t('pause') : t('play')} </span>
           </PlayButton>
-          <NextButton className='next button hover-effect' onClick={onNext}>
+          <NextButton className={`next button ${hoverClass}`} onClick={onNext}>
             <IoPlaySkipForwardSharp />
             <span>{t('next')}</span>
           </NextButton>

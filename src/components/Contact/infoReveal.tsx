@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { IconType } from 'react-icons';
 
 interface InfoItem {
-  icon: IconType;
+  icon: React.ReactNode;
   text: string;
   link?: string;
 }
@@ -11,17 +10,16 @@ interface InfoItem {
 interface InfoRevealProps {
   items: InfoItem[];
   buttonText: string;
-  buttonIcon: IconType;
+  buttonIcon: React.ReactNode;
 }
 
-const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: ButtonIcon }) => {
+const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   if (isVisible) {
     return (
       <div className='info-reveal'>
         {items.map((item, index) => {
-          const ItemIcon = item.icon;
           return item.link ? (
             <Link
               key={index}
@@ -31,12 +29,12 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: 
               rel='noopener noreferrer'
               {...(item.link.includes('static/files') && { download: true })}
             >
-              <ItemIcon />
+              {item.icon}
               <span>{item.text}</span>
             </Link>
           ) : (
             <div key={index} className='info-item'>
-              <ItemIcon />
+              {item.icon}
               <span>{item.text}</span>
             </div>
           );
@@ -50,7 +48,7 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon: 
       className='info-button hover-effect'
       onClick={() => setIsVisible(true)}
     >
-      <ButtonIcon />
+      {buttonIcon}
       {buttonText}
     </button>
   );

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const LanguageContainer = styled.div`
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 11px;
+  right: 6px;
   z-index: 3;
 `;
 
@@ -22,7 +22,7 @@ export const LanguageButton = styled.button`
   mix-blend-mode: difference;
   border: none;
   color: var(--color-deep-blue);
-  font-size: 1em;
+  font-size: 1.1em;
   width: auto;
   transition: all 0.2s ease;
   position: relative;

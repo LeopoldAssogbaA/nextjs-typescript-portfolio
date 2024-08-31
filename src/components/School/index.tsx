@@ -5,24 +5,9 @@ import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import SplitType from "split-type";
 import { useTranslations } from "next-intl";
-
 import { SchoolCard, SchoolCardContainer, SchoolContainer, SchoolText } from "./styled";
-import { HiOutlineExternalLink as HiOutlineExternalLinkIcon } from "react-icons/hi";
-import { FaAngular, FaSymfony, FaNodeJs, FaReact, FaDocker } from 'react-icons/fa';
-import { SiFlutter } from 'react-icons/si';
-
-import { SCHOOLS } from "../../utils/constants";
-
-type SkillIconKey = keyof typeof skillsIcons;
-
-const skillsIcons = {
-  angular: <FaAngular />,
-  symfony: <FaSymfony />,
-  nodejs: <FaNodeJs />,
-  react: <FaReact />,
-  docker: <FaDocker />,
-  flutter: <SiFlutter />,
-};
+import ICONS from "../../utils/constants/icons";
+import SCHOOLS from "../../utils/constants/schools";
 
 const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) => {
   const t = useTranslations("School");
@@ -210,7 +195,7 @@ const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) 
               <div className="school-icons-container">
                 {school.skills.map((skill, index) => {
                   return (
-                    <div key={index} className={`school-icons school-icons-${schoolIndex + 1}`}>{skillsIcons[skill as SkillIconKey]}</div>
+                    <div key={index} className={`school-icons school-icons-${schoolIndex + 1}`}>{skill}</div>
                   )
                 })}
               </div>
@@ -231,7 +216,7 @@ const School = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) 
                   rel="noopener noreferrer"
                   className="school-card-link hover-effect"
                 >
-                  <HiOutlineExternalLinkIcon />
+                  {ICONS.externalLink}
                   <span>{t('more')}</span>
                 </Link>
               </div>

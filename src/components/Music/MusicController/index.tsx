@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ButtonContainer, InfoContainer, MusicControllerContainer, NextButton, PlayButton, PreviousButton, SubContainer, TitleContainer } from './styled';
 import { IoPlaySkipBack, IoPlaySkipForwardSharp, IoPlay, IoPause } from "react-icons/io5";
-import { MUSIC, NEEDLE_DOWN } from '../../..//utils/constants';
+import MUSIC from '../../../utils/constants/music';
+
+const NEEDLE_DOWN = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/vinyl_needle_down_edit.mp3';
 
 const MusicController: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);

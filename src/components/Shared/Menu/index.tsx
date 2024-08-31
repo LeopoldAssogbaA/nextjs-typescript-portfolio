@@ -3,7 +3,8 @@ import gsap from 'gsap';
 import React, { useState } from 'react';
 import { MainNav, Step } from './styled';
 import { useTranslations } from 'next-intl';
-import { STEPS } from '../../../utils/constants';
+
+import STEPS from '../../../utils/constants/steps';
 
 const Menu: React.FC<{ init: boolean, currentStep: number, setCurrentStep: (step: number) => void }> = ({ init, currentStep, setCurrentStep }) => {
   const t = useTranslations('Menu');

@@ -20,19 +20,18 @@ export const Step = styled.li`
   background: transparent;
   mix-blend-mode: difference;
   z-index: 3;
-  margin: 6px 0;
+  margin: 6px 1em 6px 0;
   opacity: 0;
   display: flex;
   align-items: center;
   justify-content: start;
   width: 150px;
   line-height: 1.5em;
-  font-size: 1.3em;
+  font-size: 1.2em;
   transition: all 0.2s ease;
   color: var(--color-deep-blue);
   width: auto;
   height: auto;
-  margin-right: 1em;
 
   &:first-of-type {
     margin-left: 1em;

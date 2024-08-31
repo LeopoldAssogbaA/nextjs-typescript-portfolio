@@ -50,13 +50,13 @@
     "webcastor-descr-p2": "Au sein de l'équipe, j'ai notamment réalisé le transfert de près de 30To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jour et l'ordonnancement des données métier. J'ai également été impliqué dans des projets transverses intervenant sur plusieurs micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.",
     "webcastor-descr-p3": "Mon implication et ma force de proposition m'ont permis de rapidement prendre en charge des tâches en autonomie, avec des refontes complètes d'interfaces et de fonctionnalités.",
     "webcastor-project-1": "Streamfizz - Backoffice",
-    "webcastor-project-1-descr": "Plateforme de gestion de contenu média et de direct. Création de webtvs, playlist et paramétrage de l'interface du player ainsi que des options de confidentialité.",
+    "webcastor-project-1-descr": "Plateforme de gestion des contenus.",
     "webcastor-project-2": "Streamfizz - Player vidéo",
-    "webcastor-project-2-descr": "Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct. Le player intègre plusieurs fonctionnalités comme des chats en direct ou des modules interactifs.",
+    "webcastor-project-2-descr": "Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct.",
     "webcastor-project-3": "Streamfizz - Orchestrateur & Transcodeur vidéo",
     "webcastor-project-3-descr": "Deux micro-services permettant de gérer l'orchestration des tâches de transcodage ainsi que leur exécution.",
     "webcastor-project-4": "Streamfizz - API",
-    "webcastor-project-4-descr": "Au cœur de la plateforme, cette API gère de manière sécurisée les diverses données essentielles au bon fonctionnement du service.",
+    "webcastor-project-4-descr": "L'API gère de manière sécurisée les diverses données essentielles du service.",
     "webcastor-link-label": "En savoir plus"
   },
   "Contact": {

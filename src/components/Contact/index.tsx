@@ -2,16 +2,15 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarker, FaPhone, FaUser } from "react-icons/fa";
-import { RiGitRepositoryLine } from "react-icons/ri";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
-
-import { CONTACT } from '../../utils/constants';
 import MusicPlayer from '../Music/MusicPlayer';
 import InfoReveal from './infoReveal';
 import { ContactContainer, ContactElement, ContactGrid, ContactContent } from './styled';
+
+import ICONS from '../../utils/constants/icons';
+import CONTACT from '../../utils/constants/contact';
 
 const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurrentStep }) => {
   const t = useTranslations('Contact');
@@ -109,7 +108,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
               target='_blank'
               rel='noopener noreferrer'
             >
-              <FaDownload />
+              {ICONS.download}
               <span>{t('download-resume')}</span>
             </Link>
           </ContactContent>
@@ -117,21 +116,21 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
             <h2>{t('contact-info')}</h2>
             <InfoReveal
               items={[
-                { icon: FaPhone, text: CONTACT.phone, link: `tel:${CONTACT.phone}` }
+                { icon: CONTACT.phoneIcon, text: CONTACT.phone, link: `tel:${CONTACT.phone}` }
               ]}
               buttonText={t('show-phone')}
-              buttonIcon={FaPhone}
+              buttonIcon={ICONS.phone}
             />
 
             <InfoReveal
               items={[
-                { icon: FaEnvelope, text: CONTACT.email, link: `mailto:${CONTACT.email}` }
+                { icon: CONTACT.emailIcon, text: CONTACT.email, link: `mailto:${CONTACT.email}` }
               ]}
               buttonText={t('show-email')}
-              buttonIcon={FaEnvelope}
+              buttonIcon={CONTACT.emailIcon}
             />
             <div>
-              <FaMapMarker />
+              {ICONS.mapMarker}
               <span>
                 {CONTACT.address}
               </span>
@@ -150,7 +149,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
               target='_blank'
               rel='noopener noreferrer'
             >
-              <FaLinkedin />
+              {ICONS.linkedin}
               <span>
                 {t('linkedin')}
               </span>
@@ -169,13 +168,13 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
                 </div>
                 <InfoReveal
                   items={[
-                    { icon: FaDownload, text: t(CONTACT.letter), link: CONTACT.references[0].letter },
-                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin },
-                    { icon: FaEnvelope, text: CONTACT.references[0].email, link: `mailto:${CONTACT.references[0].email}` },
-                    { icon: FaPhone, text: CONTACT.references[0].phone, link: `tel:${CONTACT.references[0].phone}` },
+                    { icon: ICONS.download, text: t(CONTACT.letter), link: CONTACT.references[0].letter },
+                    { icon: ICONS.linkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin },
+                    { icon: ICONS.envelope, text: CONTACT.references[0].email, link: `mailto:${CONTACT.references[0].email}` },
+                    { icon: ICONS.phone, text: CONTACT.references[0].phone, link: `tel:${CONTACT.references[0].phone}` },
                   ]}
                   buttonText={t('show-contact')}
-                  buttonIcon={FaUser}
+                  buttonIcon={ICONS.user}
                 />
               </div>
               <div className='reference-card ref-card-2'>
@@ -186,13 +185,13 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
                 </div>
                 <InfoReveal
                   items={[
-                    { icon: FaDownload, text: t(CONTACT.letter), link: CONTACT.references[1].letter },
-                    { icon: FaLinkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin },
-                    { icon: FaEnvelope, text: CONTACT.references[1].email, link: `mailto:${CONTACT.references[1].email}` },
-                    { icon: FaPhone, text: CONTACT.references[1].phone, link: `tel:${CONTACT.references[1].phone}` },
+                    { icon: ICONS.download, text: t(CONTACT.letter), link: CONTACT.references[1].letter },
+                    { icon: ICONS.linkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin },
+                    { icon: ICONS.envelope, text: CONTACT.references[1].email, link: `mailto:${CONTACT.references[1].email}` },
+                    { icon: ICONS.phone, text: CONTACT.references[1].phone, link: `tel:${CONTACT.references[1].phone}` },
                   ]}
                   buttonText={t('show-contact')}
-                  buttonIcon={FaUser}
+                  buttonIcon={ICONS.user}
                 />
               </div>
             </div>
@@ -207,7 +206,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
               target='_blank'
               rel='noopener noreferrer'
             >
-              <FaGithub />
+              {ICONS.github}
               <span>
                 {t('github-profile')}
               </span>
@@ -215,7 +214,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
             <div className='github-projects-container'>
               <div className="portfolio-repo">
                 <Link href={CONTACT.githubPortfolio} className='github-link hover-effect'>
-                  <RiGitRepositoryLine />
+                  {ICONS.gitRepository}
                   <span>
                     {t('portfolio')}
                   </span>
@@ -230,7 +229,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
                 {CONTACT.githubProjects.map((project, index) => (
                   <li key={index}>
                     <Link href={project.url} className='github-project-link hover-effect'>
-                      <RiGitRepositoryLine />
+                      {ICONS.gitRepository} 
                       <span>
                         {project.name}
                       </span>

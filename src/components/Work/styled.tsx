@@ -22,6 +22,9 @@ export const WorkElement = styled.div`
     border-radius: 8px;
     padding: 16px;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &:nth-child(1) {
       border: 2px solid #000070;
@@ -66,6 +69,7 @@ export const WorkTextContainer = styled.div`
   .description-container-1, .description-container-2 {
     p {
       font-size: 1em;
+      margin: 0 0 8px 0;
     }
   }
 `;
@@ -79,7 +83,6 @@ export const ProjectContainer = styled.div`
   z-index: 2;
 
   .project-container-1, .project-container-2 {
-    margin: 0 0 8px 0;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right top, var(--color-cream), #dbdaff);
@@ -93,6 +96,10 @@ export const ProjectContainer = styled.div`
       margin-right: 8px;
     }
   }
+
+  .project-1, .project-2 {
+      margin-bottom: 8px;
+    }
 
   .project-title {
     font-size: 1.2em;
@@ -118,8 +125,8 @@ export const ProjectContainer = styled.div`
 
   .project-technologies {
     svg {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       margin-left: 8px;
     }
   }
@@ -147,7 +154,7 @@ export const ProjectContainer = styled.div`
   }
     .project-image {
       svg {
-        font-size: 50px;
+        font-size: 40px;
       }
     }
     
@@ -155,7 +162,7 @@ export const ProjectContainer = styled.div`
       margin-right: 8px;
       border-radius: 8px;
       width: auto;
-      height: 50px;
+      height: 40px;
       object-fit: cover;
       object-position: center;
     }

@@ -2,41 +2,11 @@ import { useGSAP } from '@gsap/react';
 import React from 'react';
 import gsap from 'gsap';
 import { ProjectContainer, WorkContainer, WorkElement, WorkTextContainer } from './styled';
-import placeholder from '../../../public/static/images/placeholder-logo-1.png';
 import Link from 'next/link';
-import { HiOutlineExternalLink as HiOutlineExternalLinkIcon } from 'react-icons/hi';
-import { FaAngular, FaFeather, FaNodeJs, FaReact, FaSymfony, FaDocker } from 'react-icons/fa';
-import { SiPrisma, SiApollographql, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine } from 'react-icons/si';
-import { DiRedis } from "react-icons/di";
-import { MdOndemandVideo } from "react-icons/md";
-import { TbApi, TbServerCog } from "react-icons/tb";
-import { BsPersonVideo3 } from "react-icons/bs";
-import { RiNextjsFill } from "react-icons/ri";
-import { WORKS } from '../../utils/constants';
 import { useTranslations } from 'next-intl';
 
-const skillsIcons = {
-  angular: <FaAngular />,
-  symfony: <FaSymfony />,
-  nodejs: <FaNodeJs />,
-  react: <FaReact />,
-  graphql: <SiApollographql />,
-  docker: <FaDocker />,
-  nextjs: <RiNextjsFill />,
-  prisma: <SiPrisma />,
-  kubernetes: <SiKubernetes />,
-  antdesign: <SiAntdesign />,
-  redis: <DiRedis />,
-  sentry: <SiSentry />,
-  scaleway: <SiScaleway />,
-  doctrine: <SiDoctrine />,
-  featherjs: <FaFeather />,
-  server: <TbServerCog />,
-  api: <TbApi />,
-  ondemandvideo: <MdOndemandVideo />,
-  visio: <BsPersonVideo3 />,
-};
-
+import WORKS from '../../utils/constants/works';
+import ICONS from '../../utils/constants/icons';
 
 const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) => {
   const t = useTranslations("Work");
@@ -147,7 +117,7 @@ const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) =>
           <WorkTextContainer className={`work-text-container-${companyIndex + 1}`}>
             <div className="title-container">
               <Link className="project-link hover-effect" href={work.companyLink} target="_blank" rel="noopener noreferrer">
-                <HiOutlineExternalLinkIcon />
+                {ICONS.externalLink}
                 <h3>
                   {work.company}
                 </h3>
@@ -161,70 +131,72 @@ const Work = ({ setCurrentStep }: { setCurrentStep: (step: number) => void }) =>
               ))}
             </div>
           </WorkTextContainer>
-          <ProjectContainer>
-            {work.projects.map((project, index) => index < 2 && (
-              <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
-                <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
-                <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
-                <div className="project-infos-container">
-                  <div className="project-image">
-                    {project.icon ? (
-                      skillsIcons[project.icon as keyof typeof skillsIcons]
+          <div>
+            <ProjectContainer>
+              {work.projects.map((project, index) => index < 2 && (
+                <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+                  <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
+                  <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
+                  <div className="project-infos-container">
+                    <div className="project-image">
+                      {project.icon ? (
+                        project.icon
+                      ) : (
+                        <img src={project.logo as string} alt={project.title} />
+                      )}
+                    </div>
+                    <div className="project-technologies">
+                      {project.technologies.map((technology, index) => (
+                        <React.Fragment key={`${technology}-${index}`}>
+                          {technology}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                    {project.link ? (
+                      <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
+                        {ICONS.externalLink}
+                        <span>{t(`${work.key}-link-label`)}</span>
+                      </Link>
                     ) : (
-                      <img src={project.logo as string} alt={project.title} />
+                      <div className='space' />
                     )}
                   </div>
-                  <div className="project-technologies">
-                    {project.technologies.map((technology, index) => (
-                      <React.Fragment key={`${technology}-${index}`}>
-                        {skillsIcons[technology as keyof typeof skillsIcons]}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                  {project.link ? (
-                    <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
-                      <HiOutlineExternalLinkIcon />
-                      <span>{t(`${work.key}-link-label`)}</span>
-                    </Link>
-                  ) : (
-                    <div className='space' />
-                  )}
                 </div>
-              </div>
-            ))}
-          </ProjectContainer>
-          <ProjectContainer>
-            {work.projects.map((project, index) => index > 1 && (
-              <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
-                <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
-                <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
-                <div className="project-infos-container">
-                  <div className="project-image">
-                    {project.icon ? (
-                      skillsIcons[project.icon as keyof typeof skillsIcons]
+              ))}
+            </ProjectContainer>
+            <ProjectContainer>
+              {work.projects.map((project, index) => index > 1 && (
+                <div key={`${companyIndex}-${index}`} className={`project-container-${companyIndex + 1} project-${index + 1}`}>
+                  <h4 className="project-title">{t(`${work.key}-${project.title}`)}</h4>
+                  <p className="project-description">{t(`${work.key}-${project.description}`)}</p>
+                  <div className="project-infos-container">
+                    <div className="project-image">
+                      {project.icon ? (
+                        project.icon
+                      ) : (
+                        <img src={project.logo as string} alt={project.title} />
+                      )}
+                    </div>
+                    <div className="project-technologies">
+                      {project.technologies.map((technology, index) => (
+                        <React.Fragment key={`${technology}-${index}`}>
+                          {technology}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                    {project.link ? (
+                      <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
+                        {ICONS.externalLink}
+                        <span>{t(`${work.key}-link-label`)}</span>
+                      </Link>
                     ) : (
-                      <img src={project.logo as string} alt={project.title} />
+                      <div className='space' />
                     )}
                   </div>
-                  <div className="project-technologies">
-                    {project.technologies.map((technology, index) => (
-                      <React.Fragment key={`${technology}-${index}`}>
-                        {skillsIcons[technology as keyof typeof skillsIcons]}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                  {project.link ? (
-                    <Link className="project-link hover-effect" href={project.link} target="_blank" rel="noopener noreferrer">
-                      <HiOutlineExternalLinkIcon />
-                      <span>{t(`${work.key}-link-label`)}</span>
-                    </Link>
-                  ) : (
-                    <div className='space' />
-                  )}
                 </div>
-              </div>
-            ))}
-          </ProjectContainer>
+              ))}
+            </ProjectContainer>
+          </div>
         </WorkElement>
       ))}
     </WorkContainer>

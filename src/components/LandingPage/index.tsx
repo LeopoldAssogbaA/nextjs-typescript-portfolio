@@ -9,7 +9,6 @@ import {
 } from './styled';
 import { useTranslations } from 'next-intl';
 import useLandingScrollAnimations from '../../utils/hooks/useLandingScrollAnimations';
-import useInitPage from '../../utils/hooks/useInitPage';
 import useWaveScroll from '../../utils/hooks/useWaveScroll';
 import gsap from 'gsap';
 

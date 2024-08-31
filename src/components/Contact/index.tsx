@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
 import MusicPlayer from '../Music/MusicPlayer';
 import InfoReveal from './infoReveal';
@@ -11,89 +9,11 @@ import { ContactContainer, ContactElement, ContactGrid, ContactContent } from '.
 
 import ICONS from '../../utils/constants/icons';
 import CONTACT from '../../utils/constants/contact';
+import useContactAnimations from '../../utils/hooks/useContactAnimations';
 
 const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurrentStep }) => {
   const t = useTranslations('Contact');
-
-  useGSAP(() => {
-    const contactTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.main-container',
-        start: "top+=85% bottom",
-        end: "bottom bottom",
-        scrub: true,
-        toggleActions: 'play none reverse reset',
-        onEnter: () => {
-          setCurrentStep(4);
-        },
-        onLeaveBack: () => {
-          setCurrentStep(3);
-        }
-      },
-    });
-
-    const discRevealTimeline = gsap.timeline(
-      {
-        scrollTrigger: {
-          trigger: '.main-container',
-          start: "top+=87.5% bottom",
-          end: "top+=95% bottom",
-          scrub: true,
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
-    discRevealTimeline.from(['.vinyl-cover', '.vinyl-disc'], {
-      left: -170,
-      transform: 'rotate3d(0, 0, 0, 0deg) translateX(-50%)',
-      stagger: 0.02,
-    });
-    discRevealTimeline.to('.vinyl-disc', {
-      opacity: 1,
-    });
-    discRevealTimeline.to('.vinyl-disc', {
-      left: "+=30px",
-      stagger: 0.02,
-    });
-    discRevealTimeline.to('.vinyl-disc', {
-      left: "-=20px",
-      stagger: 0.02,
-    });
-    discRevealTimeline.from('.button', {
-      opacity: 0,
-      stagger: 0.02,
-    });
-
-    discRevealTimeline.from(['.music-title', '.music-info', '.music-quote'], {
-      opacity: 0,
-      x: -150,
-      stagger: 0.02,
-      duration: 0.5,
-    })
-
-    contactTimeline.from('.contact-element-1', {
-      clipPath: 'inset(0 0 100% 0)',
-      onComplete: () => {
-        gsap.to('.work-container', {
-          display: 'none',
-        });
-      }
-    })
-    contactTimeline.from('.contact-element-4', {
-      clipPath: 'inset(0 100% 0 0)',
-      onReverseComplete: () => {
-        gsap.to('.work-container', {
-          display: 'initial',
-        });
-      }
-    });
-    contactTimeline.from('.contact-element-5', {
-      clipPath: 'inset(100% 0 0 0)',
-    });
-    contactTimeline.from('.contact-element-3', {
-      clipPath: 'inset(100% 0 0 0)',
-    });
-  }, []);
+  useContactAnimations(setCurrentStep);
 
   return (
     <ContactContainer className="contact-container">
@@ -229,7 +149,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
                 {CONTACT.githubProjects.map((project, index) => (
                   <li key={index}>
                     <Link href={project.url} className='github-project-link hover-effect'>
-                      {ICONS.gitRepository} 
+                      {ICONS.gitRepository}
                       <span>
                         {project.name}
                       </span>

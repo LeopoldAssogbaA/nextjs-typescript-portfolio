@@ -67,6 +67,12 @@ export const MobileContainer = styled.div`
 export const ContactInfoContainer = styled.div`
   z-index: 4;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 100%;
+
   h1 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -82,6 +88,11 @@ export const ContactInfoContainer = styled.div`
     &:active {
       color: var(--color-deep-blue);
     }
+  }
+  
+  p {
+    font-style: italic;
+    margin: 0 0 16px 0;
   }
 `;
 

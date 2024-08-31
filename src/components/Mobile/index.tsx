@@ -19,6 +19,7 @@ const MobilePortfolio: React.FC = () => {
 
       <ContactInfoContainer>
         <h1>{CONTACT.name}</h1>
+        <p>{t('full-portfolio-on-desktop')}</p>
 
         <ContactContentMobile className='contact-content-1'>
           <h2>{t('curriculum')}</h2>

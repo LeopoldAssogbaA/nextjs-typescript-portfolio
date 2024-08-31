@@ -1,14 +1,26 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { IoLogoGithub, IoLogoLinkedin, IoMail } from "react-icons/io5";
 import CONTACT from '../../utils/constants/contact';
 import { ContactContentMobile, ContactInfoContainer, MobileContainer } from './styled';
 import Link from 'next/link';
 import ICONS from '../../utils/constants/icons';
 import InfoReveal from '../Contact/infoReveal';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const MobilePortfolio: React.FC = () => {
   const t = useTranslations('Contact');
+
+  useGSAP(() => {
+    gsap.from('.reveal-text', {
+      y: -10,
+      opacity: 0,
+      duration: 0.8,
+      stagger: .02,
+      delay: 0.8,
+      ease: 'power2.inOut'
+    });
+  }, []);
 
   return (
     <MobileContainer className="mobile-portfolio">
@@ -18,14 +30,14 @@ const MobilePortfolio: React.FC = () => {
       </div>
 
       <ContactInfoContainer>
-        <h1>{CONTACT.name}</h1>
-        <p>{t('full-portfolio-on-desktop')}</p>
+        <h1 className='reveal-text'>{CONTACT.name}</h1>
+        <p className='reveal-text'>{t('full-portfolio-on-desktop')}</p>
 
         <ContactContentMobile className='contact-content-1'>
-          <h2>{t('curriculum')}</h2>
+          <h2 className='reveal-text'>{t('curriculum')}</h2>
           <Link
             href='/static/files/leopold_assogba_cv_2024.pdf'
-            className='download-link hover-effect'
+            className='download-link hover-effect reveal-text'
             download
             target='_blank'
             rel='noopener noreferrer'
@@ -35,7 +47,7 @@ const MobilePortfolio: React.FC = () => {
           </Link>
         </ContactContentMobile>
         <ContactContentMobile className='contact-content-2'>
-          <h2>{t('contact-info')}</h2>
+          <h2 className='reveal-text'>{t('contact-info')}</h2>
           <InfoReveal
             items={[
               { icon: CONTACT.phoneIcon, text: CONTACT.phone, link: `tel:${CONTACT.phone}` }
@@ -53,7 +65,18 @@ const MobilePortfolio: React.FC = () => {
             buttonIcon={CONTACT.emailIcon}
             isMobile={true}
           />
-          <div>
+          <Link
+            href={CONTACT.linkedin}
+            className='linkedin-link hover-effect reveal-text'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {ICONS.linkedin}
+            <span>
+              {t('linkedin')}
+            </span>
+          </Link>
+          <div className='reveal-text'>
             {ICONS.mapMarker}
             <span>
               {CONTACT.address}
@@ -62,10 +85,10 @@ const MobilePortfolio: React.FC = () => {
         </ContactContentMobile>
 
         <ContactContentMobile className='contact-content-4'>
-          <h2>{t('references')}</h2>
+          <h2 className='reveal-text'>{t('references')}</h2>
           <div className='references-container'>
             {CONTACT.references.map((reference, index) => (
-              <div key={index} className={`reference-card ref-card-${index + 1}`}>
+              <div key={index} className={`reference-card ref-card-${index + 1} reveal-text`}>
                 <div className='reference-card-header'>
                   <h3>{reference.company}</h3>
                   <span>-</span>
@@ -85,20 +108,6 @@ const MobilePortfolio: React.FC = () => {
               </div>
             ))}
           </div>
-        </ContactContentMobile>
-        <ContactContentMobile className='contact-content-3'>
-          <h2>{t('socials')}</h2>
-          <Link
-            href={CONTACT.linkedin}
-            className='linkedin-link hover-effect'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {ICONS.linkedin}
-            <span>
-              {t('linkedin')}
-            </span>
-          </Link>
         </ContactContentMobile>
       </ContactInfoContainer>
 

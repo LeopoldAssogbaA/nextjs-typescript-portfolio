@@ -61,7 +61,7 @@ const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon, 
 
   if (isVisible || isMobile) {
     return (
-      <div className={`info-reveal ${isMobile ? 'mobile' : ''}`}>
+      <div className={`info-reveal ${isMobile ? 'mobile reveal-text' : ''}`}>
         {items.map((item, index) => {
           return item.link ? (
             <LinkComponent key={index} item={item} />

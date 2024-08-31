@@ -8,7 +8,6 @@ const Loading: React.FC = () => {
 
   return (
     <>
-      <Cursor />
       <LoadingContainer className="loading-container">
         <LoadingSubContainer>
           <h2>{t('loading')}</h2>

@@ -1,12 +1,3 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  cursor: none !important;
-  /* scroll-behavior: smooth !important; */
-}
 
 :root {
   --color-deep-blue: #0000a3;
@@ -16,6 +7,24 @@ html, body {
   --color-sunflower: #ffd53d;
   --color-light-sunflower: rgba(255, 213, 61, .3);
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--color-cream);
+}
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+* {
+  cursor: none !important;
+  /* scroll-behavior: smooth !important; */
+}
+
 
 :root:has(.hover-effect:hover) .cursor {
   width: 35px;

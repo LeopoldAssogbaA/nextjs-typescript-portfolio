@@ -75,6 +75,7 @@ export const LandingPageContainer = styled.section`
       // opacity: 0.4;
       background: var(--color-sunflower);
     }
+      
     .center {
       z-index: 1000;
       position: absolute;

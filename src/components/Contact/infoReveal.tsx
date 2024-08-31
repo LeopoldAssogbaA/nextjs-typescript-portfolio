@@ -14,8 +14,8 @@ interface InfoRevealProps {
   items: InfoItem[];
   buttonText: string;
   buttonIcon: React.ReactNode;
+  isMobile?: boolean; 
 }
-
 
 const LinkComponent = ({ item }: { item: InfoItem }) => {
   const t = useTranslations("Contact");
@@ -56,12 +56,12 @@ const LinkComponent = ({ item }: { item: InfoItem }) => {
   );
 }
 
-const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon }) => {
+const InfoReveal: React.FC<InfoRevealProps> = ({ items, buttonText, buttonIcon, isMobile }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  if (isVisible) {
+  if (isVisible || isMobile) {
     return (
-      <div className='info-reveal'>
+      <div className={`info-reveal ${isMobile ? 'mobile' : ''}`}>
         {items.map((item, index) => {
           return item.link ? (
             <LinkComponent key={index} item={item} />

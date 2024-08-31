@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { LoadingContainer, LoadingSpinner, LoadingSubContainer } from './styled';
-import Cursor from '../Cursor';
 
 const Loading: React.FC = () => {
   const t = useTranslations('Common');

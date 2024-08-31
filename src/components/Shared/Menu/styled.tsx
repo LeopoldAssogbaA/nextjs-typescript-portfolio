@@ -27,7 +27,7 @@ export const Step = styled.li`
   justify-content: start;
   width: 150px;
   line-height: 1.5em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   transition: all 0.2s ease;
   color: var(--color-deep-blue);
   width: auto;

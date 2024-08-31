@@ -22,7 +22,7 @@ export const LanguageButton = styled.button`
   mix-blend-mode: difference;
   border: none;
   color: var(--color-deep-blue);
-  font-size: 1.1em;
+  font-size: 0.9em;
   width: auto;
   transition: all 0.2s ease;
   position: relative;

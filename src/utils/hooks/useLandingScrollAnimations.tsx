@@ -7,9 +7,9 @@ const useLandingScrollAnimations = () => {
     const landingPage = document.querySelector('.main-container');
 
     gsap.to(name, {
-      top: '40px',
+      top: '35px',
       position: 'fixed',
-      scale: '0.75',
+      scale: '0.6',
       scrollTrigger: {
         trigger: landingPage,
         start: 'top+=10% center',

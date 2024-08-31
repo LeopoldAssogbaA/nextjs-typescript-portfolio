@@ -88,7 +88,7 @@ export const ContactElement = styled.div`
   }
 
   button {
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
 
    a, button {

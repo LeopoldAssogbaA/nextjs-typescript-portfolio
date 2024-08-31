@@ -1,7 +1,7 @@
 import ICONS from "./icons";
 
 const CONTACT = {
-  name: 'Leopold Assogba',
+  name: 'Léopold Assogba',
   email: 'leopoldassogba21@gmail.com',
   phoneIcon: ICONS.phone,
   emailIcon: ICONS.envelope,

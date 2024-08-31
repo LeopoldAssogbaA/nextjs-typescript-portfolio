@@ -1,30 +1,9 @@
-import React, { useEffect } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import React from 'react';
 import { RevealTransitionContainer } from './style';
+import useRevealTransitionAnimations from '../../../utils/hooks/useRevealTransitionAnimations';
 
 const RevealTransition: React.FC = () => {
-  const { contextSafe } = useGSAP();
-
-  const animateReveal = contextSafe(() => {
-    const tl = gsap.timeline();
-    tl.to('.reveal-transition', {
-      duration: 1,
-      clipPath: 'inset(100% 0% 0% 0%)',
-      stagger: 0.1,
-      ease: 'back.inOut(2)',
-      onComplete: () => {
-        gsap.to('.reveal-transition-container', {
-          duration: 0,
-          visibility: "hidden",
-        });
-      }
-    });
-  });
-
-  useEffect(() => {
-    animateReveal();
-  }, [animateReveal]);
+  useRevealTransitionAnimations();
 
   return (
     <RevealTransitionContainer className='reveal-transition-container'>

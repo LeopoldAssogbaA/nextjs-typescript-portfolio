@@ -5,29 +5,12 @@ import { MainNav, Step } from './styled';
 import { useTranslations } from 'next-intl';
 
 import STEPS from '../../../utils/constants/steps';
+import useMenuAnimations from '../../../utils/hooks/useMenuAnimations';
 
 const Menu: React.FC<{ init: boolean, currentStep: number, setCurrentStep: (step: number) => void }> = ({ init, currentStep, setCurrentStep }) => {
   const t = useTranslations('Menu');
   const [isInit, setIsInit] = useState(false);
-
-  useGSAP(() => {
-    if (!init) return;
-    gsap.fromTo(".menu-step",
-      {
-        y: -55,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: .08,
-        stagger: .055,
-        delay: 1.2,
-        onComplete: () => {
-          setIsInit(true);
-        }
-      });
-  }, [init]);
-
+  useMenuAnimations(init, setIsInit);
 
   const getCurrentSteps = (name: string) => {
     if (!isInit) return '';

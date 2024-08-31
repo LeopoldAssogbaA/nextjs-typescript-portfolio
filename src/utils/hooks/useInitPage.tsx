@@ -26,14 +26,24 @@ const useInitPage = (documentLoaded: boolean, init: boolean, setInit: (init: boo
       if (name) {
         gsap.fromTo(name,
           { opacity: 0, y: -55 },
-          { y: 0, opacity: 1, duration: 1, delay: 1, ease: "back.inOut(2)" }
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 1, 
+            delay: 1, 
+            ease: "back.inOut(2)",
+            onComplete: () => console.log("Animation 'name' terminée")
+          }
         );
       }
 
       if (pageTransitionContainer) {
         gsap.fromTo(pageTransitionContainer,
           { zIndex: -1 },
-          { zIndex: 2 }
+          { 
+            zIndex: 2,
+            onComplete: () => console.log("Animation 'pageTransitionContainer' terminée")
+          }
         );
       }
 
@@ -76,12 +86,26 @@ const useInitPage = (documentLoaded: boolean, init: boolean, setInit: (init: boo
       if (waveOne && waveTwo) {
         gsap.fromTo(waveOne,
           { opacity: 0, left: '-110%', top: '-120%' },
-          { opacity: 0.4, left: '-50%', top: '-60%', duration: 2.5, ease: "back.inOut" }
+          { 
+            opacity: 0.4, 
+            left: '-50%', 
+            top: '-60%', 
+            duration: 2.5, 
+            ease: "back.inOut",
+            onComplete: () => console.log("Animation 'waveOne' terminée")
+          }
         );
 
         gsap.fromTo(waveTwo,
           { opacity: 0, left: '-110%', top: '-120%' },
-          { opacity: 0.5, left: '-50%', top: '-60%', duration: 2.6, ease: "back.inOut" }
+          { 
+            opacity: 0.5, 
+            left: '-50%', 
+            top: '-60%', 
+            duration: 2.6, 
+            ease: "back.inOut",
+            onComplete: () => console.log("Animation 'waveTwo' terminée")
+          }
         );
       }
       setInit(true);

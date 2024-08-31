@@ -1,16 +1,18 @@
-import { useLayoutEffect } from 'react';
+// import { useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const useInitPage = (documentLoaded: boolean, init: boolean, setInit: (init: boolean) => void) => {
-  const { contextSafe } = useGSAP({ dependencies: [init, documentLoaded, setInit] });
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
+    console.log('useLayoutEffect dans useInitPage', { documentLoaded, init });
     if (typeof window === 'undefined' || !documentLoaded || init) {
+      console.log('Conditions non remplies, sortie précoce');
       return;
     }
 
-    const initPage = contextSafe(() => {
+    const initPage = () => {
+      console.log('Fonction initPage appelée');
       const waveOne = document.querySelector('.-one');
       const waveTwo = document.querySelector('.-two');
       const pageTransitionContainer = document.querySelector('div.page-transition-container-enter');
@@ -83,7 +85,7 @@ const useInitPage = (documentLoaded: boolean, init: boolean, setInit: (init: boo
         );
       }
       setInit(true);
-    });
+    };
 
     initPage();
   }, [init, documentLoaded, setInit]);

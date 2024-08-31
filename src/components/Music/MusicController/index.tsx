@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ButtonContainer, InfoContainer, MusicControllerContainer, NextButton, PlayButton, PreviousButton, SubContainer, TitleContainer } from './styled';
 import { IoPlaySkipBack, IoPlaySkipForwardSharp, IoPlay, IoPause } from "react-icons/io5";
 import MUSIC from '../../../utils/constants/music';
+import { useTranslations } from 'next-intl';
 
 const NEEDLE_DOWN = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/vinyl_needle_down_edit.mp3';
 
@@ -15,6 +16,7 @@ const MusicController: React.FC = () => {
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false);
   const [needleDown] = useState<HTMLAudioElement>(new Audio(NEEDLE_DOWN));
   const [currentMusic, setCurrentMusic] = useState(MUSIC[currentDiscIndex]);
+  const t = useTranslations('Music');
 
   const handleUpdateText = (discIndex: number) => {
     const tl = gsap.timeline();
@@ -27,13 +29,13 @@ const MusicController: React.FC = () => {
       delay: 2.5,
       overwrite: 'auto'
     })
-    .call(() => setCurrentMusic(MUSIC[discIndex]))
-    .to(['.music-title', '.music-info', '.music-quote'], {
-      opacity: 1,
-      x: 0,
-      stagger: 0.02,
-      duration: 0.5,
-    })
+      .call(() => setCurrentMusic(MUSIC[discIndex]))
+      .to(['.music-title', '.music-info', '.music-quote'], {
+        opacity: 1,
+        x: 0,
+        stagger: 0.02,
+        duration: 0.5,
+      })
 
     return () => {
       tl.kill();
@@ -142,13 +144,13 @@ const MusicController: React.FC = () => {
     });
     const discClass = MUSIC[discIndex].key;
     positionTimeline.to([`.cover-${discClass}`, `.disc-${discClass}`], {
-      top: '-=20px',
+      top: '+=20px',
       zIndex: 10,
       duration: 0.5
     });
     positionTimeline.to([`.cover-${discClass}`, `.disc-${discClass}`], {
       left: '10%',
-      top: '+=20px',
+      top: '-=20px',
       zIndex: 10,
       transform: 'rotate3D(1, 1, 1, 0deg)',
       duration: 0.5
@@ -272,21 +274,22 @@ const MusicController: React.FC = () => {
       <SubContainer>
         <TitleContainer className='music-title'>{currentMusic.title}</TitleContainer>
         <InfoContainer className='music-info'>{currentMusic.artist}</InfoContainer>
+        <h5 className='music-quote'>{currentMusic.quote}</h5>
         <ButtonContainer>
           <PreviousButton className='previous button hover-effect' onClick={onPrevious}>
             <IoPlaySkipBack />
-            <span>Previous</span>
+            <span>{t('previous')}</span>
           </PreviousButton>
           <PlayButton className='play button hover-effect' onClick={onPlay}>
             {isPlaying ? <IoPause /> : <IoPlay />}
-            <span>{isPlaying ? 'Pause' : 'Play'} </span>
+            <span>{isPlaying ? t('pause') : t('play')} </span>
           </PlayButton>
           <NextButton className='next button hover-effect' onClick={onNext}>
             <IoPlaySkipForwardSharp />
-            <span>Next</span>
+            <span>{t('next')}</span>
           </NextButton>
         </ButtonContainer>
-        <h5 className='music-quote'>{currentMusic.quote}</h5>
+        <h5 className='quote'>{t("music-discovery")}</h5>
       </SubContainer>
     </MusicControllerContainer>
   );

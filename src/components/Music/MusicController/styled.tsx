@@ -13,10 +13,17 @@ export const SubContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-   h5 {
+   .music-quote {
     color: var(--color-deep-blue);
     font-size: 0.9rem;
+    font-weight: 500;
     margin: 16px 0;
+    text-align: start;
+  }
+   .quote {
+    color: var(--color-deep-blue);
+    font-size: 0.9rem;
+    margin: 16px 0 0 0;
     text-align: center;
   }
 `;
@@ -25,7 +32,7 @@ export const TitleContainer = styled.h3`
   display: flex;
   color: var(--color-deep-blue);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 
 export const InfoContainer = styled.p`
@@ -42,7 +49,7 @@ export const ButtonContainer = styled.div`
   z-index: 10;
 
   .button {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     padding: 4px 10px 4px 8px;
     border: 2px solid rgba(0, 0, 163, 0.1);
     background: rgba(0, 0, 163, 0.1);
@@ -65,7 +72,7 @@ export const ButtonContainer = styled.div`
     span {
       display: flex;
       margin-left: 4px;
-      font-size: 1rem;
+      font-size: 0.85rem;
     }
   }
 `;

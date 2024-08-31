@@ -52,7 +52,7 @@ const useContactAnimations = (setCurrentStep: (step: number) => void) => {
       stagger: 0.02,
     });
 
-    discRevealTimeline.from(['.music-title', '.music-info', '.music-quote'], {
+    discRevealTimeline.from(['.music-title', '.music-info', '.music-quote', '.quote'], {
       opacity: 0,
       x: -150,
       stagger: 0.02,

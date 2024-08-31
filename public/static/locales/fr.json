@@ -76,5 +76,12 @@
     "mediaxtend": "MediaXtend",
     "webcastor": "Webcastor",
     "portfolio": "Portfolio"
+  },
+  "Music": {
+    "previous": "Précédent",
+    "play": "Lecture",
+    "pause": "Pause",
+    "next": "Suivant",
+    "music-discovery": "Une sélection musicale pour mieux me connaître"
   }
 }

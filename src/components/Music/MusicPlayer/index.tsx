@@ -6,11 +6,10 @@ import VinylDiscComponent from '../VinylDisc';
 import MusicController from '../MusicController';
 import VinylCoverComponent from '../VinylCover';
 import { MusicContainer } from './styled';
-
 const PlayerContainer = styled.div`
   position: relative;
   width: 90%;
-  height: 90%;
+  height: 100%;
   perspective: 5000px;
   display: flex;
   flex-direction: column;

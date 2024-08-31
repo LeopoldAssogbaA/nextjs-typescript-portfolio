@@ -39,8 +39,8 @@ export const MobileContainer = styled.div`
     height: 1600px;
     margin-left: -150px;
     margin-top: -250px;
-    left: -200%;
-    top: -100%;
+    left: -250%;
+    top: -125%;
     border-radius: 43%;
   }
 

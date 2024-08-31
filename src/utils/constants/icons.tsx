@@ -1,5 +1,5 @@
 import { FaAngular, FaSymfony, FaNodeJs, FaReact, FaDocker, FaFeather, FaGithub, FaLinkedin, FaDownload, FaMapMarker, FaPhone, FaUser, FaEnvelope } from 'react-icons/fa';
-import { SiApollographql, SiPrisma, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine } from 'react-icons/si';
+import { SiApollographql, SiPrisma, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine, SiFlutter } from 'react-icons/si';
 import { RiNextjsFill, RiGitRepositoryLine } from 'react-icons/ri';
 import { DiRedis } from 'react-icons/di';
 import { TbServerCog, TbApi, TbBrandTypescript } from 'react-icons/tb';
@@ -11,6 +11,7 @@ import { HiOutlineExternalLink } from 'react-icons/hi';
 const ICONS = {
   // Compétences
   angular: <FaAngular />,
+  flutter: <SiFlutter />,
   symfony: <FaSymfony />,
   nodejs: <FaNodeJs />,
   react: <FaReact />,

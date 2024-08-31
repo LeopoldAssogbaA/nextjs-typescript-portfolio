@@ -60,6 +60,9 @@
     "webcastor-link-label": "En savoir plus"
   },
   "Contact": {
+    "hello-email": "Bonjour Léopold, je souhaiterais échanger avec vous à propos de ...",
+    "hello-mediaxtend": "Bonjour Nicolas, je souhaiterais échanger avec vous à propos de ...",
+    "hello-webcastor": "Bonjour Geoffrey, je souhaiterais échanger avec vous à propos de ...",
     "curriculum": "Curriculum Vitae",
     "download-resume": "Télécharger le CV",
     "contact-info": "Informations de contact",

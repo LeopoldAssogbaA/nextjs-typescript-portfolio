@@ -44,7 +44,7 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
 
             <InfoReveal
               items={[
-                { icon: CONTACT.emailIcon, text: CONTACT.email, link: `mailto:${CONTACT.email}` }
+                { icon: CONTACT.emailIcon, text: CONTACT.email, link: CONTACT.email, emailText: CONTACT.emailText }
               ]}
               buttonText={t('show-email')}
               buttonIcon={CONTACT.emailIcon}
@@ -80,40 +80,25 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
           <ContactContent className='contact-content-4'>
             <h2>{t('references')}</h2>
             <div className='references-container'>
-              <div className='reference-card ref-card-1'>
-                <div className='reference-card-header'>
-                  <h3>MediaXtend</h3>
-                  <span>-</span>
-                  <h4>{CONTACT.references[0].name}</h4>
+              {CONTACT.references.map((reference, index) => (
+                <div key={index} className={`reference-card ref-card-${index + 1}`}>
+                  <div className='reference-card-header'>
+                    <h3>{reference.company}</h3>
+                    <span>-</span>
+                    <h4>{reference.name}</h4>
+                  </div>
+                  <InfoReveal
+                    items={[
+                      { icon: ICONS.download, text: t(CONTACT.letter), link: reference.letter },
+                      { icon: ICONS.linkedin, text: 'LinkedIn', link: reference.linkedin },
+                      { icon: ICONS.envelope, text: reference.email, link: reference.email, emailText: reference.emailText },
+                      { icon: ICONS.phone, text: reference.phone, link: `tel:${reference.phone}` },
+                    ]}
+                    buttonText={t('show-contact')}
+                    buttonIcon={ICONS.user}
+                  />
                 </div>
-                <InfoReveal
-                  items={[
-                    { icon: ICONS.download, text: t(CONTACT.letter), link: CONTACT.references[0].letter },
-                    { icon: ICONS.linkedin, text: 'LinkedIn', link: CONTACT.references[0].linkedin },
-                    { icon: ICONS.envelope, text: CONTACT.references[0].email, link: `mailto:${CONTACT.references[0].email}` },
-                    { icon: ICONS.phone, text: CONTACT.references[0].phone, link: `tel:${CONTACT.references[0].phone}` },
-                  ]}
-                  buttonText={t('show-contact')}
-                  buttonIcon={ICONS.user}
-                />
-              </div>
-              <div className='reference-card ref-card-2'>
-                <div className='reference-card-header'>
-                  <h3>Webcastor</h3>
-                  <span>-</span>
-                  <h4>{CONTACT.references[1].name}</h4>
-                </div>
-                <InfoReveal
-                  items={[
-                    { icon: ICONS.download, text: t(CONTACT.letter), link: CONTACT.references[1].letter },
-                    { icon: ICONS.linkedin, text: 'LinkedIn', link: CONTACT.references[1].linkedin },
-                    { icon: ICONS.envelope, text: CONTACT.references[1].email, link: `mailto:${CONTACT.references[1].email}` },
-                    { icon: ICONS.phone, text: CONTACT.references[1].phone, link: `tel:${CONTACT.references[1].phone}` },
-                  ]}
-                  buttonText={t('show-contact')}
-                  buttonIcon={ICONS.user}
-                />
-              </div>
+              ))}
             </div>
           </ContactContent>
         </ContactElement>
@@ -133,7 +118,12 @@ const Contact: React.FC<{ setCurrentStep: (step: number) => void }> = ({ setCurr
             </Link>
             <div className='github-projects-container'>
               <div className="portfolio-repo">
-                <Link href={CONTACT.githubPortfolio} className='github-link hover-effect'>
+                <Link
+                  href={CONTACT.githubPortfolio}
+                  className='github-link hover-effect'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   {ICONS.gitRepository}
                   <span>
                     {t('portfolio')}

@@ -1,4 +1,3 @@
-
 :root {
   --color-deep-blue: #0000a3;
   --color-ocean-blue: #0067b3;
@@ -8,21 +7,19 @@
   --color-light-sunflower: rgba(255, 213, 61, .3);
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
   background-color: var(--color-cream);
 }
+
 main {
-  height: 100%;
-  width: 100%;
   display: flex;
 }
 
 * {
   cursor: none !important;
-  /* scroll-behavior: smooth !important; */
 }
 
 
@@ -41,13 +38,14 @@ main {
 .loading-spinner {
   height: 15px;
   aspect-ratio: 4;
-  --_g: no-repeat radial-gradient(farthest-side,var(--color-cream) 90%,#0000);
-  background: 
-    var(--_g) left, 
+  --_g: no-repeat radial-gradient(farthest-side, var(--color-cream) 90%, #0000);
+  background:
+    var(--_g) left,
     var(--_g) right;
   background-size: 25% 100%;
   display: grid;
 }
+
 .loading-spinner:before,
 .loading-spinner:after {
   content: "";
@@ -60,13 +58,17 @@ main {
   background: var(--color-cream);
   animation: l49 1s infinite linear;
 }
+
 .loading-spinner:after {
   transform-origin: 200% 50%;
-  --s:-1;
+  --s: -1;
   animation-delay: -.5s;
 }
 
 @keyframes l49 {
+
   58%,
-  100% {transform: rotate(calc(var(--s,1)*1turn))}
+  100% {
+    transform: rotate(calc(var(--s, 1)*1turn))
+  }
 }

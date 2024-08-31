@@ -52,7 +52,6 @@ const PortfolioContainer: React.FC = () => {
 
   useEffect(() => {
     if (deviceType !== 'mobile') return;
-
     const checkOrientation = () => {
       const isPortrait = window.innerHeight > window.innerWidth;
       setDeviceOrientation(isPortrait ? 'portrait' : 'landscape');
@@ -90,6 +89,21 @@ const PortfolioContainer: React.FC = () => {
       };
       window.addEventListener('load', handleLoad);
       return () => window.removeEventListener('load', handleLoad);
+    }
+  }, [documentLoaded]);
+
+  useEffect(() => {
+    if (!documentLoaded && (deviceType === 'mobile' || (deviceType === 'tablet' && deviceOrientation === 'portrait'))) {
+      const applyFullSizeStyles = () => {
+        document.documentElement.style.height = '100%';
+        document.body.style.height = '100%';
+        const mainElement = document.querySelector('main');
+        if (mainElement) {
+          mainElement.style.width = '100%';
+          mainElement.style.height = '100%';
+        }
+      };
+      applyFullSizeStyles();
     }
   }, [documentLoaded]);
 

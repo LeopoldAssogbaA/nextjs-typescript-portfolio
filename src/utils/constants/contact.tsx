@@ -30,7 +30,7 @@ const CONTACT = {
     {
       company: 'MediaXtend',
       letter: '/static/files/lettre_recommandation_mediaxtend.pdf',
-      name: 'Nicolas Sandri',
+      name: 'Sandri Nicolas',
       linkedin: 'https://fr.linkedin.com/in/nicolassandri',
       emailText: 'hello-mediaxtend',
       email: 'contact@mediaxtend.net',
@@ -39,11 +39,11 @@ const CONTACT = {
     {
       company: 'Webcastor',
       letter: '/static/files/lettre_recommandation_webcastor.pdf',
-      name: 'Signorato Geoffrey',
+      name: 'Geoffrey Signorato',
       linkedin: 'https://fr.linkedin.com/in/geoffrey-signorato',
       emailText: 'hello-webcastor',
       email: 'geoffrey.signorato@webcastor.fr',
-      phone: '+33 6 72 00 23 44'
+      phone: '06 72 00 23 44'
     }
   ]
 };

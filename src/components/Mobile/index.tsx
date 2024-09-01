@@ -20,6 +20,15 @@ const MobilePortfolio: React.FC = () => {
       delay: 0.8,
       ease: 'power2.inOut'
     });
+    gsap.to(['body', 'html'], {
+      height: '100%',
+      duration: 0,
+    });
+    gsap.to('main', {
+      height: '100%',
+      width: '100%',
+      duration: 0,
+    });
   }, []);
 
   return (

@@ -76,11 +76,11 @@ export const ContactInfoContainer = styled.div`
   h1 {
     font-size: 1.8rem;
     font-weight: 700;
-    margin:0 0 16px 0;
+    margin: 6px 0 16px 0;
   }
 
   a, button {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: var(--color-deep-blue);
     &:hover {
       color: var(--color-deep-blue);
@@ -194,5 +194,10 @@ export const ContactContentMobile = styled.div`
    flex-direction: column;
     justify-content: start;
     align-items: start;
+  }
+
+  .mobile-info {
+    opacity: 0;
+    transform: translateX(-15px);
   }
 `;

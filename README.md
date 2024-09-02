@@ -4,6 +4,7 @@ Here's a project designed to introduce myself in a fun way.
 
 Here you can find out about my training and professional experience.  Thank you for taking the time to read it, and please don't hesitate to contact me. 
 
+<img src="public/static/images/portfoliov2.gif" >
 
 ## Stack
 
@@ -18,7 +19,7 @@ Here you can find out about my training and professional experience.  Thank you 
 - styled-components 
 - validator
 
-# Run with
+### Run with
 
 ```bash
 npm run dev
@@ -29,5 +30,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-<img src="public/static/images/portfoliov2.gif" >

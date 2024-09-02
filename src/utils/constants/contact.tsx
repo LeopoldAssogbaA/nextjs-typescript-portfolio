@@ -6,7 +6,7 @@ const CONTACT = {
   phoneIcon: ICONS.phone,
   emailIcon: ICONS.envelope,
   emailText: 'hello-email',
-  phone: '06 12 34 56 78',
+  phone: '06 72 58 45 63',
   address: 'Région Lyonnaise, France',
   letter: 'recommendation-letter',
   linkedin: 'https://www.linkedin.com/in/l%C3%A9opold-assogba/',

@@ -1,9 +1,6 @@
 'use client';
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import Link from "next/link";
-import SplitType from "split-type";
 import { useTranslations } from "next-intl";
 import { SchoolCard, SchoolCardContainer, SchoolContainer, SchoolText } from "./styled";
 import ICONS from "../../utils/constants/icons";

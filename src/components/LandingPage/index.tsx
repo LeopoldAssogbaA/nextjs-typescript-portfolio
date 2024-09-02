@@ -24,8 +24,7 @@ const LandingPage: React.FC<{
   const t = useTranslations('Home');
   useLandingScrollAnimations();
   useWaveScroll();
-
-  // TODO: customHook
+  
   useLayoutEffect(() => {
     if (typeof window === 'undefined' || !documentLoaded || init) {
       return;

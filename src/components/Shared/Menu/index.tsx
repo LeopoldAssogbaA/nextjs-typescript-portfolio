@@ -1,4 +1,3 @@
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import React, { useState } from 'react';
 import { MainNav, Step } from './styled';

@@ -5,31 +5,12 @@ import { ContactContentMobile, ContactInfoContainer, MobileContainer } from './s
 import Link from 'next/link';
 import ICONS from '../../utils/constants/icons';
 import InfoReveal from '../Contact/infoReveal';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import useAboutMobileAnimations from '../../utils/hooks/useAboutMobileAnimations';
 
 const MobilePortfolio: React.FC = () => {
   const t = useTranslations('Contact');
 
-  useGSAP(() => {
-    gsap.from('.reveal-text', {
-      y: -10,
-      opacity: 0,
-      duration: 0.8,
-      stagger: .02,
-      delay: 0.8,
-      ease: 'power2.inOut'
-    });
-    gsap.to(['body', 'html'], {
-      height: '100%',
-      duration: 0,
-    });
-    gsap.to('main', {
-      height: '100%',
-      width: '100%',
-      duration: 0,
-    });
-  }, []);
+  useAboutMobileAnimations();
 
   return (
     <MobileContainer className="mobile-portfolio">

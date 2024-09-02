@@ -1,14 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import gsap from 'gsap';
 import { useParams } from 'next/navigation';
-import { useGSAP } from '@gsap/react';
-
 import { LanguageButton, LanguageContainer, LanguageSubContainer } from './styled';
+import useLanguageAnimations from '../../../utils/hooks/useLanguageAnimations';
 
 import { locales } from '../../../i18n';
-import useLanguageAnimations from '../../../utils/hooks/useLanguageAnimations';
 
 const Languages: React.FC = () => {
   const params = useParams();

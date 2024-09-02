@@ -92,21 +92,6 @@ const PortfolioContainer: React.FC = () => {
     }
   }, [documentLoaded]);
 
-  useEffect(() => {
-    if (!documentLoaded && (deviceType === 'mobile' || (deviceType === 'tablet' && deviceOrientation === 'portrait'))) {
-      const applyFullSizeStyles = () => {
-        document.documentElement.style.height = '100%';
-        document.body.style.height = '100%';
-        const mainElement = document.querySelector('main');
-        if (mainElement) {
-          mainElement.style.width = '100%';
-          mainElement.style.height = '100%';
-        }
-      };
-      applyFullSizeStyles();
-    }
-  }, [documentLoaded]);
-
   if (!documentLoaded) {
     return <Loading />;
   }

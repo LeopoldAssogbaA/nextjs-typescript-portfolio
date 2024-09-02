@@ -1,4 +1,4 @@
-import { FaAngular, FaSymfony, FaNodeJs, FaReact, FaDocker, FaFeather, FaGithub, FaLinkedin, FaDownload, FaMapMarker, FaPhone, FaUser, FaEnvelope } from 'react-icons/fa';
+import { FaArrowDown, FaAngular, FaSymfony, FaNodeJs, FaReact, FaDocker, FaFeather, FaGithub, FaLinkedin, FaDownload, FaMapMarker, FaPhone, FaUser, FaEnvelope } from 'react-icons/fa';
 import { SiApollographql, SiPrisma, SiKubernetes, SiAntdesign, SiSentry, SiScaleway, SiDoctrine, SiFlutter } from 'react-icons/si';
 import { RiNextjsFill, RiGitRepositoryLine } from 'react-icons/ri';
 import { DiRedis } from 'react-icons/di';
@@ -48,6 +48,7 @@ const ICONS = {
   phone: <FaPhone />,
   user: <FaUser />,
   envelope: <FaEnvelope />,
+  arrowDown: <FaArrowDown />
 };
 
 export default ICONS;

@@ -11,6 +11,7 @@ import { useTranslations } from 'next-intl';
 import useLandingScrollAnimations from '../../utils/hooks/useLandingScrollAnimations';
 import useWaveScroll from '../../utils/hooks/useWaveScroll';
 import gsap from 'gsap';
+import ICONS from '../../utils/constants/icons';
 
 const LandingPage: React.FC<{
   setInit: (init: boolean) => void,
@@ -35,7 +36,7 @@ const LandingPage: React.FC<{
       const waveTwo = document.querySelector('.-two');
       const pageTransitionContainer = document.querySelector('div.page-transition-container-enter');
       const aboutPresentation = document.querySelector(".about-presentation");
-      const mouseWheel = document.querySelector(".mouse-wheel");
+      const scrollArrow = document.querySelector(".arrow-down-scroll.center");
       const schoolContainer = document.querySelector(".school-container");
       const workContainer = document.querySelector(".work-container");
       const contactContainer = document.querySelector(".contact-container");
@@ -86,10 +87,10 @@ const LandingPage: React.FC<{
         });
       }
 
-      if (mouseWheel) {
+      if (scrollArrow) {
 
         gsap.fromTo(
-          mouseWheel,
+          scrollArrow,
           { display: "none", opacity: 0, zIndex: -2, top: "40%", },
           {
             zIndex: 10, top: "46%", display: "block", opacity: 1, duration: .8, ease: "back.inOut(1)", delay: 1.2,
@@ -191,10 +192,8 @@ const LandingPage: React.FC<{
           {t('work-title')}
         </Work>
       </NameContainer>
-      <div className="mouse-wheel center">
-        <div className="mouse">
-          <div className="scroll-wheel"></div>
-        </div>
+      <div className="arrow-down-scroll center">
+        {ICONS.arrowDown}
       </div>
     </LandingPageContainer>
   );

@@ -80,55 +80,33 @@ export const LandingPageContainer = styled.section`
       z-index: 1000;
       position: absolute;
       left: 50%;
-      top: 52%;
+      top: 40%;
       opacity: 0;
       margin-left: -30px;
       margin-top: -15px;
     }
       
-      .mouse-wheel {
-        display: none;
-        z-index: 1000;
-        width: 30px;
-        height: 60px;
-        border-radius: 20px;
-        background-color: transparent;
-        opacity: O;
-        border: 3px solid var(--color-deep-blue);
-        &:after {
-          z-index: 1000;
-          content: "";
-          width: 4px;
-          height: 10px;
-          position: absolute;
-          border-radius: 50px;
-          left: 50%;
-          top: 10px;
-          background: var(--color-deep-blue);
-          border-top: 3px solid var(--color-deep-blue);
-          transform: translateX(-50%);
-          -webkit-transform: translateX(-50%);
-          animation: scroll-wheel 1s infinite;
-          -webkit-animation: scroll-wheel 1s infinite;
-          animation-delay: 0s;
-          -webkit-animation-delay: 0s;
-        }
+    .arrow-down-scroll {
+      color: var(--color-deep-blue);
+      font-size: 2em;
+      display: none;
+      z-index: 100;
+      -moz-animation: bounce 2s infinite;
+      -webkit-animation: bounce 2s infinite;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
       }
-      
-      @keyframes scroll-wheel {
-        0% {
-          top: 10px;
-          height: 10px; 
-        }
-        50% {
-          top: 20px;
-          height: 5px; 
-        }
-        100% {
-          top: 10px;
-          height: 10px; 
-        }
-      } 
+      40% {
+       transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
 `;
 
 export const Work = styled.h2`

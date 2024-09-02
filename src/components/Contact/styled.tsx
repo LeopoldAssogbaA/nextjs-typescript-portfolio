@@ -23,11 +23,11 @@ export const ContactGrid = styled.div`
   grid-template-rows: repeat(3, 1fr);
   z-index: 10;
 
-  @media (max-width: 1600px) {
+  @media (max-width: 1800px) {
       width: 75vw;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1600px) {
     width: 80vw;
   }
 `;

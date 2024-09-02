@@ -24,10 +24,10 @@ const useLandingScrollAnimations = () => {
     });
 
     gsap.fromTo(
-      ".mouse-wheel",
-      { opacity: 1, y: 0 },
+      ".arrow-down-scroll.center",
+      { opacity: 1 },
       {
-        opacity: 0, y: -50,
+        opacity: 0,
         scrollTrigger: {
           trigger: landingPage,
           start: 'top+=10% center',

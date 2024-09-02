@@ -71,11 +71,11 @@ export const WorkTextContainer = styled.div`
       font-size: 1.2em;
       margin: 0 0 8px 0;
 
-      @media (max-width: 1600px) {
+      @media (max-width: 1800px) {
         font-size: 1.1em;
       }
 
-      @media (max-width: 1280px) {
+      @media (max-width: 1600px) {
         font-size: 1em;
       }
 

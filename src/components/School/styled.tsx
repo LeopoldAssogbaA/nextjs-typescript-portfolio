@@ -33,11 +33,11 @@ export const SchoolCard = styled.div`
   padding: 8px;
   font-size: 1.2em;
 
-  @media (max-width: 1600px) {
+  @media (max-width: 1800px) {
     font-size: 1.1em;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1600px) {
     font-size: 1em;
   }
 

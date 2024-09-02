@@ -68,8 +68,17 @@ export const WorkTextContainer = styled.div`
 
   .description-container-1, .description-container-2 {
     p {
-      font-size: 1em;
+      font-size: 1.2em;
       margin: 0 0 8px 0;
+
+      @media (max-width: 1600px) {
+        font-size: 1.1em;
+      }
+
+      @media (max-width: 1280px) {
+        font-size: 1em;
+      }
+
     }
   }
 `;

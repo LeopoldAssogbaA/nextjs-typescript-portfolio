@@ -22,6 +22,14 @@ export const ContactGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   z-index: 10;
+
+  @media (max-width: 1600px) {
+      width: 75vw;
+  }
+
+  @media (max-width: 1280px) {
+    width: 80vw;
+  }
 `;
 
 export const ContactElement = styled.div`

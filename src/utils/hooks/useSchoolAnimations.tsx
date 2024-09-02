@@ -34,14 +34,14 @@ const useSchoolAnimations = (setCurrentStep: (step: number) => void) => {
       left: "calc(65vw - 126px)",
       rotate: 0,
       onStart: () => {
-        gsap.to(".card-1", {
-          color: "rgba(71, 22, 125, 0.35)",
+        gsap.to(".school-card.card-1", {
+          opacity: 0.4,
           duration: 0.2,
         })
       },
       onReverseComplete: () => {
-        gsap.to(".card-1", {
-          color: "rgba(71, 22, 125, 1)",
+        gsap.to(".school-card.card-1", {
+          opacity: 1,
           duration: 0.2,
         })
       }

@@ -5,7 +5,7 @@
   "Menu": {
     "home": "Accueil",
     "about": "À propos",
-    "school": "Formation",
+    "school": "Formations",
     "work": "Expériences",
     "contact": "Contact"
   },
@@ -13,25 +13,25 @@
     "work-title": "Développeur Fullstack Js & Ts"
   },
   "About": {
-    "paragraph-one": "Bonjour, je m'appelle Léopold, Je suis développeur fullstack Javascript et Typescript. Ma passion pour la tech m’a conduit à une reconversion professionnelle en 2017.",
-    "paragraph-two": "Depuis cinq ans, j’ai contribué à la mise en place et à l’évolution d’API robustes et scalables avec NodeJS, tout en développant des interfaces utilisateur performantes à l’aide de React et Next.js. Mon rôle inclut également la planification, la participation aux briefs produits, ainsi que la mise en œuvre de nouvelles fonctionnalités. ",
-    "paragraph-three": "J’assure également la maintenance continue des applications, garantissant leur stabilité et leur efficacité. Mon engagement pour la qualité se manifeste par un travail régulier de veille technologique, la rédaction de documentation, ainsi que la mise en place d’outils de testing et de monitoring.",
+    "paragraph-one": "Bonjour, je m'appelle Léopold, je suis développeur fullstack Javascript et Typescript. Poussé par ma passion pour la tech, j'ai entrepris une reconversion professionnelle fin 2017.",
+    "paragraph-two": "Depuis cinq ans, j'ai contribué à la mise en place et à l'évolution d'API robustes et scalables avec NodeJS, tout en développant des interfaces utilisateur performantes à l'aide de React et Next.js. Mon rôle inclut également la planification, la participation aux briefs produits, ainsi que la mise en œuvre de nouvelles fonctionnalités.",
+    "paragraph-three": "J'assure également la maintenance continue des applications, garantissant leur stabilité et leur efficacité. Mon engagement pour la qualité se manifeste par un travail régulier de veille technologique, la rédaction de documentation, ainsi que la mise en place d'outils de test et de monitoring.",
     "paragraph-four": "Je vous invite à en découvrir davantage en parcourant ce portfolio."
   },
   "School": {
     "more": "En savoir plus",
     "webforce3": "Webforce3",
     "webforce3-link": "https://www.etudestech.com/ecole/webforce3/",
-    "webforce3-about": "WebForce3 était un réseau de 50 écoles qui forme aux métiers du numérique, en France et à l'international. Que ce soit en présentiel ou à distance, WebForce3 proposait des formations courtes et intensives, en bootcamp ou en alternance, avec des diplômes reconnus RNCP et des certifications, répondant ainsi aux besoins croissants des entreprises en compétences numériques.",
+    "webforce3-about": "WebForce3 était un réseau de 50 écoles qui forme aux métiers du numérique, en France et à l'international. Que ce soit en présentiel ou à distance, WebForce3 proposait des formations courtes et intensives, en bootcamp ou en alternance, avec des diplômes reconnus RNCP, répondant ainsi aux besoins croissants des entreprises.",
     "webforce3-p1": "J'ai pu débuter mon parcours dans le monde du développement web en intégrant la formation de Webforce3 Dijon. Avec une formation intensive, j'ai pu apprendre les bases essentielles des différents langages. J'ai eu l'opportunité d'approfondir ces compétences à travers plusieurs projets concrets.",
     "webforce3-p2": "L'un des projets significatifs a été la réalisation d'un module de gestion de cartes d'accès (RFID) pour une entreprise partenaire de l'école. Ce projet, développé en Laravel, m'a permis de mettre en pratique mes connaissances tant sur le front-end que sur le back-end. Nous avons pu mettre à disposition de l'entreprise un back-office complet, permettant de gérer des cartes RFID, les utilisateurs ainsi que leurs rôles et permissions.",
     "webforce3-p3": "Par la suite, j'ai effectué un stage chez MythMakers, où j'ai été chargé de créer un tutoriel pour leur plateforme. Pour ce projet, j'ai utilisé Symfony et JavaScript, renforçant ainsi mes compétences. Cette première expérience professionnelle a été déterminante pour consolider mes acquis et me préparer à la suite de mon parcours.",
     "wildcodeschool": "Wild Code School",
     "wildcodeschool-link": "https://www.wildcodeschool.com/fr-fr",
     "wildcodeschool-about": "La Wild Code School, reconnue pour son approche pédagogique innovante, forme depuis 10 ans des talents en tech en combinant compétences techniques avancées et soft skills essentielles. Ses formations intensives, axées sur la pratique, permettent une montée en compétences rapide, tant pour ceux en reconversion que pour ceux cherchant à approfondir leur expertise.",
-    "wildcodeschool-p1": "Lors de ma formation à la Wild Code School Lyon, j’ai développé mes compétences en tant que développeur, tout en intégrant le monde professionnel. Cette formation m’a permis d’acquérir une solide expertise technique et de travailler efficacement en équipe sur des projets variés et complexes.",
-    "wildcodeschool-p2": "En parallèle des cours, j’ai participé à des projets en équipe avec une organisation agile type scrum, comme la création d’un jeu Tetris multijoueur. Ce projet, développé avec Angular et NestJs, m’a permis d’explorer la complexité du développement de jeux interactifs sur navigateur. Un autre projet significatif a été le développement d’une application mobile, plateforme sociale sur la thématique du football, réalisée avec Flutter.",
-    "wildcodeschool-p3": "Cette formation à la Wild Code School Lyon, m’a non seulement permis de perfectionner mes compétences techniques, mais aussi de m’intégrer pleinement dans le monde professionnel, en me préparant à relever les défis actuels en tant que développeur fullstack."
+    "wildcodeschool-p1": "Lors de ma formation à la Wild Code School Lyon, j'ai développé mes compétences en tant que développeur, tout en intégrant le monde professionnel. Cette formation m'a permis d'acquérir une solide expertise technique et de travailler efficacement en équipe sur des projets variés et complexes.",
+    "wildcodeschool-p2": "En parallèle des cours, j'ai participé à des projets en équipe avec une organisation agile type scrum, comme la création d'un jeu Tetris multijoueur. Ce projet, développé avec Angular et NestJs, m'a permis d'explorer la complexité du développement de jeux interactifs sur navigateur. Un autre projet significatif a été le développement d'une application mobile, plateforme sociale sur la thématique du football, réalisée avec Flutter.",
+    "wildcodeschool-p3": "Cette formation à la Wild Code School Lyon m'a non seulement permis de perfectionner mes compétences techniques, mais aussi de m'intégrer pleinement dans le monde professionnel, en me préparant à relever les défis actuels en tant que développeur fullstack."
   },
   "Work": {
     "mediaxtend-descr-p1": "J'ai eu l'opportunité de travailler avec MediaXtend, d'abord en tant que freelance pendant six mois, puis en alternance sur une durée d'un an dans le cadre de mon cursus à la Wild Code School. Cette expérience a été déterminante dans ma carrière, me permettant de participer à de nombreux projets en autonomie et de confirmer mon intérêt pour le développement.",
@@ -41,18 +41,18 @@
     "mediaxtend-project-1-descr": "Plateforme de jeu concours pour le tournoi de Roland Garros. Les utilisateurs pouvaient s'inscrire, jouer et tenter de gagner des prix en participant.",
     "mediaxtend-project-2": "MAPAR",
     "mediaxtend-project-2-descr": "Site web pour l'association MAPAR (Mise Au Point en Anesthésie Réanimation), association basée au CHU du Kremlin Bicêtre.",
-    "mediaxtend-project-3": "Visoconférence MAPAR",
-    "mediaxtend-project-3-descr": "Proof of concept d'une plateforme de visoconférence pour l'association MAPAR.",
+    "mediaxtend-project-3": "Visioconférence MAPAR",
+    "mediaxtend-project-3-descr": "Proof of concept d'une plateforme de visioconférence pour l'association MAPAR.",
     "mediaxtend-project-4": "Abcell-Bio",
     "mediaxtend-project-4-descr": "Plateforme de gestion de stock pour l'entreprise Abcell-Bio.",
     "mediaxtend-link-label": "Voir le site",
     "webcastor-descr-p1": "Chez Webcastor, j'ai contribué à l'évolution de la plateforme de Streamfizz. Streamfizz est une plateforme de gestion et de mise en valeur de vidéos à la demande ou de directs. Le service permet une gestion des diffusions, de visualisation de statistiques tout en permettant un paramétrage fin, destiné à des utilisateurs de différents niveaux.",
-    "webcastor-descr-p2": "Au sein de l'équipe, j'ai notamment réalisé le transfert de près de 30To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jour et l'ordonnancement des données métier. J'ai également été impliqué dans des projets transverses intervenant sur plusieurs micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.",
+    "webcastor-descr-p2": "Au sein de l'équipe, j'ai notamment réalisé le transfert de près de 30 To de données client depuis des serveurs Azure vers une infrastructure européenne avec le protocole S3. En assurant la mise à jour et l'ordonnancement des données métier. J'ai également été impliqué dans des projets transverses intervenant sur plusieurs micro-services, orchestrateurs et transcodeurs vidéos (Node.js) tout en contribuant aux aspects DevOps avec Kubernetes.",
     "webcastor-descr-p3": "Mon implication et ma force de proposition m'ont permis de rapidement prendre en charge des tâches en autonomie, avec des refontes complètes d'interfaces et de fonctionnalités.",
     "webcastor-project-1": "Streamfizz - Backoffice",
     "webcastor-project-1-descr": "Plateforme de gestion des contenus.",
     "webcastor-project-2": "Streamfizz - Player vidéo",
-    "webcastor-project-2-descr": "Player vidéo permettant la visualisation de contenu vidéos à la demande ou en direct.",
+    "webcastor-project-2-descr": "Player vidéo permettant la visualisation de contenus vidéos à la demande ou en direct.",
     "webcastor-project-3": "Streamfizz - Orchestrateur & Transcodeur vidéo",
     "webcastor-project-3-descr": "Deux micro-services permettant de gérer l'orchestration des tâches de transcodage ainsi que leur exécution.",
     "webcastor-project-4": "Streamfizz - API",
@@ -90,7 +90,7 @@
     "music-quote-1": "Je suis batteur, voici l'un des groupes dans lesquels j'ai pu jouer.",
     "music-quote-2": "J'apprends actuellement le japonais.",
     "music-quote-3": "Je suis passionné par l'animation japonaise.",
-    "music-quote-4": "J'ai pratiqué le muay thai et le kickboxing",
-    "music-quote-5": "Me retrouverez vous dans la vidéo du live \"The Big Stepper Tour\"?"
+    "music-quote-4": "J'ai pratiqué le muay thaï et le kickboxing",
+    "music-quote-5": "Me retrouverez-vous dans la vidéo du live \"The Big Stepper Tour\"?"
   }
 }

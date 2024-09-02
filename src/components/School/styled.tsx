@@ -31,7 +31,15 @@ export const SchoolCard = styled.div`
   -webkit-backdrop-filter: blur(5px);
   color: var(--color-deep-blue);
   padding: 8px;
-  font-size: 1em;
+  font-size: 1.2em;
+
+  @media (max-width: 1600px) {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 1em;
+  }
 
   &:nth-child(1) {
     z-index: 3;

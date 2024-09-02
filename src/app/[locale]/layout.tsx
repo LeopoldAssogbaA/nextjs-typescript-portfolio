@@ -6,15 +6,14 @@ import { Providers } from "../../providers";
 
 export const metadata: Metadata = {
   title: "Léopold Assogba - Portfolio",
-  description: 'Portfolio professionnel de Léopold Assogba, développeur web full stack basé à Lyon, France. Spécialisé en React, NextJS, TypeScript et NodeJS.',
-  keywords: "Léopold Assogba, Portfolio, Web Developer, Front-end Developer, Full-stack Developer, React, NextJs, Typescript, JavaScript, HTML, CSS, GSAP, NodeJs, Portfolio, Lyon, France, ",
+  description: 'Léopold Assogba, fullstack JavaScript and TypeScript developer based in Lyon, France.',
+  keywords: "Léopold Assogba, Portfolio, Web Developer, Front-end Developer, Full-stack Developer Back-end Developer, React, NextJs, Typescript, JavaScript, HTML, CSS, GSAP, NodeJs, Portfolio, Lyon, France",
   openGraph: {
     type: 'website',
-    locale: 'fr_FR',
     url: 'https://leopold-assogba.dev',
-    siteName: 'Portfolio de Léopold Assogba',
-    title: 'Léopold Assogba - Développeur Web Full Stack',
-    description: 'Portfolio professionnel de Léopold Assogba, développeur web full stack basé à Lyon, France. Spécialisé en React, NextJS, TypeScript et NodeJS.',
+    siteName: 'Léopold Assogba - Portfolio',
+    title: 'Léopold Assogba - Fullstack JavaScript and TypeScript developer',
+    description: 'Léopold Assogba, fullstack JavaScript and TypeScript developer based in Lyon, France.',
     images: [
       {
         url: 'https://leopoldassogba.com/static/images/og-image.jpg',
